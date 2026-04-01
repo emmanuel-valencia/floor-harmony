@@ -4,6 +4,14 @@
         <link href="https//fonts.googleapis.com/css2? family=Cinzel:wght@700&display=swap" rel="stylesheet">
         <title>Floor Harmony</title>
         <style>
+            @keyframes fadeInUp {
+                from { opacity: 0; transform: translateY(20px);}
+                to { opacity: 1; transform: translateY (0); }
+            }
+            .fade-in-box {
+                animation: fadeInUp 1.5s ease-out forwards;
+            }
+            
             @import url( 'https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap');
             body {
                 background: linear-gradient(135deg, #002d35 0%, #004d5a 100%);
@@ -70,19 +78,19 @@
     <p style="text-align: center;">Streaming Quality Carpets.</p>
 
     <div style="display: grid; grid-template-columns: repeat(3, 1fr);gap: 20px; max-width: 1200px; margin: 40px auto; padding: 0 20px;">
-    <div style="border: 2px solid #c5a059; border-radius: 15px; overflow: hidden; background: rgba(0,0,0,0.5);">
+    <div class="fade-in-box" style="border: 2px solid #c5a059; border-radius: 15px; overflow: hidden; background: rgba(0,0,0,0.5);">
     <video autoplay muted loop playsinline style="width: 100%; height: 250px; object-fit: cover; display: block;">
     <source src="property_pro.mp4" type="video/mp4">    
     </video>
     <div style="padding: 15px; text-align: center; background: #000; color: #c5a059; font-family: 'Cinzel', serif;">THE PROPERTY PRO</div>
     </div>
-    <div style="border: 2px solid #c5a059; border-radius: 15px; overflow: hidden; background: rgba(0,0,0,0.5);">
+    <div class="fade-in-box" style="border: 2px solid #c5a059; border-radius: 15px; overflow: hidden; background: rgba(0,0,0,0.5);">
     <video autoplay muted loop playsinline style="width: 100%; height: 250px; object-fit: cover; display: block;">
     <source src="every_dayhome.mp4" type="video/mp4">
     </video>
     <div style="padding: 15px; text-align: center; background: #000; color: #c5a059; font-family:'Cinzel', serif;">THE EVERYDAY HOME</div>
     </div>
-    <div style="border: 2px solid #c5a059; border-radius: 15px; overflow: hidden; background: rgba(0,0,0,0.5);">
+    <div class="fade-in-box" style="border: 2px solid #c5a059; border-radius: 15px; overflow: hidden; background: rgba(0,0,0,0.5);">
     <video autoplay muted loop playsinline style="width: 100%; height: 250px; object-fit: cover; display: block;">
     <source src="elite_comfort24.mp4" type="video/mp4">
     </video>
