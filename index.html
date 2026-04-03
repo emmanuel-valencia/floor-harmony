@@ -4,6 +4,16 @@
         <link href="https//fonts.googleapis.com/css2? family=Cinzel:wght@700&display=swap" rel="stylesheet">
         <title>Floor Harmony</title>
         <style>
+            @keyframes fadeInOut {
+                0% { opacity: 0; transform: scale(0.9); }
+                50% { opacity: 1; transform: scale(1); }
+                100% { opacity: 1; transform: scale(1.05); }
+            }
+            @keyframes LineGrow {
+                0% { width: 0; }
+                100% { width: 150px; }
+            }
+        
             @keyframes fadeInUp {
                 from { opacity: 0; transform: translateY(20px);}
                 to { opacity: 1; transform: translateY (0); }
@@ -72,6 +82,10 @@
         </style>
     </head>
     <body>
+    <div id="splash-screen" style="position: fixed; top: 0; left: 0; width: 100%; background: #000; z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: opacity 1s ease-out;">
+        <h1 style="color: #c5a059; font-family: 'Cinzel', serif; font-size: 3rem; margin: 0; letter-spacing: 5px; animation: fadeInOut 2s ease-in-out forwards; ">FLOOR HARMONY</h1>
+        <div style="width: 50px; height: 2px; background: #c5a059; margin-top: 10px; animation: LineGrow 2s ease-in-out forwards;"></div>
+    </div>
     <div style="position: sticky; top: 0; z-index: 1000; background: #002d35; padding: 10px 0; border-bottom: 1px solid #c5a059;">
     <div id="menu-icon" style="position: absolute; right: 20px; top: 18px; cursor: pointer; z-index: 1001;">
     <div style="width: 25px; height: 2px; background-color: #c5a059; margin: 4px 0;"></div>
@@ -142,6 +156,16 @@
     closeBtn.onclick = function() {
         drawer.style.right = "-100%";
     };
+    // Splash Screen Timer
+    window.addEventListener( 'load', function() {
+        setTimeout(function() {
+        const splash = document.getElementById( 'splash-screen');
+        splash.style.opacity = '0';
+        setTimeout(() => {
+            splash.style.display = 'none';
+    }, 1000);  
+    }, 2500);
+    });
     </script>
     </footer>
     </div>
