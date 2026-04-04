@@ -7,16 +7,27 @@
         <style>
             @media (max-width: 600px) {
                 .logo-text {
-                    font-size: 1.8rem !important;
-                    letter-spacing: 10px;
-                    justify-content: space-between;
+                    font-size: 1.2rem !important;
+                    letter-spacing: 5px;
+                    display: block;
+                    margin: 0 auto;
+                    white-space: nowrap;
+            
                 
+                }
+                .header-container {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10px 15px;
                 }
                 .video-container {
                     display: flex;
                     flex-wrap: nowrap;
                     overflow-x: auto;
-                    scroll-snap-type: x mandatory;                 
+                    scroll-snap-type: x mandatory;
+                    gap: 0;
+                    -webkit-overflow-scrolling: touch;               
                 }
                 .video-box {
                     flex: 0 0 100%;
