@@ -1,9 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https//fonts.googleapis.com/css2? family=Cinzel:wght@700&display=swap" rel="stylesheet">
         <title>Floor Harmony</title>
         <style>
+            @media (max-width: 600px) {
+                .video-container {
+                    display: flex;
+                    overflow-x: auto;
+                    scroll-snap-type: x mandatory;                 
+                }
+                .video-box {
+                    flex: 0 0 100%;
+                    scroll-snap-align: center;
+                }
+            }
            @keyframes fadeInUp {
                 from { opacity: 0; transform: translateY(20px);}
                 to { opacity: 1; transform: translateY (0); }
