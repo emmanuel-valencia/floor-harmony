@@ -6,13 +6,21 @@
         <title>Floor Harmony</title>
         <style>
             @media (max-width: 600px) {
+                .logo-text {
+                    font-size: 1.8rem !important;
+                    letter-spacing: 10px;
+                    justify-content: space-between;
+                
+                }
                 .video-container {
                     display: flex;
+                    flex-wrap: nowrap;
                     overflow-x: auto;
                     scroll-snap-type: x mandatory;                 
                 }
                 .video-box {
                     flex: 0 0 100%;
+                    min-width: 100%;
                     scroll-snap-align: center;
                 }
             }
