@@ -6,14 +6,16 @@
         <title>Floor Harmony</title>
         <style>
             @media (max-width: 600px) {
+                body{
+                    overflow-x: hidden;
+                    width: 100%;
+                }
                 .logo-text {
-                    font-size: 1.2rem !important;
-                    letter-spacing: 5px;
-                    display: block;
-                    margin: 0 auto;
-                    white-space: nowrap;
-            
-                
+                    font-size: 5vw !important;
+                    letter-spacing: 2px !important;
+                    text-align: center;
+                    width: 100%;
+                    margin-right: 40px;                
                 }
                 .header-container {
                     display: flex;
@@ -26,13 +28,16 @@
                     flex-wrap: nowrap;
                     overflow-x: auto;
                     scroll-snap-type: x mandatory;
-                    gap: 0;
+                    width: 100vw;
+                    margin-left: calc(-50vw + 50%);
                     -webkit-overflow-scrolling: touch;               
                 }
                 .video-box {
-                    flex: 0 0 100%;
-                    min-width: 100%;
+                    flex: 0 0 100vw;
+                    min-width: 100vw;
                     scroll-snap-align: center;
+                    box-sizing: border-box;
+                    padding: 0 10px;
                 }
             }
            @keyframes fadeInUp {
