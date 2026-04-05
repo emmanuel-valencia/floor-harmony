@@ -55,18 +55,24 @@
             }
                 @media (min-width: 1024px) {
                 .video-container {
-                    flex-wrap: wrap !important;
+                    display: flex !important;
+                    flex-wrap: nowrap !important;
                     justify-content: center !important;
-                    overflow-x: hidden !important;
+                    overflow: hidden !important;
                     width: 100% !important;
-                    margin-left: 0 !important;
-                    gap: 30px;
+                    margin: 40px 0 !important;
+                    gap: 20px !important;
                 }
                 .video-wrapper {
-                    flex: 0 0 30% !important;
+                    flex: 0 0 300px !important;
+                    text-align: center;
                 }
                 .video-box {
-                    height: 500px !important;    
+                    width: 300px !important;
+                    height: 300px !important;
+                    object-fit: cover !important;
+                    border-radius: 15px;
+                    border: 2px solid #c5a059;    
                 }
             }
            @keyframes fadeInUp {
