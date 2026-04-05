@@ -29,15 +29,23 @@
                     overflow-x: auto !important;
                     scroll-snap-type: x mandatory !important;
                     width: 100vw;
-                    margin-left: calc(-50vw + 50%);
-                    -webkit-overflow-scrolling: touch;               
+                    -webkit-overflow-scrolling: touch;
+                    gap: 10px;               
+                }
+                @media (min-width: 1024px) {
+                    .video-container {
+                        flex-wrap: wrap !important;
+                        overflow-x: hidden !important;
+                        justify-content: center;
+                        gap: 20px;
+                        padding: 40px;
+
+                    }
                 }
                 .video-box {
-                    flex: 0 0 100vw !important;
-                    min-width: 100vw !important;
-                    height: 500px !important;
-                    object-fit: cover !important;
-                    scroll-snap-align: center;
+                    flex: 0 0 30% !important;
+                    min-width: 300px !important;
+                    height: 400px !important;
                 }
             }
            @keyframes fadeInUp {
@@ -121,9 +129,10 @@
         </style>
     </head>
     <body>
-    <div id="splash-screen" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #002d35; z-index: 99999; display: flex; align-items: center; justify-content: center; transition: opacity 1s ease;">
-    <h1 style="color: #c5a059; font-family: 'Cinzel',serif; font-size: 3rem; margin: 0;">FLOOR HARMONY</h1>
-    <div style="height: 3px; background: linear-gradient(90deg, transparent, #c5a059, transparent); width: 100%; margin-top: 10px; animation: shimmer 2s infinite;"></div>
+    <div id="splash-screen" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #002d35; z-index: 9999; display: flex; align-items: center; justify-content: center; transition: opacity 1s ease;">
+    <div style="text-align: center; width: 100%; max-width: 600px; padding: 20px;">
+    <h1 style="color: #c5a059; font-family: 'Cinzel',serif; font-size: clamp(2rem, 8vw, 4rem); margin: 0; white-space: nowrap; text-align: center;">FLOOR HARMONY</h1>
+    <div style="height: 3px; background: linear-gradient(90deg, transparent, #c5a059, transparent); width: 100%; margin: 15px auto 0 auto; animation: shimmer 2s infinite;"></div>
     </div>
     </div>
     <div style="position: sticky; top: 0; z-index: 1000; background: #002d35; padding: 10px 0; border-bottom: 1px solid #c5a059;">
@@ -189,6 +198,5 @@
     </script>
     </footer>
     </div>
-
     </body>
     </html>
