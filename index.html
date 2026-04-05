@@ -236,18 +236,25 @@
         curtain.style.opacity='0';
         setTimeout(() => { curtain.style.display = 'none';}, 1000);
     }, 1200);
+}
+    )
 
     var video = document.getElementById("property_pro");
     if (video) {video.playbackRate = 0.5;}
 
     const menuBtn = document.getElementById( 'menu-icon');
     const drawer = document.getElementById( 'nav-drawer');
+    const closeBtn = document.getElementById( 'close-btn');
     if (menuBtn && drawer) {
-        menuBtn.addEventListener('click', () => {
-            drawer.classList.toggle('open');
-        });
+        menuBtn.onclick = function() => {
+            drawer.classList.add('open');
+        };
     }
-});
+    if (closeBtn && drawer) {
+        closeBtn.onclick = function() {
+            drawer.classList.remove( 'open');
+        };
+    }
     </script>
     </footer>
     </div>
