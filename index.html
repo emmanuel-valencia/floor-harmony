@@ -32,15 +32,15 @@
                     margin-left: calc(-50vw + 50%);
                     -webkit-overflow-scrolling: touch;               
                 }
-                .video-container video,
-                .video-container img,
-                .video-box {
+                .video-container > * {
                     flex: 0 0 100vw !important;
                     min-width: 100vw !important;
-                    height: 500px !important;
+                    width: 100vw !important;
+                    height: 80vh !important;
                     object-fit: cover !important;
                     scroll-snap-align: center;
-                    border-radius: 15px;
+                    border-radius: 20px;
+                    display: block;
                 }
             }
            @keyframes fadeInUp {
