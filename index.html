@@ -32,21 +32,16 @@
                     margin-left: calc(-50vw + 50%);
                     -webkit-overflow-scrolling: touch;               
                 }
+                .video-container video,
+                .video-container img,
                 .video-box {
                     flex: 0 0 100vw !important;
                     min-width: 100vw !important;
+                    height: 500px !important;
+                    object-fit: cover !important;
                     scroll-snap-align: center;
-                    box-sizing: border-box;
-                    padding: 0 10px;
+                    border-radius: 15px;
                 }
-            
-            .video-box * {
-                width: 100% !important;
-                height: 450px !important;
-                object-fit: cover !important;
-                border-radius: 15px;
-                display: block;
-            }
             }
            @keyframes fadeInUp {
                 from { opacity: 0; transform: translateY(20px);}
