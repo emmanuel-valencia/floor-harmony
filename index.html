@@ -121,7 +121,7 @@
         </style>
     </head>
     <body>
-    <div id="splash-screen" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #002d35; z-index: 9999; display: flex; align-items: center; justify-content: center; transition: opacity 1s ease;">
+    <div id="splash-screen" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #002d35; z-index: 99999; display: flex; align-items: center; justify-content: center; transition: opacity 1s ease;" onload="setTimeout(() => { this.style.opacity='0'; setTimeout(() => { this.style.display='none' ; }, 1000); }, 1200);">
     <div style="position: relative; display: inline-block; text-align: center;">
     <h1 style="color: #c5a059; font-family: 'Cinzel',serif; font-size: 3rem; margin: 0;">FLOOR HARMONY</h1>
     <div style="height: 3px; background: linear-gradient(90deg, transparent, #c5a059, transparent); width: 100%; margin-top: 10px; animation: shimmer 2s infinite;"></div>
@@ -183,15 +183,6 @@
         drawer.style.right = "-100%";
     };
     // Splash Screen Timer
-    window.addEventListener('load', function() {
-        setTimeout(function() {
-        const splash = document.getElementById('splash-screen');
-        splash.style.opacity = '0';
-        setTimeout(() => {
-            splash.style.display = 'none';
-    }, 1200);  
-    }, 1500);
-    });
     </script>
     </footer>
     </div>
