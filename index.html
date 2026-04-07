@@ -19,6 +19,9 @@
                 right: 0 !important;
             }
             @media (max-width: 600px) {
+                .main-logo {
+                    max-height: 60px;
+                }
                 body{
                     overflow-x: hidden;
                     width: 100%;
@@ -166,12 +169,20 @@
                 0% { transform: translateX(-100%); }
                 100% { transform: translateX(100%); }
             }
+            /*styling the main logo*/
+            .main-logo {
+                max-height: 80px;
+                width: auto;
+                padding: 10px 0;
+                display: block;
+                margin: 0 auto;
+            }
         </style>
     </head>
     <body>
     <div id="splash-screen" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #002d35; z-index: 9999; display: flex; align-items: center; justify-content: center; transition: opacity 1s ease;">
     <div style="text-align: center; width: 100%; max-width: 600px; padding: 20px;">
-    <h1 style="color: #c5a059; font-family: 'Cinzel',serif; font-size: clamp(2rem, 8vw, 4rem); margin: 0; white-space: nowrap; text-align: center;">FLOOR HARMONY</h1>
+    <img src="floorharmony_braided_logo.png" alt="Floor Harmony Logo" class="main-logo">
     <div style="height: 3px; background: linear-gradient(90deg, transparent, #c5a059, transparent); width: 100%; margin: 15px auto 0 auto; animation: shimmer 2s infinite;"></div>
     </div>
     </div>
