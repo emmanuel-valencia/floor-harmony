@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html>
+<script>
+if (sessionStorage.getItem( 'curtainShown' )) { 
+        document.documentElement.classList.add( 'skip-intro'); }
+</script>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https//fonts.googleapis.com/css2? family=Cinzel:wght@700&display=swap" rel="stylesheet">
@@ -253,8 +257,6 @@
     <p style="font-size: 0.8em; color: #666;">&copy; 2026 All Rights Reserved</p>
     
     <script> 
-    if (sessionStorage.getItem( 'curtainShown' )) { 
-        document.documentElement.classList.add( 'skip-intro'); }
     window.addEventListener('load', function() {
     const curtain = document.getElementById('splash-screen');
     if (sessionStorage.getItem( 'curtainShown ')) {

@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-<style>
-    .skip-intro #splash-screen { display: none !important; }
-</style>
 <script>
-if (sessionStorage.getItem(' curtainShown' )) {
-    document.documentElement.classList.add( 'skip-intro');
+if (sessionStorage.getItem( 'curtainShown' )) {
+    document.documentElement.classList.add( 'skip-intro' );
 }
 </script>
-    <title>Gallery Test</title>
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <title>Gallery - Floor Harmony</title>
+    <link rel="stylesheet" href="stytle.css">
+<style>
+    .skip-intro #splash-screen { display: none !important; }
+    section {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
+        gap: 20px;
+        padding: 20px;
+    }
+</style>
+<script>
+    sessionStorage.setItem( 'curtainShown', 'true' );
+</script>
 </head>
 <body style="margin: 0; padding: 0; background-color: #002229; font-family: 'Playfair Display', serif; color: white; text-align: center">
     <header style="padding: 100px 20px 40px; background: #001a1f; border-bottom: 2px solid #c5a059; position: relative;">
@@ -21,7 +31,7 @@ if (sessionStorage.getItem(' curtainShown' )) {
     <p style="margin: 15px 0 0; font-size: 0.9rem; color: rgba(255, 255, 255, 0.7); letter-spacing: 6px; text-transform: uppercase;">GALLERY</p>
     </a>
 </header>
-<section style="display: grid; grid-template-columns: 1fr; gap: 20px; padding: 20px;">
+<section>
     <div style="position: relative; overflow: hidden; border-radius: 8px; height: 350px; background: #1a1a1a;">
         <img src="carpet-room-1.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Floor Harmony Project 1">
     </div>
