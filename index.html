@@ -249,10 +249,17 @@
     <script> 
     window.addEventListener('load', function() {
     const curtain= document.getElementById('splash-screen');
-    setTimeout(() => {
-        curtain.style.opacity='0';
-        setTimeout(() => { curtain.style.display = 'none';}, 1000);
-    }, 1200);
+    if (sessionStorage.getItem( 'curtainShown' )) {
+        curtain.style.display = 'none';
+    } else {
+        setTimeout(() => {
+            curtain.style.opacity='0';
+        setTimeout(() => { 
+            curtain.style.display = 'none';
+        }, 600);
+        sessionStorage.setItem( 'curtainShown', 'true' );
+        }, 400);
+    }
 
     var video = document.getElementById("property_pro");
     if (video) {video.playbackRate = 0.5;}
