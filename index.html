@@ -5,6 +5,11 @@
         <link href="https//fonts.googleapis.com/css2? family=Cinzel:wght@700&display=swap" rel="stylesheet">
         <title>Floor Harmony</title>
         <style>
+            body.skip-intro #splash-screen {
+                display: none !important;
+                visibility: hidden !important;
+                opacity: 0 !important;
+            }
             #nav-drawer {
                 position: fixed !important;
                 top: 0 !important;
@@ -184,9 +189,6 @@
                 will-change: filter;
                 filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.8));
             }
-            body.skip-intro #splash-screen {
-                display: none !important;
-            }
         </style>
     </head>
     <body>
@@ -249,20 +251,20 @@
     <p style="margin: 0; font-weight: bold; letter-spacing: 2px; font-family: 'Cinzel', serif;">FLOOR HARMONY</p>
     <p style="font-size: 0.9em; color: #aaa; margin: 10px 0;">Professional Installation * Serving Denver & Lakewood Metro</p>
     <p style="font-size: 0.8em; color: #666;">&copy; 2026 All Rights Reserved</p>
+    
     <script> 
+    if (sessionStorage.getItem( 'curtainShown' )) { document.documentElement.classList.add( 'skip-intro'); }
     window.addEventListener('load', function() {
-    const curtain= document.getElementById('splash-screen');
-    if (sessionStorage.getItem( 'curtainShown' )) {
-        document.body.classList.add( 'skip-intro');
-    } else {
+    const curtain = document.getElementById('splash-screen');
+    if (sessionStorage.getItem( 'curatinShown ')) {curtain.style.display = 'none'; return; }
         setTimeout(() => {
-            curtain.style.opacity='0';
+            curtain.style.opacity ='0';
         setTimeout(() => { 
             curtain.style.display = 'none';
         }, 600);
         sessionStorage.setItem( 'curtainShown', 'true' );
         }, 400);
-    }
+    });
 
     var video = document.getElementById("property_pro");
     if (video) {video.playbackRate = 0.5;}
@@ -280,8 +282,6 @@
             drawer.classList.remove( 'open');
         };
     }
-    }
-)
     </script>
     </footer>
     </div>
