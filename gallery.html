@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+    .skip-intro #splash-screen { display: none !important; }
+</style>
+<script>
+if (sessionStorage.getItem(' curtainShown' )) {
+    document.documentElement.classList.add( 'skip-intro');
+}
+</script>
     <title>Gallery Test</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
