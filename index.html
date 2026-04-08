@@ -184,6 +184,9 @@
                 will-change: filter;
                 filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.8));
             }
+            body.skip-intro #splash-screen {
+                display: none !important;
+            }
         </style>
     </head>
     <body>
@@ -250,7 +253,7 @@
     window.addEventListener('load', function() {
     const curtain= document.getElementById('splash-screen');
     if (sessionStorage.getItem( 'curtainShown' )) {
-        curtain.style.display = 'none';
+        document.body.classList.add( 'skip-intro');
     } else {
         setTimeout(() => {
             curtain.style.opacity='0';
