@@ -2,8 +2,9 @@
 <html>
 <script>
 if (sessionStorage.getItem( 'comingFromSubpage' )) { 
-    document.documentElement.classList.add( 'skip-intro' );
-    sessionStorage.removeItem( 'comingFromSubpage');
+    document.write( '<style>#splash-screen { display: none !important; } </style>');
+    document.documentElement.classicList.add( 'skip-intro' );
+    sessionStorage.removeItem( 'comingFromSubpage' );
     }
 </script>
     <head>
