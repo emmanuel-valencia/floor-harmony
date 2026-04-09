@@ -123,6 +123,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             .video-wrapper {
                 opacity: 0;
                 animation: fadeInUp 0.8s ease-out forwards;
+                will-change: transform, opacity;
             }
             #vid-1 { animation-delay: 0.2s; }
             #vid-2 { animation-delay: 0.6s; }
@@ -235,17 +236,17 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
     </div>
     <div class="video-container">
     <div class="video-wrapper" id="vid-1">
-        <video autoplay muted loop playsinline class="video-box" id="property_pro">
+        <video autoplay muted loop playsinline preload="metadata" class="video-box" id="property_pro">
                 <source src="property_pro.mp4" type="video/mp4"></video>
             <p class="video-label">The Property Pro</p>
     </div>
     <div class="video-wrapper" id="vid-2">
-        <video autoplay muted loop playsinline class="video-box">
+        <video autoplay muted loop playsinline preload="metadata" class="video-box">
                 <source src="every_dayhome.mp4" type="video/mp4"></video>
             <p class="video-label">Every Day Home</p>
     </div>
     <div class="video-wrapper" id="vid-3">
-        <video autoplay muted loop playsinline class="video-box">
+        <video autoplay muted loop playsinline preload="metadata" class="video-box">
                 <source src="elite_comfort24.mp4" type="video/mp4"></video>
             <p class="video-label">Elite Comfort</p>
     </div>
