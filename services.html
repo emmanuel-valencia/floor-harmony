@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTD-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.1">
+    <title>Services - Floor Harmony</title>
+    <link rel="stylesheet" href="style.css">
+<script>
+    function goHome() {
+        sessionStorage.setItem( 'comingFromSubpage', 'true' );
+        window.location.href = 'index.html';
+    }
+</script>
+<style>
+    body { 
+        background-color: #000; 
+        color: #fff; 
+        font-family: 'Arial', sans-serif;
+         margin: 0; 
+         text-align: center; }
+    .services-container { 
+        padding: 40px 20px; 
+        max-width: 1000px; 
+        margin: auto; }
+    .service-card {
+        background: rgba(255, 255, 255, 0.5); 
+        border: 1px solid #c5a059;
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 8px;
+        transition: 0.3s;
+    }
+    .service-card:hover {
+        background: rgba(197, 160, 89, 0.1);
+    }
+    h2 {
+        color: #c5a059;
+        letter-spacing: 2px;
+    }
+</style>
+</head>
+<body>
+    <header style="padding: 40px 0; position: relative;">
+        <a href="javascript:goHome()" style="position: absolute; top: 20px; left: 20px; color: #c5a059; text-decoration: none;">Home</a>
+        <a href="jacascript:goHome()" style="text-decoration: none;">
+            <img src="floorharmony_braided_logo.png" alt="Floor Harmony Logo" style="height: 110px !important;">
+            <p style="margin: 15px 0 0; font-size: 0.9rem; color: rgba(255, 255, 255, 0.7); letter-spacing: 6px;">Professional Installation</p>
+        </a>
+    </header>
+    <div class="services-container">
+        <h1>Our Services</h1>
+    <div class="service-card">
+        <h2>Carpet Installation</h2>
+        <p>Expert sttretching and seamless transitions for a plush, professional finish.</p>
+    </div>
+    </div>
+</body>
+</html>
