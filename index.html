@@ -43,7 +43,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     flex-direction: row;
                     overflow-x: auto;
                     gap: 25px;
-                    padding-bottom: 50px;
+                    padding-bottom: 60px;
                     scroll-snap-type: x mandatory;
                     -webkit-overflow-scrolling: touch;
                 }
@@ -52,7 +52,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     height: 300px;
                     border: 2px solid #c5a059 !important;
                     border-radius: 15px;
-                    overflow: hidden;
+                    overflow: visible;
                     position: relative;
                 }
                 video {
@@ -61,6 +61,17 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     object-fit: cover;
                     display: block;
                     border-radius: 13px;
+                }
+                .video-label {
+                    position: absolute;
+                    top: 315px;
+                    width: 100%;
+                    text-align: center;
+                    color: #c5a059;
+                    font-family: 'Playfair Display', serif;
+                    font-size: 0.9rem;
+                    letter-spacing: 2px;
+                    text-transform: uppercase;
                 }
                 }
             @media (max-width: 600px) {
@@ -262,7 +273,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
     </div>
     <div class="video-container">
     <div class="video-wrapper" id="vid-1">
-        <video autoplay muted loop playsinline webkit-playsinline preload="metadata" class="video-box" id="elite_comfort24" muted="muted" style="background: transparent;">
+        <video autoplay muted loop playsinline webkit-playsinline preload="auto" class="video-box" id="elite_comfort24" muted="muted;">
                 <source src="elite_comfort24.mp4" type="video/mp4"></video>
             <p class="video-label">Elite Comfort</p>
     </div>
