@@ -39,22 +39,26 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             }
             @media only screen and (min-width: 768px) and (max-width: 1024px) {
                 .video-container {
-                    display: grid;
-                    grid-template-columns: 1fr 1fr 1fr;
-                    gap: 15px;
-                    align-items: start;
+                    display: flex;
+                    flex-direction: row;
+                    overflow-x: auto;
+                    gap: 20px;
+                    padding: 20px;
+                    scroll-snap-type: x mandatory;
+                    -webkit-overflow-scrolling: touch;
                 }
                 .video-wrapper {
-                    width: 100%;
+                    flex: 0 0 70%;
+                    scroll-snap-align: center;
                     border: 2px solid #c5a059 !important;
-                    border-radius: 12px;
+                    border-radius: 15px;
                     overflow: hidden;
-                    line-height: 0;
+                    height: 350px;
                 }
                 video {
                     width: 100%;
-                    height: auto;
-                    display: block;
+                    height: 100%;
+                    object-fit: cover;
                 }
                 }
             @media (max-width: 600px) {
@@ -256,7 +260,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
     </div>
     <div class="video-container">
     <div class="video-wrapper" id="vid-1">
-        <video autoplay muted loop playsinline webkit-playsinline preload="metadata" class="video-box" id="elite_comfort">
+        <video autoplay muted loop playsinline webkit-playsinline muted="muted" preload="metadata" class="video-box" id="elite_comfort">
                 <source src="elite_comfort24.mp4" type="video/mp4"></video>
             <p class="video-label">Elite Comfort</p>
     </div>
