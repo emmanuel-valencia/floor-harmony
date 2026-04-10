@@ -39,39 +39,23 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             }
             @media only screen and (min-width: 768px) and (max-width: 1024px) {
                 .video-container {
-                    display: flex;
-                    flex-direction: row;
-                    overflow-x: auto;
-                    gap: 25px;
-                    padding-bottom: 60px;
-                    scroll-snap-type: x mandatory;
-                    -webkit-overflow-scrolling: touch;
+                    display: flex !important;
+                    flex-direction: wrap !important;
+                    justify-content: center !important;
+                    gap: 40px !important;
+                    padding: 40px 20px !important;
+                    overflow-x: hidden !important;
                 }
                 .video-wrapper {
-                    flex: 0 0 45%;
-                    height: 300px;
-                    border: 2px solid #c5a059 !important;
-                    border-radius: 15px;
-                    overflow: visible;
-                    position: relative;
-                }
-                video {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                    border-radius: 13px;
+                    flex: 0 0 45% !important;
+                    height: auto !important;
+                    margin-bottom: 40px !important;
+                    position: relative !important;
                 }
                 .video-label {
-                    position: absolute;
-                    top: 315px;
+                    position: relative !important;
+                    top: 10px !important;
                     width: 100%;
-                    text-align: center;
-                    color: #c5a059;
-                    font-family: 'Playfair Display', serif;
-                    font-size: 0.9rem;
-                    letter-spacing: 2px;
-                    text-transform: uppercase;
                 }
                 }
             @media (max-width: 600px) {
@@ -103,18 +87,18 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 }
                 .video-container {
                     display: flex !important;
-                    flex-wrap: nowrap !important;
-                    overflow-x: auto !important;
-                    scroll-snap-type: x mandatory !important;
+                    flex-wrap: wrap !important;
+                    
+                
                     width: 100vw;
-                    margin-left: calc(-50vw + 50%);
+                
                     gap: 15px;
-                    -webkit-overflow-scrolling: touch;
+
                     padding-bottom: 20px;             
                 }
                 .video-wrapper {
                     flex: 0 0 85vw !important;
-                    scroll-snap-align: center;
+                
                     text-align: center;
                 }
                 .video-box {
