@@ -40,22 +40,32 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             @media only screen and (min-width: 768px) and (max-width: 1024px) {
                 .video-container {
                     display: flex !important;
-                    flex-direction: wrap !important;
+                    flex-direction: column !important;
+                    align-items: center !important;
                     justify-content: center !important;
-                    gap: 40px !important;
-                    padding: 40px 20px !important;
-                    overflow-x: hidden !important;
+                    gap: 50px !important;
+                    padding: 40px 0 !important;
+                    overflow-x: visible !important;
                 }
                 .video-wrapper {
-                    flex: 0 0 45% !important;
+                    width: 80% !important;
+                    max-width: 500px !important;
                     height: auto !important;
-                    margin-bottom: 40px !important;
-                    position: relative !important;
+                    display: flex;
+                    flex-direction: column !important;
+                    align-items: center !important;
+                }
+                .video-box {
+                    width: 100% !important;
+                    height: auto !important;
+                    border-radius: 20px !important;
+                    border: 2px solid #c5a059 !important;
                 }
                 .video-label {
-                    position: relative !important;
+                    position: static !important;
+                    margin-top: 15px!important;
                     top: 10px !important;
-                    width: 100%;
+                    text-align: center !important;
                 }
                 }
             @media (max-width: 600px) {
