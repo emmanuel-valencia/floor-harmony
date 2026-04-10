@@ -40,31 +40,33 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             @media only screen and (min-width: 768px) and (max-width: 1024px) {
                 .video-container {
                     display: flex !important;
-                    flex-direction: column !important;
+                    flex-direction: row !important;
+                    flex-wrap: nowrap !important;
                     align-items: center !important;
-                    justify-content: center !important;
-                    gap: 50px !important;
-                    padding: 40px 0 !important;
-                    overflow-x: visible !important;
+                    justify-content: space-evenly !important;
+                    gap: 10px !important;
+                    padding: 20px 5 !important;
+                    width: 100% !important;
+                    overflow-x: hidden!important;
                 }
                 .video-wrapper {
-                    width: 80% !important;
-                    max-width: 500px !important;
-                    height: auto !important;
+                    flex: 1 !important;
+                    max-width: 32% !important;
                     display: flex;
                     flex-direction: column !important;
                     align-items: center !important;
                 }
                 .video-box {
                     width: 100% !important;
-                    height: auto !important;
-                    border-radius: 20px !important;
+                    height: 250px !important;
+                    object-fit: cover !important;
+                    border-radius: 15px !important;
                     border: 2px solid #c5a059 !important;
                 }
                 .video-label {
                     position: static !important;
-                    margin-top: 15px!important;
-                    top: 10px !important;
+                    margin-top: 10px!important;
+                    width: 100%!important;
                     text-align: center !important;
                 }
                 }
