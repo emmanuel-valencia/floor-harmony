@@ -79,16 +79,14 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 }
                 .video-container {
                     display: flex !important;
-                    flex-wrap: nowrap !important;
+                    flex-direction: row! important;
                     justify-content: center !important;
-                    overflow: hidden !important;
-                    width: 100% !important;
-                    margin: 40px 0 !important;
-                    gap: 20px !important;
+                    align-items: flex-start !important;
+                    flex-wrap: nowrap !important;
                 }
                 .video-wrapper {
-                    flex: 0 0 300px !important;
-                    text-align: center;
+                    width: 45% !important;
+                    margin: 10px !important;
                 }
                 .video-box {
                     width: 300px !important;
