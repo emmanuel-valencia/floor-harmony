@@ -85,15 +85,13 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     width: 100% !important;
                 }
                 .video-wrapper {
-                    flex: 0 0 48% !important;
-                    max-width: 48% !important;
+                    width: 48% !important;
                     margin: 0.5% !important;
-                    display: inline-block !important;
-                
                 }
                 .video-box {
                     width: 100% !important;
-                    height: auto !important;
+                    aspect-ratio: 16 / 9 !important;
+                    overflow: hidden !important;
                 }
                 .desktop-only {
                     display: block !important;
@@ -251,44 +249,30 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     align-items: center;
                     padding: 10px 15px;
                 }
-                .video-container {
+                #video-container-main {
                     display: flex !important;
                     flex-wrap: wrap !important;
-                    
-                
-                    width: 100vw;
-                
-                    gap: 15px;
-
-                    padding-bottom: 20px;             
+                    justify-content: center !important;
+                    align-items: flex-start !important;
+                    width: 100% !important;
+                    gap: 10px !important;           
                 }
                 .video-wrapper {
-                    width: 48% !important;
-                    display: inline-block;
-                    vertical-align: top !important;
-                    margin: 1% !important;
+                    width: 45% !important;
+                    display: flex !important;
+                    flex-direction: column !important;
+                    background: transparent !important;
+                }
+                .video-box {
                     aspect-ratio: 16 / 9 !important;
                     overflow: hidden !important;
-                    background: black;
+                    border-radius: 10px;
 
                 }
-                .video-wrapper video {
+                .video-box video {
                     width: 100% !important;
                     height: 100% !important;
                     object-fit: cover !important;
-                }
-                .video-box {
-                    width: 100% !important;
-                    height: 450px !important;
-                    object-fit: cover !important;
-                    border-radius: 20px;
-                    box-shadow: 0 10px 30px rgba(0,0,0,0.5)
-                }
-                .video-label {
-                    color: #c5a059;
-                    font-family: 'Cinzel', serif;
-                    margin-top: 10px;
-                    font-size: 1.2rem;
                 }
             }
 </style>
