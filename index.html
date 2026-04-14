@@ -257,18 +257,19 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     padding: 10px 15px;
                 }
                 #video-container-main {
-                    margin-top: 0 !important;
                     display: flex !important;
                     flex-direction: column !important;
-                    flex-wrap: nowrap !important;
-                    justify-content: center !important;
                     width: 100% !important;
-                    align-items: flex-start !important;        
+                    margin-top: 0 !important;
+                    gap: 0        
                 }
                 .video-wrapper {
+                    position: relative;
                     width: 100% !important;
-                    margin: 0 !important;
                     height: 100vh !important;
+                    margin: 0 !important;
+                    padding: 0 !important;
+                    overflow: hidden !important;
 
                 }
                  .video-box {
@@ -280,7 +281,6 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 .video-box video {
                     width: 100% !important;
                     height: 100% !important;
-                    object-fit: cover !important;
                 }
             }
 </style>
