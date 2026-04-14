@@ -86,11 +86,15 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 }
                 .video-wrapper {
                     width: 48% !important;
-                    margin: 0.5% !important;
+                    display: inline-block !important;
+                    vertical-align: top !important;
+                    margin: 1% !important;
                 }
                 .video-box {
                     width: 100% !important;
                     aspect-ratio: 16 / 9 !important;
+                    object-fit: cover !important;
+                    border-radius: 15px !important;
                     overflow: hidden !important;
                 }
                 .desktop-only {
@@ -258,17 +262,19 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     gap: 10px !important;           
                 }
                 .video-wrapper {
-                    width: 45% !important;
-                    display: flex !important;
-                    flex-direction: column !important;
-                    background: transparent !important;
+                    width: 48% !important;
+                    display: inline-block !important;
+                    vertical-align: top !important;
+                    margin: 1% !important;
                 }
-                .video-box {
+                 .video-box {
+                    width: 100% !important;
                     aspect-ratio: 16 / 9 !important;
+                    object-fit: cover !important;
+                    border-radius: 15px !important;
                     overflow: hidden !important;
-                    border-radius: 10px;
-
                 }
+
                 .video-box video {
                     width: 100% !important;
                     height: 100% !important;
