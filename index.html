@@ -263,9 +263,19 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     padding-bottom: 20px;             
                 }
                 .video-wrapper {
-                    flex: 0 0 85vw !important;
-                
-                    text-align: center;
+                    width: 48% !important;
+                    display: inline-block;
+                    vertical-align: top !important;
+                    margin: 1% !important;
+                    aspect-ratio: 16 / 9 !important;
+                    overflow: hidden !important;
+                    background: black;
+
+                }
+                .video-wrapper video {
+                    width: 100% !important;
+                    height: 100% !important;
+                    object-fit: cover !important;
                 }
                 .video-box {
                     width: 100% !important;
