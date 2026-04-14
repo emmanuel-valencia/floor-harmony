@@ -81,21 +81,17 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     display: flex !important;
                     flex-direction: row !important;
                     justify-content: center !important;
-                    flex-wrap: nowrap !important;
+                    gap: 20px !important;
                     width: 100% !important;
                 }
                 .video-wrapper {
                     width: 48% !important;
-                    display: inline-block !important;
-                    vertical-align: top !important;
-                    margin: 1% !important;
+                    display: block !important;
                 }
                 .video-box {
                     width: 100% !important;
                     aspect-ratio: 16 / 9 !important;
                     object-fit: cover !important;
-                    border-radius: 15px !important;
-                    overflow: hidden !important;
                 }
                 .desktop-only {
                     display: block !important;
@@ -255,24 +251,20 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 }
                 #video-container-main {
                     display: flex !important;
-                    flex-wrap: wrap !important;
+                    flex-direction: row !important;
+                    flex-wrap: nowrap !important;
                     justify-content: center !important;
-                    align-items: flex-start !important;
-                    width: 100% !important;
                     gap: 10px !important;           
                 }
                 .video-wrapper {
-                    width: 48% !important;
-                    display: inline-block !important;
-                    vertical-align: top !important;
-                    margin: 1% !important;
+                    width: 47% !important;
+                    text-align: center;
+
                 }
                  .video-box {
                     width: 100% !important;
-                    aspect-ratio: 16 / 9 !important;
+                    aspect-ratio: 1 / 1 !important;
                     object-fit: cover !important;
-                    border-radius: 15px !important;
-                    overflow: hidden !important;
                 }
 
                 .video-box video {
