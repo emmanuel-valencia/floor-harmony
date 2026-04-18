@@ -106,11 +106,15 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 }
                 .desktop-only {
                     display: block !important;
-                    position: absolute;
+                    position: fixed;
                     bottom: 20px;
                     right: 20px;
-                    width: 250px;
-                    z-index: 9999 !important;
+                    width: 300px;
+                    height: auto;
+                    z-index: 99;
+                    border-radius: 15px;
+                    overflow: hidden;
+                    box-shadow: 0px 10px 30px rgba(0,0,0,0.5);
                 }
                 }
            @keyframes fadeInUp {
