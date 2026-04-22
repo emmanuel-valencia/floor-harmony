@@ -112,6 +112,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     top: 0;
                     left: 0;
                     z-index: -1;
+                    filter: brightness(0.6) contrast(1.1) !important;
                 }
                 .video-label,
                 .hero-content {
@@ -128,17 +129,15 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 .hero-content h1 {
                     display: block !important;
                     color: #ffffff !important;
+                    -webkit-text-fill-color: #ffffff !important;
+                    background: none !important;
                     font-size: 3.5rem !important;
                     font-weight: 900 !important;
                     text-transform: uppercase;
                     letter-spacing: 8px;
                     margin-bottom: 10px;
-                    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9) !important;
-                    background: linear-gradient(120deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 1) 60%, rgba(255, 255, 255, 1) 100%) !important;
-                    background-size: 200% auto !important;
-                    -webkit-background-clip: text !important;
-                    -webkit-text-fill-color: transparent !important;
-                    animation: silverShine 3s linear infinite !important;
+                    text-shadow: 3px 3px 15px rgba(0, 0, 0, 1) !important;
+                    animation: none !important;
                 }
                 .micro-desc,
                 .hero-content p {
@@ -148,11 +147,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     font-style: italic;
                     letter-spacing: 2px;
                     opacity: 1;
-                    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9) !important;
-                }
-                /* The ANIMATION ENGINE */
-                @keyframes silverShine {
-                    to { background-position: 200% center; }
+                    text-shadow: 2px 2px 10px rgba(0, 0, 0, 1) !important;
                 }
                 }
                 @media (min-width: 1025px) { /********** Desktop part************/
