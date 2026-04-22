@@ -49,9 +49,9 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 right: 0 !important;
             }
             @media only screen and (min-width: 768px) and (max-width: 1024px) { /************Tablet section*************/
-                .video-container {
+                #video-container-main {
                     display: flex !important;
-                    flex-direction: row !important;
+                    flex-direction: column !important;
                     flex-wrap: nowrap !important;
                     align-items: center !important;
                     justify-content: space-evenly !important;
@@ -62,7 +62,8 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 }
                 .video-wrapper {
                     flex: 1 !important;
-                    max-width: 32% !important;
+                    min-width: 100% !important;
+                    max-width: 100% !important;
                     display: flex;
                     flex-direction: column !important;
                     align-items: center !important;
