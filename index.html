@@ -83,8 +83,9 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     top: auto !important;
                     bottom: 0 !important;
                     background: rgba(0, 0, 0, 0.8) !important;
+                    z-index: 9999 !important;
                     border-top: 1px solid #c5a059;
-                    border-bottom: none !important;
+                    position: fixed !important;
                 }
                 #nav-drawer {
                     top: auto !important;
@@ -193,8 +194,9 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 #quote-form-container {
                     position: relative !important;
                     z-index: 100!important;
-                    margin-top: 50px;
-                    padding: 40px 20px;
+                    margin-top: 0 !important;
+                    padding-top: 100px !important;
+                    padding-bottom: 80px !important;
                 }
                 }
                 @media (min-width: 1025px) { /********** Desktop part************/
