@@ -83,9 +83,12 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     position: fixed !important;
                     top: auto !important;
                     bottom: 0 !important;
+                    left: 0 !important;
+                    width: 100% !important;
                     background: rgba(0, 0, 0, 0.95) !important;
                     z-index: 99999 !important;
                     border-top: 2px solid #c5a059;
+                    border-bottom: none !important;
                     height: 70px !important;
                 }
                 #nav-drawer {
@@ -174,7 +177,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     text-shadow: 1px 1px 5px rgba(0, 0, 0, 1) !important;
                 }
                 .hero-cta,
-                a[href="quote-form-container"] {
+                a[href="#quote-form-container"] {
                     display: inline-block !important;
                     background-color: #c5a059 !important;
                     color: #000000 !important;
@@ -194,9 +197,10 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 }
                 #quote-form-container {
                     position: relative !important;
+                    display: blocK !important;
                     z-index: 100!important;
-                    margin-top: opx !important;
-                    padding-top: 150px !important;
+                    margin-top: 0 !important;
+                    padding-top: 180px !important;
                     padding-bottom: 100px !important;
                     background: rgba(0, 0, 0, 0.9) !important;
                 }
