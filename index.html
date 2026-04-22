@@ -18,8 +18,8 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 font-weight: 900 !important;
                 text-transform: uppercase;
                 text-align: center;
-                text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9) !important;
-                background: linear-gradient(120deg, #ffffff 20%, #dcdcdc 50%, #ffffff 80%);
+                text-shadow: 2px 2px 10px rgba(0, 0, 0, 1) !important;
+                background: linear-gradient(120deg, #ffffff 30%, #fcfcfc 50%, #ffffff 70%);
                 background-size: 200% auto;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
@@ -28,11 +28,11 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             
             .micro-desc {
                 display: block !important;
-                color: #f0f0f0 !important;
+                color: #ffffff !important;
                 font-style: italic;
                 text-align: center;
-                opacity: 0.9;
-                text-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
+                opacity: 1;
+                text-shadow: 2px 2px 8px rgba(0, 0, 0, 1) !important;
             }
             @keyframes silverShine {
                 to { background-position: 200% center; }
@@ -74,6 +74,17 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 right: 0 !important;
             }
             @media only screen and (min-width: 768px) and (max-width: 1024px) { /************Tablet section*************/
+                .hero-section {
+                    position: relative !important;
+                    height: 100vh !important;
+                    width: 100% !important;
+                    overflow: hidden !important;
+                }
+                .hero-video {
+                    width: 100% !important;
+                    height: 100% !important;
+                    object-fit: cover !important;
+                }
                 #video-container-main {
                     display: flex !important;
                     flex-direction: column !important;
