@@ -121,14 +121,13 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 }
                 .video-label,
                 .hero-content {
-                    position: absolute !important;
-                    top: 50% !important;
-                    left: 50% !important;
-                    transform: translate(-50%, -50%) !important;
-                    width: 90% !important;
                     text-align: center !important;
                     z-index: 10 !important;
-                    pointer-events: none;
+                    pointer-events: none !important;
+                }
+                .hero-cta,
+                .video-label a {
+                    pointer-events: auto !important;
                 }
                 .main-title,
                 .hero-content h1 {
@@ -465,7 +464,8 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
     </div>
     </div>
     </div>
-    <section id="quote-form-container" style="background: rgba(0,0,0,0.6); border: 2px solid #c5a059; border-radius: 20px; padding: 40px; max-width: 800px; margin: 40px auto; box-shadow: 0 0 20px rgba(255,215,0,0.1);">
+    <div id="quote-form-container" style="position: absolute; margin-top: -100px;"></div>
+    <section class="quote-section" style="background: rgba(0,0,0,0.6); border: 2px solid #c5a059; border-radius: 20px;">
     <h2 style="font-family: 'Cinzel', serif; color: #c5a059; text-align: center; font-size: 2rem; letter-spacing: 3px; margin-bottom: 30px;">Request A Free Quote</h2>
     <form action="https://formspree.io/f/maqleybw" method="POST" target="hidden_iframe" onsubmit="setTimeout(function() { window.location.href='thank-you.html'; }, 500);">
     <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
