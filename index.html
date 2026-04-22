@@ -80,16 +80,17 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             }
             @media only screen and (min-width: 768px) and (max-width: 1024px) { /************Tablet section*************/
                 header {
+                    position: fixed !important;
                     top: auto !important;
                     bottom: 0 !important;
-                    background: rgba(0, 0, 0, 0.8) !important;
-                    z-index: 9999 !important;
-                    border-top: 1px solid #c5a059;
-                    position: fixed !important;
+                    background: rgba(0, 0, 0, 0.95) !important;
+                    z-index: 99999 !important;
+                    border-top: 2px solid #c5a059;
+                    height: 70px !important;
                 }
                 #nav-drawer {
                     top: auto !important;
-                    bottom: 60px !important;
+                    bottom: 70px !important;
                 }
                 .hero-section {
                     display: flex !important;
@@ -182,7 +183,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     font-weight: 700 !important;
                     text-transform: uppercase;
                     border-radius: 5px;
-                    transition: transform 0.3s ease;
+                    transition: none !important;
                     font-size: 0.9rem !important;
                     touch-action: manipulation !important;
                     cursor: pointer !important;
@@ -194,9 +195,8 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 #quote-form-container {
                     position: relative !important;
                     z-index: 100!important;
+                    padding-top: 120px !important;
                     margin-top: 0 !important;
-                    padding-top: 100px !important;
-                    padding-bottom: 80px !important;
                 }
                 }
                 @media (min-width: 1025px) { /********** Desktop part************/
