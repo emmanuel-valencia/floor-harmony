@@ -80,10 +80,11 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             }
             @media only screen and (min-width: 768px) and (max-width: 1024px) { /************Tablet section*************/
                 .hero-section {
-                    position: relative !important;
+                    display: flex !important;
+                    justify-content: center !important;
+                    align-items: center !important;
                     height: 100vh !important;
-                    width: 100% !important;
-                    overflow: hidden !important;
+                    position: relative !important;
                 }
                 .hero-video {
                     width: 100% !important;
@@ -122,6 +123,10 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 }
                 .video-label,
                 .hero-content {
+                    position: absolute !important;
+                    top: 50% !important;
+                    left: 50% !important;
+                    transform: translate(-50%, -50%) !important;
                     text-align: center !important;
                     z-index: 10 !important;
                     pointer-events: none !important;
@@ -136,7 +141,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     color: #ffffff !important;
                     -webkit-text-fill-color: #ffffff !important;
                     font-size: 2.8rem !important;
-                    font-weight: 400 !important;
+                    font-weight: 300 !important;
                     text-transform: uppercase;
                     letter-spacing: 6px;
                     margin-bottom: 5px;
@@ -167,6 +172,8 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     border-radius: 5px;
                     transition: transform 0.3s ease;
                     font-size: 0.9rem !important;
+                    touch-action: manipulation !important;
+                    cursor: pointer !important;
                 }
                 .hero-cta:hover {
                     transform: scale(1.05);
