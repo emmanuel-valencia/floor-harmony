@@ -190,13 +190,15 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     background-color: #d4af37 !important;
                 }
                 #quote-form-container {
-                    scroll-snap-align: none !important;
+                    scroll-snap-align: start !important;
+                    height: 100vh !important;
+                    display: flex !important;
+                    flex-direction: column !important;
+                    justify-content: center !important;
                     position: relative !important;
-                    padding-top: 280px !important;
-                    margin-top: 0 !important;
+                    padding-top: 100px !important;
                     z-index: 10 !important;
                     background: #000000 !important;
-                    min-height: 100vh !important;
                     
                 }
                 }
