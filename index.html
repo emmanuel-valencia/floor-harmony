@@ -57,18 +57,25 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 position: relative !important;
                 overflow: hidden !important;
             }
-            .hero-video, .video-box {
+            .video-box {
                 width: 100% !important;
                 height: 100% !important;
                 object-fit: cover !important;
                 display: block !important;
             }
             #main-wrapper {
-                scroll-snap-type: y mandatory !important;
+                scroll-snap-type: none !important;
                 height: 100vh !important;
                 overflow-y: visible !important;
                 position: relative !important;
             }
+            .video-snap-container {
+                height: 100vh !important;
+                overflow-y: scroll !important;
+                scroll-snap-type: y mandatory !important;
+                scroll-behavior: smooth !important;
+            }
+
             .skip-intro #splash-screen {
                 display: none !important;
                 visibility: hidden !important;
@@ -451,6 +458,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
     <a href="services.html" style="display: block; color: white; padding: 20px; text-decoration: none; font-size: 1.1rem; border-bottom: 1px solid rgba(197, 160, 89, 0.3);">Services</a>
     <a href="#quote-form-container" style="display: block; color: #f5f5f5; padding: 20px; text-decoration: none; font-size: 1.1rem; font-weight: bold;">Request Quote</a>
     </div>
+    <div class="video-snap-container">
     <div class="video-wrapper" id="vid-1">
             <video autoplay muted loop playsinline preload="metadata" class="video-box">
                 <source src="elite_comfort_final.mp4" type="video/mp4"></video>
@@ -480,6 +488,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             <span class="main-title">THE PROPERTY PRO</span>
             <span class="micro-desc">Fast-Turnaround Solutions for Rentals</span>
             <a href="#quote-form-container" class="hero-cta">Request a Free Quote</a>
+    </div>
     </div>
     </div>
     </div>
