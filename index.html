@@ -65,16 +65,10 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             }
             #main-wrapper {
                 scroll-snap-type: y mandatory !important;
-                height: 100vh !important;
-                overflow-y: auto !important;
+                height: auto !important;
+                min-height: 100vh !important;
+                overflow-y: visible !important;
             }
-            .video-snap-container {
-                width: 100%;
-                scroll-snap-type: y mandatory !important;
-                scroll-behavior: smooth !important;
-                display: block;
-            }
-
             .skip-intro #splash-screen {
                 display: none !important;
                 visibility: hidden !important;
@@ -320,7 +314,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 }
                 #quote-form-container {
                     padding-top: 100px !important;
-                    padding-bottom: 100px !important;
+                    padding-bottom: 120px !important;
                     min-height: 100vh !important;
                     display: block !important;
                     position: relative !important;
@@ -460,7 +454,6 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
     <a href="services.html" style="display: block; color: white; padding: 20px; text-decoration: none; font-size: 1.1rem; border-bottom: 1px solid rgba(197, 160, 89, 0.3);">Services</a>
     <a href="#quote-form-container" style="display: block; color: #f5f5f5; padding: 20px; text-decoration: none; font-size: 1.1rem; font-weight: bold;">Request Quote</a>
     </div>
-    <div class="video-snap-container">
     <div class="video-wrapper" id="vid-1">
             <video autoplay muted loop playsinline preload="metadata" class="video-box">
                 <source src="elite_comfort_final.mp4" type="video/mp4"></video>
@@ -490,7 +483,6 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             <span class="main-title">THE PROPERTY PRO</span>
             <span class="micro-desc">Fast-Turnaround Solutions for Rentals</span>
             <a href="#quote-form-container" class="hero-cta">Request a Free Quote</a>
-    </div>
     </div>
     </div>
     </div>
