@@ -46,9 +46,10 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             @keyframes silverShine {
                 to { background-position: 200% center; }
             }
-            section, .video-wrapper {
+            section:not(#quote-form-container), .video-wrapper {
                 scroll-snap-align: start !important;
                 height: 100vh !important;
+
             }
             .skip-intro #splash-screen {
                 display: none !important;
@@ -77,12 +78,16 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             }
             @media only screen and (min-width: 768px) and (max-width: 1024px) { /************Tablet section*************/
                 header {
+                    pointer-events: none !important;
                     position: fixed !important;
                     top: 0 !important;
                     left: 0 !important;
                     width: 100% !important;
                     background: transparent !important;
                     z-index: 1000 !important;
+                }
+                header img, header .phone-link, header .menu-icon {
+                    pointer-events: auto !important;
                 }
                 #nav-drawer {
                     top: 70px !important;
@@ -189,7 +194,8 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 #quote-form-container {
                     scroll-snap-align: none !important;
                     position: relative !important;
-                    padding-top: 120px !important;
+                    padding-top: 160px !important;
+                    z-index: 1 !important;
                     background: #000000 !important;
                     
                 }
