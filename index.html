@@ -20,7 +20,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 overflow-y: auto !important;
                 background: #002229 !important;
                 color: white !important;
-                font-family: 'Montserrat', sans-serif !important;
+                font-family: 'Cinzel', serif !important;
             }
             .main-title {
                 display: block !important;
@@ -85,8 +85,11 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             }
              .video-wrapper {
                 opacity: 1 !important;
+                position: relative !important;
+                z-index: 1 !important;
                 animation: fadeInUp 0.8s ease-out forwards;
                 will-change: transform, opacity;
+                height: 100vh !important;
             }
             #vid-1 { animation-delay: 0.2s; }
             #vid-2 { animation-delay: 0.6s; }
