@@ -13,13 +13,14 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
         <title>Floor Harmony</title>
         <style>
             html, body {
-                scroll-snap-type: y mandatory !important;
+                scroll-snap-type: y proximity !important;
                 scroll-behavior: smooth !important;
-                height: 100% !important;
+                height: auto !important;
+                min-height: 100% !important;
                 margin: 0 !important;
                 padding: 0 !important;
                 overflow-x: hidden !important;
-                overflow-y: scroll !important;
+                overflow-y: auto !important;
             }
             .main-title {
                 display: block !important;
@@ -48,7 +49,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             }
             section:not(#quote-form-container), .video-wrapper {
                 scroll-snap-align: start !important;
-                height: 100vh !important;
+                scroll-snap-stop: normal !important;
 
             }
             .skip-intro #splash-screen {
@@ -85,9 +86,6 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     width: 100% !important;
                     background: transparent !important;
                     z-index: 1000 !important;
-                }
-                header img, header .phone-link, header .menu-icon {
-                    pointer-events: auto !important;
                 }
                 #nav-drawer {
                     top: 70px !important;
@@ -194,8 +192,9 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 #quote-form-container {
                     scroll-snap-align: none !important;
                     position: relative !important;
-                    padding-top: 160px !important;
-                    z-index: 1 !important;
+                    padding-top: 280px !important;
+                    margin-top: 0 !important;
+                    z-index: 10 !important;
                     background: #000000 !important;
                     
                 }
