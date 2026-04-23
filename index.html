@@ -233,22 +233,6 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     bottom: auto !important;
                     height: auto !important;
                 }
-                .hero-section {
-                    display: flex !important;
-                    justify-content: center !important;
-                    align-items: center !important;
-                    height: 100vh !important;
-                    width: 100% !important;
-                    margin-top: -120px !important;
-                    position: relative !important;
-                    scroll-snap-align: start !important;
-                    overflow: hidden !important;
-                }
-                .hero-video {
-                    width: 100% !important;
-                    height: 100% !important;
-                    object-fit: cover !important;
-                }
                 #video-container-main {
                     display: flex !important;
                     flex-direction: column !important;
@@ -267,7 +251,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     align-items: center !important;
                     
                 }
-                .hero-video, .video-box {
+                .video-box {
                     width: 100% !important;
                     height: 100vh !important;
                     position: absolute !important;
@@ -278,8 +262,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     z-index: 1 !important;
                     filter: brightness(0.6) contrast(1.1) !important;
                 }
-                .video-label,
-                .hero-content {
+                .video-label {
                     position: absolute !important;
                     top: 50% !important;
                     left: 50% !important;
@@ -292,8 +275,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 .video-label a {
                     pointer-events: auto !important;
                 }
-                .main-title,
-                .hero-content h1 {
+                .main-title {
                     display: block !important;
                     color: #ffffff !important;
                     -webkit-text-fill-color: #ffffff !important;
@@ -305,7 +287,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8) !important;
                     background: inherit !important;
                 }
-                .micro-desc, .hero-content p {
+                .micro-desc {
                     display: block !important;
                     color: #f5f5f5 !important;
                     font-size: 1.1rem !important;
@@ -468,19 +450,16 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
     <a href="services.html" style="display: block; color: white; padding: 20px; text-decoration: none; font-size: 1.1rem; border-bottom: 1px solid rgba(197, 160, 89, 0.3);">Services</a>
     <a href="#quote-form-container" style="display: block; color: #f5f5f5; padding: 20px; text-decoration: none; font-size: 1.1rem; font-weight: bold;">Request Quote</a>
     </div>
-    <section class="hero-section">
+    <div class="video-wrapper" id="vid-1">
         <div class="hero-video-container;">
-            <video autoplay muted loop playsinline class="hero-video">
-                <source src="elite_comfort_final.mp4" type="video/mp4">
-            </video>
-            <div class="hero-overlay"></div>
-            </div>
-            <div class="hero-content">
-                <h1 class="main-title"> The Elite Comfort</h1>
-                <p class="micro-desc">Premium Berber & Luxury Plush</p>
+            <video autoplay muted loop playsinline preload="metadata" class="video-box">
+                <source src="elite_comfort_final.mp4" type="video/mp4"></video>
+            <div class="video-label">
+                <span class="main-title">The Elite Comfort</span>
+                <span class="micro-desc">Premium Berber & Luxury Plush</span>
                 <a href="#quote-form-container" class="hero-cta">Request a Free Quote</a>
         </div>
-    </section>
+    </div>
     <div id="video-container-main">
 
     <div class="video-wrapper" id="vid-2">
