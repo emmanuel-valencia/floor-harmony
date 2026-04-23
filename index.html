@@ -22,6 +22,8 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 background: #002229 !important;
                 color: white !important;
                 font-family: 'Cinzel', serif !important;
+                scroll-snap-type: y mandatory !important;
+                scroll-behavior: smooth !important;
             }
             .main-title {
                 display: block !important;
@@ -51,10 +53,10 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 scroll-snap-align: start !important;
                 scroll-snap-stop: always !important;
                 height: 100vh !important;
+                width: 100% !important;
                 display: flex !important;
-                flex-direction: column !important;
                 position: relative !important;
-
+                overflow: hidden !important;
             }
             .hero-video, .video-box {
                 width: 100% !important;
@@ -236,8 +238,11 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     justify-content: center !important;
                     align-items: center !important;
                     height: 100vh !important;
+                    width: 100% !important;
                     margin-top: -120px !important;
                     position: relative !important;
+                    scroll-snap-align: start !important;
+                    overflow: hidden !important;
                 }
                 .hero-video {
                     width: 100% !important;
