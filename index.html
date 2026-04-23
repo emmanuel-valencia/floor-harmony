@@ -236,7 +236,9 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     justify-content: center !important;
                     align-items: center !important;
                     height: 100vh !important;
+                    margin-top: -120px !important;
                     position: relative !important;
+                    z-index: 1
                 }
                 .hero-video {
                     width: 100% !important;
@@ -430,14 +432,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
 </style>
 </head>
 <body>
-    <section class="hero-section">
-    <div id="splash-screen" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #002229; z-index: 9999; display: flex; align-items: center; justify-content: center; pointer-events: none; transition: opacity 1s ease;">
-    <div style="text-align: center; width: 100%; max-width: 600px; padding: 20px;">
-    <img src="floorharmony_braided_logo.png" alt="Floor Harmony Logo" style="width: 80%; max-width: 300px; height: auto; display: block; margin: 0 auto;">
-    <div style="height: 3px; background: linear-gradient(90deg, transparent, #c5a059, transparent); width: 100%; margin: 15px auto 0 auto; animation: shimmer 2s infinite;"></div>
-    </div>
-    </div>
-    <div style="position: sticky; top: 0; width: 100%; z-index: 1000; padding-bottom: 5px;">
+     <div style="position: sticky; top: 0; width: 100%; z-index: 1000; padding-bottom: 5px;">
 
 
         <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 15px;">
@@ -451,6 +446,13 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
     <div style="width: 25px; height: 2px; background-color: #f5f5f5; margin: 4px 0;"></div>
     <div style="width: 25px; height: 2px; background-color: #f5f5f5; margin: 4px 0;"></div>
     <div style="width: 25px; height: 2px; background-color: #f5f5f5; margin: 4px 0;"></div>
+    </div>
+    </div>
+    <section class="hero-section">
+    <div id="splash-screen" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #002229; z-index: 9999; display: flex; align-items: center; justify-content: center; pointer-events: none; transition: opacity 1s ease;">
+    <div style="text-align: center; width: 100%; max-width: 600px; padding: 20px;">
+    <img src="floorharmony_braided_logo.png" alt="Floor Harmony Logo" style="width: 80%; max-width: 300px; height: auto; display: block; margin: 0 auto;">
+    <div style="height: 3px; background: linear-gradient(90deg, transparent, #c5a059, transparent); width: 100%; margin: 15px auto 0 auto; animation: shimmer 2s infinite;"></div>
     </div>
     </div>
      <div class="vibrant-line" style="margin: 0 auto; width: 80%; height: 1px; background: #c5a059"></div>
