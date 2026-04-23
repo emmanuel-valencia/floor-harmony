@@ -13,7 +13,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
         <title>Floor Harmony</title>
         <style>
             html, body {
-                scroll-snap-type: y mandatory !important;
+                scroll-snap-type: none !important;
                 scroll-behavior: smooth !important;
                 height: 100% !important;
                 min-height: 100% !important;
@@ -49,8 +49,12 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             }
             section:not(#quote-form-container), .video-wrapper {
                 scroll-snap-align: start !important;
+                scroll-snap-stop: always !important;
                 height: 100vh !important;
 
+            }
+            #main-wrapper {
+                scroll-snap-type: y mandatory !important;
             }
             .skip-intro #splash-screen {
                 display: none !important;
