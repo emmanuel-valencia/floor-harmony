@@ -22,7 +22,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 background: #3d0101 !important;
                 color: white !important;
                 font-family: 'Cinzel', serif !important;
-                scroll-snap-type: y proximity!important;
+                scroll-snap-type: y mandatory!important;
             }
             .main-title {
                 display: block !important;
@@ -64,16 +64,15 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 display: block !important;
             }
             #main-wrapper {
-                scroll-snap-type: none !important;
+                scroll-snap-type: y mandatory !important;
                 height: 100vh !important;
-                overflow-y: visible !important;
-                position: relative !important;
+                overflow-y: auto !important;
             }
             .video-snap-container {
-                height: 100vh !important;
-                overflow-y: scroll !important;
+                width: 100%;
                 scroll-snap-type: y mandatory !important;
                 scroll-behavior: smooth !important;
+                display: block;
             }
 
             .skip-intro #splash-screen {
@@ -321,10 +320,13 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 }
                 #quote-form-container {
                     padding-top: 100px !important;
-                    padding-bottom: 50px !important;
+                    padding-bottom: 100px !important;
                     min-height: 100vh !important;
                     display: block !important;
                     position: relative !important;
+                    scroll-snap-align: none !important;
+                    scroll-snap-stop: normal !important;
+
                 }
                 }
                 @media (min-width: 1025px) { /********** Desktop part************/
