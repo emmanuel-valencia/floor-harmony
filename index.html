@@ -13,9 +13,9 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
         <title>Floor Harmony</title>
         <style>
             html, body {
-                scroll-snap-type: y proximity !important;
+                scroll-snap-type: y mandatory !important;
                 scroll-behavior: smooth !important;
-                height: auto !important;
+                height: 100% !important;
                 min-height: 100% !important;
                 margin: 0 !important;
                 padding: 0 !important;
@@ -196,6 +196,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     margin-top: 0 !important;
                     z-index: 10 !important;
                     background: #000000 !important;
+                    min-height: 100vh !important;
                     
                 }
                 }
