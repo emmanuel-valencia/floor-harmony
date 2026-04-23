@@ -13,9 +13,10 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
         <title>Floor Harmony</title>
         <style>
             html {
+                scroll-snap-type: y mandatory !important;
                 scroll-behavior: smooth !important;
-                overflow-x: hidden;
-                height: auto !important;
+                overflow-y: scroll !important;
+                height: 100% !important;
             }
             .main-title {
                 display: block !important;
