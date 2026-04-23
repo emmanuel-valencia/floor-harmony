@@ -18,11 +18,11 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 margin: 0 !important;
                 padding: 0 !important;
                 overflow-x: hidden !important;
-                overflow-y: auto !important;
+                overflow-y: scroll !important;
+                background: #3d0101 !important;
                 color: white !important;
                 font-family: 'Cinzel', serif !important;
-                scroll-snap-type: y mandatory !important;
-                scroll-behavior: smooth !important;
+                scroll-snap-type: y proximity!important;
             }
             .main-title {
                 display: block !important;
@@ -314,13 +314,10 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 }
                 #quote-form-container {
                     padding-top: 100px !important;
-                    padding-bottom: 20px !important;
+                    padding-bottom: 50px !important;
                     min-height: 100vh !important;
                     display: block !important;
                     position: relative !important;
-                    scroll-snap-align: none !important;
-                    scroll-snap-stop: normal !important;
-                    
                 }
                 }
                 @media (min-width: 1025px) { /********** Desktop part************/
