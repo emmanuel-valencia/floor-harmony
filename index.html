@@ -13,8 +13,6 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
         <title>Floor Harmony</title>
         <style>
             html, body {
-                scroll-snap-type: none !important;
-                scroll-behavior: smooth !important;
                 height: 100% !important;
                 margin: 0 !important;
                 padding: 0 !important;
@@ -34,7 +32,6 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 -webkit-text-fill-color: transparent;
                 animation: silverShine 4s linear infinite;
             }
-            
             .micro-desc {
                 display: block !important;
                 color: #ffffff !important;
@@ -82,6 +79,126 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             }
             #nav-drawer.open {
                 right: 0 !important;
+            }
+             .video-wrapper {
+                opacity: 0;
+                animation: fadeInUp 0.8s ease-out forwards;
+                will-change: transform, opacity;
+            }
+            #vid-1 { animation-delay: 0.2s; }
+            #vid-2 { animation-delay: 0.6s; }
+            #vid-3 { animation-delay: 0.8s; }
+            
+            @import url( 'https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap');
+            body {
+                background: #002229;
+                color: white;
+                font-family: 'Montserrat' sans-serif;
+                margin: 0;
+                text-align: center;
+                min-height: 100dvh;
+            }
+
+
+            .logo-text {
+                font-family: 'Cinzel' , serif !important;
+                font-size: 3.5rem;
+                letter-spacing: 25px;
+                margin: 20px auto;
+                text-transform: uppercase;
+                display: block;
+            }
+            .gold-brand {
+                color: #c5a059;
+                font-weight: 900;
+                padding-right: 10px;
+                text-shadow: 0 0 15px rgba(197, 160, 89, 0.3);
+            }
+            .white-brand{
+                color: #ffffff;
+                font-weight: 200;
+                opacity: 0.95;
+            }
+            .vibrant-line {
+                width: 750px;
+                height: 3px;
+                margin: 10px auto;
+                background: linear-gradient(90deg, transparent, #c5a059, transparent);
+                transition: width 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+                box-shadow: 0 0 15px rgba(197, 160, 89, 0.8);
+                
+            }
+            .vibrant-line:hover {
+                width: 750px;
+                background: linear-gradient(90deg, transparent, #c5a059, #ffffff, #c5a059, transparent);
+                box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.6);
+            }
+        * { box-sizing: border-box; max-width: 100%;}
+            p {
+                font-size: 1rem;
+                font-weight: 300;
+                letter-spacing: 5px;
+                color: #888;
+                margin: 0;
+                text-transform: uppercase;
+            }
+            input, textarea, select {
+                font-size: 16px !important;
+            }
+             @keyframes LaserStrike {
+                0% { width: 0; opacity: 0; }
+                20% { opacity: 1; }
+                100% { width: 100%; opacity: 1; }
+             }
+             @keyframes cinematicIntro {
+                0% { opacity: 0; filter: blur(15px); transform: scale(1.1); letter-spacing: 15px; }
+                100% { opacity: 1; filter: blur(0px); transform: scale(1); letter-spacing: 6px; text-shadow: 0 0 15px rgba(197, 160, 89, 0.6); }
+            }
+            @keyframes shimmer {
+                0% { transform: translateX(-100%); }
+                100% { transform: translateX(100%); }
+            }
+            /*styling the main logo*/
+            .main-logo {
+                height: 100px !important;
+                width: auto !important;
+                display: block !important;
+                margin: 0 auto !important;
+                will-change: filter;
+                filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.8));
+            }
+            .video-label {
+               position: absolute !important;
+               top: 50% !important;
+               left: 50% !important;
+               transform: translate(-50%, -50%) !important;
+               width: 90%;
+               z-index: 20;
+               background: transparent !important;
+               text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8);
+
+            }
+            .video-label .main-title {
+                color: #c5a059;
+                font-family: 'Cinzel', serif;
+                font-size: 1.8rem;
+                display: block;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            }
+            .video-label .micro-desc {
+                color: #ffff;
+                font-size: 1rem !important;
+                font-family: 'Playfair Display', serif;
+                font-style: italic;
+                text-transform: none;
+            }
+
+            #contact, footer {
+                width: 100% !important;
+                display: block;
+                clear: both !important;
+                text-align: center !important;
+            
             }
             @media only screen and (min-width: 768px) and (max-width: 1024px) { /************Tablet section*************/
                 header {
@@ -247,126 +364,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 from { opacity: 0; transform: translateY(20px);}
                 to { opacity: 1; transform: translateY (0); }
             }
-            .video-wrapper {
-                opacity: 0;
-                animation: fadeInUp 0.8s ease-out forwards;
-                will-change: transform, opacity;
-            }
-            #vid-1 { animation-delay: 0.2s; }
-            #vid-2 { animation-delay: 0.6s; }
-            #vid-3 { animation-delay: 0.8s; }
-            
-            @import url( 'https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap');
-            body {
-                background: #002229;
-                color: white;
-                font-family: 'Montserrat' sans-serif;
-                margin: 0;
-                text-align: center;
-                min-height: 100dvh;
-            }
-
-
-            .logo-text {
-                font-family: 'Cinzel' , serif !important;
-                font-size: 3.5rem;
-                letter-spacing: 25px;
-                margin: 20px auto;
-                text-transform: uppercase;
-                display: block;
-            }
-            .gold-brand {
-                color: #c5a059;
-                font-weight: 900;
-                padding-right: 10px;
-                text-shadow: 0 0 15px rgba(197, 160, 89, 0.3);
-            }
-            .white-brand{
-                color: #ffffff;
-                font-weight: 200;
-                opacity: 0.95;
-            }
-            .vibrant-line {
-                width: 750px;
-                height: 3px;
-                margin: 10px auto;
-                background: linear-gradient(90deg, transparent, #c5a059, transparent);
-                transition: width 0.8s cubic-bezier(0.2, 1, 0.3, 1);
-                box-shadow: 0 0 15px rgba(197, 160, 89, 0.8);
-                
-            }
-            .vibrant-line:hover {
-                width: 750px;
-                background: linear-gradient(90deg, transparent, #c5a059, #ffffff, #c5a059, transparent);
-                box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.6);
-            }
-        * { box-sizing: border-box; max-width: 100%;}
-            p {
-                font-size: 1rem;
-                font-weight: 300;
-                letter-spacing: 5px;
-                color: #888;
-                margin: 0;
-                text-transform: uppercase;
-            }
-            input, textarea, select {
-                font-size: 16px !important;
-            }
-             @keyframes LaserStrike {
-                0% { width: 0; opacity: 0; }
-                20% { opacity: 1; }
-                100% { width: 100%; opacity: 1; }
-             }
-             @keyframes cinematicIntro {
-                0% { opacity: 0; filter: blur(15px); transform: scale(1.1); letter-spacing: 15px; }
-                100% { opacity: 1; filter: blur(0px); transform: scale(1); letter-spacing: 6px; text-shadow: 0 0 15px rgba(197, 160, 89, 0.6); }
-            }
-            @keyframes shimmer {
-                0% { transform: translateX(-100%); }
-                100% { transform: translateX(100%); }
-            }
-            /*styling the main logo*/
-            .main-logo {
-                height: 100px !important;
-                width: auto !important;
-                display: block !important;
-                margin: 0 auto !important;
-                will-change: filter;
-                filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.8));
-            }
-            .video-label {
-               position: absolute !important;
-               top: 50% !important;
-               left: 50% !important;
-               transform: translate(-50%, -50%) !important;
-               width: 90%;
-               z-index: 20;
-               background: transparent !important;
-               text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8);
-
-            }
-            .video-label .main-title {
-                color: #c5a059;
-                font-family: 'Cinzel', serif;
-                font-size: 1.8rem;
-                display: block;
-                text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-            }
-            .video-label .micro-desc {
-                color: #ffff;
-                font-size: 1rem !important;
-                font-family: 'Playfair Display', serif;
-                font-style: italic;
-                text-transform: none;
-            }
-
-            #contact, footer {
-                width: 100% !important;
-                display: block;
-                clear: both !important;
-                text-align: center !important;
-            
-            }
+           
               @media (max-width: 767px) {    /*******IPHONE SECTION********/
                 .main-logo {
                     height: 45px !important;
