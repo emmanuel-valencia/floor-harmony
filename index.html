@@ -13,17 +13,16 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
         <title>Floor Harmony</title>
         <style>
             html, body {
-                height: 100% !important;
-                width: 100% !important;
+                height: auto !important;
+                min-height: 100vh !important;
                 margin: 0 !important;
                 padding: 0 !important;
-                overflow: hidden !important;
+                overflow-x: hidden !important;
+                overflow-y: visible !important;
                 background: #3d0101 !important;
                 color: white !important;
-                touch-action: none !important;
                 font-family: 'Cinzel', serif !important;
-                -webkit-font-smoothing: antialiased;
-                scroll-behavior: smooth !important;
+
             }
             .main-title {
                 display: block !important;
@@ -49,14 +48,14 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             @keyframes silverShine {
                 to { background-position: 200% center; }
             }
-            section:not(#quote-form-container), .video-wrapper {
-                scroll-snap-align: start !important;
-                scroll-snap-stop: always !important;
+            .video-wrapper {
                 height: 100vh !important;
                 width: 100% !important;
                 display: flex !important;
                 position: relative !important;
                 overflow: hidden !important;
+                scroll-snap-align: none !important;
+                scroll-snap-stop: normal !important;
             }
             .video-box {
                 width: 100% !important;
@@ -65,11 +64,10 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 display: block !important;
             }
             #main-wrapper {
-                scroll-snap-type: y mandatory !important;
-                height: 100vh !important;
-                overflow-y: auto !important;
-                overflow-x: hidden !important;
-                -webkit-overflow-scrolling: touch !important;
+                scroll-snap-type: none !important;
+                height: auto !important;
+                min-height: 100vh !important;
+                overflow: visible !important;
             }
             .skip-intro #splash-screen {
                 display: none !important;
@@ -313,14 +311,13 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     background-color: #d4af37 !important;
                 }
                 #quote-form-container {
-                    padding-top: 80px !important;
-                    padding-bottom: 40px !important;
+                    padding-top: 100px !important;
+                    padding-bottom: 100px !important;
                     min-height: 100vh !important;
                     display: block !important;
                     position: relative !important;
-                    width: 100% !important;
-                    scroll-snap-align: start !important;
-                    scroll-snap-stop: always !important;
+                    scroll-snap-align: none !important;
+                    scroll-snap-stop: normal !important;
 
                 }
                 }
@@ -447,6 +444,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
     </div>
      <div class="vibrant-line" style="margin: 0 auto; width: 80%; height: 1px; background: #c5a059"></div>
         <p style="text-align: center; margin: 5px 0; color: #fff; letter-spacing: 2px; font-size: 0.9rem;">Streaming Quality Carpets.</p>
+    </div>
     <div id="nav-drawer" style="position: fixed; top: 0; right: -100%; width: 250px; height: 100%; background: #002229; transition: 0.5s; z-index: 2000; box-shadow: -5px 0 15px rgba(0,0,0,0.5); padding-top: 60px; font-family: 'Cinzel', serif;">
     <div id="close-btn" style="position: absolute; top: 15px; right: 20px; color: #f5f5f5; font-size: 2rem; cursor: pointer; font-family: Arial, sans-serif;">&times</div>
     <a href="gallery.html" style="display: block; padding: 15px; color: #f5f5f5; font-family: Arial, sans-serif; border-bottom: 1px solid rgba(197, 160, 89, 0.3);">Gallery</a>
