@@ -21,7 +21,6 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 background: #3d0101 !important;
                 color: white !important;
                 font-family: 'Cinzel', serif !important;
-                touch-action: none !important;
 
             }
             .main-title {
@@ -69,7 +68,6 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 min-height: 100vh !important;
                 overflow-y: scroll !important;
                 overflow-x: hidden !important;
-                touch-action: pan-y !important;
             }
             .skip-intro #splash-screen {
                 display: none !important;
@@ -99,7 +97,6 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
              .video-wrapper {
                 height: 100vh !important;
                 scroll-snap-align: start !important;
-                scroll-snap-stop: always !important;
                 pointer-events: auto !important;
             }
             #vid-1 { animation-delay: 0.2s; }
@@ -313,13 +310,13 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     background-color: #d4af37 !important;
                 }
                 #quote-form-container {
+                    height: 100vh !important;
                     padding-top: 100px !important;
                     padding-bottom: 100px !important;
                     min-height: 100vh !important;
                     display: block !important;
                     position: relative !important;
-                    scroll-snap-align: none !important;
-                    scroll-snap-stop: normal !important;
+                    scroll-snap-align: start !important;
 
                 }
                 }
