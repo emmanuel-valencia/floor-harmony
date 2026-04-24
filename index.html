@@ -14,7 +14,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
         <style>
             html, body {
                 height: 100% !important;
-                scroll-snap-type: proximity !important;
+                scroll-snap-type: y mandatory !important;
                 margin: 0 !important;
                 padding: 0 !important;
                 overflow: scroll !important;
@@ -316,7 +316,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     min-height: 100vh !important;
                     display: block !important;
                     position: relative !important;
-                    scroll-snap-align: none !important;
+                    scroll-snap-align: start !important;
 
                 }
                 }
