@@ -14,6 +14,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
         <style>
             html, body {
                 height: 100% !important;
+                scroll-snap-type: y mandatory !important;
                 margin: 0 !important;
                 padding: 0 !important;
                 overflow: visible !important;
@@ -62,7 +63,6 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 display: block !important;
             }
             #main-wrapper {
-                scroll-snap-type: y mandatory !important;
                 height: 100vh !important;
                 min-height: 100vh !important;
                 overflow-y: auto !important;
@@ -315,7 +315,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     min-height: 100vh !important;
                     display: block !important;
                     position: relative !important;
-                    scroll-snap-align: start !important;
+                    scroll-snap-align: end !important;
 
                 }
                 }
