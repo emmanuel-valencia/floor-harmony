@@ -14,16 +14,16 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
         <style>
             html, body {
                 height: 100% !important;
-                min-height: 100vh !important;
+                width: 100% !important;
                 margin: 0 !important;
                 padding: 0 !important;
-                overflow-x: hidden !important;
-                overflow-y: hidden !important;
+                overflow: hidden !important;
                 background: #3d0101 !important;
                 color: white !important;
                 font-family: 'Cinzel', serif !important;
+                -webkit-font-smoothing: antialiased;
                 scroll-behavior: smooth !important;
-                scroll-snap-type: none!important;
+                scroll-snap-type: none !important;
             }
             .main-title {
                 display: block !important;
@@ -68,7 +68,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 scroll-snap-type: y mandatory !important;
                 height: 100vh !important;
                 overflow-y: scroll !important;
-                overflow-x: hidden !important;
+                -webkit-overflow-scrolling: touch !important;
             }
             .skip-intro #splash-screen {
                 display: none !important;
@@ -102,6 +102,8 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 animation: fadeInUp 0.8s ease-out forwards;
                 will-change: transform, opacity;
                 height: 100vh !important;
+                scroll-snap-align: start !important;
+                scroll-snap-stop: always !important;
             }
             #vid-1 { animation-delay: 0.2s; }
             #vid-2 { animation-delay: 0.6s; }
