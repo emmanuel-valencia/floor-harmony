@@ -65,8 +65,9 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             }
             #main-wrapper {
                 scroll-snap-type: y mandatory !important;
-                height: auto !important;
-                overflow-y: visible !important;
+                height: 100vh !important;
+                overflow-y: scroll !important;
+                overflow-x: hidden !important;
             }
             .skip-intro #splash-screen {
                 display: none !important;
@@ -312,10 +313,11 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     background-color: #d4af37 !important;
                 }
                 #quote-form-container {
-                    padding-top: 60px !important;
+                    padding-top: 80px !important;
                     padding-bottom: 20px !important;
                     min-height: 100vh !important;
                     display: block !important;
+                    position: relative !important;
                     scroll-snap-align: start !important;
                     scroll-snap-stop: normal !important;
 
