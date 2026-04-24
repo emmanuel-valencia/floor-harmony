@@ -20,10 +20,10 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 overflow: hidden !important;
                 background: #3d0101 !important;
                 color: white !important;
+                touch-action: none !important;
                 font-family: 'Cinzel', serif !important;
                 -webkit-font-smoothing: antialiased;
                 scroll-behavior: smooth !important;
-                scroll-snap-type: none !important;
             }
             .main-title {
                 display: block !important;
@@ -67,7 +67,8 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             #main-wrapper {
                 scroll-snap-type: y mandatory !important;
                 height: 100vh !important;
-                overflow-y: scroll !important;
+                overflow-y: auto !important;
+                overflow-x: hidden !important;
                 -webkit-overflow-scrolling: touch !important;
             }
             .skip-intro #splash-screen {
@@ -96,14 +97,10 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 right: 0 !important;
             }
              .video-wrapper {
-                opacity: 1 !important;
-                position: relative !important;
-                z-index: 1 !important;
-                animation: fadeInUp 0.8s ease-out forwards;
-                will-change: transform, opacity;
                 height: 100vh !important;
                 scroll-snap-align: start !important;
                 scroll-snap-stop: always !important;
+                pointer-events: auto !important;
             }
             #vid-1 { animation-delay: 0.2s; }
             #vid-2 { animation-delay: 0.6s; }
