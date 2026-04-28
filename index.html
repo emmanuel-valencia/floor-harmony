@@ -308,15 +308,28 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 }
                  #quote-form-container {
                     width: 100% !important;
-                    background-color: #efadadad !important;
+                    background-color: #05180fad !important;
                     min-height: 100vh !important;
+                    display: flex !important;
+                    flex-direction: column !important;
+                    align-items: center !important;
+                    justify-content: flex-start !important;
+                    padding-top: 100px !important;
                     position: relative !important;
                     z-index: 99 !important;
-                    display: block !important;
                     scroll-snap-align: start !important;
-                    clear: both !important;
-                    margin: 0 !important;
 
+                }
+                .quote-box-inner {
+                    width: 90% !important;
+                    max-width: 600px !important;
+                    text-align: center !important;
+                }
+                #quote-title {
+                    font-family: 'Cinzel', serif !important;
+                    color: #c5a059 !important;
+                    font-size: 2.5rem !important;
+                    margin-bottom: 30px !important;
                 }
             }
                 @media (min-width: 1025px) { /********** Desktop part************/
@@ -483,6 +496,10 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
     </div>
     </div>
     <section id="quote-form-container">
+        <div class="quote-box-inner">
+            <h2 id="quote-title">Request a Free Quote</h2>
+            <form id="actual-quote-form"></form>
+        </div>
     </section>
     <footer style="text-align: center; padding: 40px 20px; color: #c5a059; border-top: 1px solid rgba(197, 160, 89, 0.3); margin-top: 50px;">
     <p style="margin: 0; font-weight: bold; letter-spacing: 2px; font-family: 'Cinzel', serif;">FLOOR HARMONY</p>
