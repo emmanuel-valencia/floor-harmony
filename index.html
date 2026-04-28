@@ -215,12 +215,9 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             }
             @media only screen and (min-width: 768px) and (max-width: 1024px) { /************Tablet section*************/
                 header {
-                    pointer-events: auto !important;
-                    position: relative !important;
-                    width: 100% !important;
-                    background: #3d0101 !important;
-                    z-index: 1000 !important;
-                    display: block !important;
+                position: relative !important;
+                background: #3d0101 !important;
+                width: 100% !important;
                 }
                 #nav-drawer {
                     top: 70px !important;
@@ -309,24 +306,13 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 }
                  #quote-form-container {
                     width: 100% !important;
-                    background-color: #0e3d5edc !important;
-                    display: flex !important;
-                    flex-direction: column !important;
-                    align-items: center !important;
-                    justify-content: flex-start !important;
-                    padding-top: 60px !important;
-                    padding-bottom: 60px !important;
+                    background-color: #ffffff !important;
+                    min-height: 500px !important;
                     margin: 0 !important;
-                    height: auto !important;
+                    padding: 0 !important;
+                    display: block !important;
                 }
-                .quote-title-wrapper {
-                    width: 100% !important;
-                    margin-bottom: 40px !important;
-                }
-                #quote-title {
-                    font-size: 3rem !important;
-                }
-                }
+            }
                 @media (min-width: 1025px) { /********** Desktop part************/
                .desktop-phone {
                     font-size: 1.5rem !important;
@@ -374,7 +360,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 to { opacity: 1; transform: translateY (0); }
             }
            
-              @media (max-width: 767px) {    /*******IPHONE SECTION********/
+              @media (max-width: 767px) {
                 .main-logo {
                     height: 45px !important;
                     width: auto !important;
@@ -422,14 +408,6 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     height: 100% !important;
                     object-fit: cover !important;
                 }
-            }
-            #quote-title {
-                font-family: 'Cinzel', serif !important;
-                color: #c5a059 !important;
-                text-align: center !important;
-                display: block !important;
-                font-weight: bold !important;
-
             }
 </style>
 </head>
@@ -499,20 +477,6 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
     </div>
     </div>
     <section id="quote-form-container">
-        <div class="quote-title-wrapper">
-    <h2 id="quote-title">Request A Free Quote</h2>
-    </div>
-    <form action="https://formspree.io/f/maqleybw" method="POST" target="hidden_iframe" onsubmit="setTimeout(function() { window.location.href='thank-you.html'; }, 500);" style="margin-top: 50px !important;">
-    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-    <input type="text" name="name" placeholder="Your Name" style="width: 100%; padding: 15px; margin-bottom: 15px; background: rgba(255, 255, 255, 0.1); border: 1px solid #c5a059; color: white; border-radius: 10px; font-size: 16px;" required>  
-    <input type="email" name="email" placeholder="Your Email" style="width: 100%; padding: 15px; margin-bottom: 15px; background: rgba(255,255,255,0.05); border: 1px solid #c5a059; color: white; border-radius: 10px; font-size: 16px;" required>
-    <label for="phone" style="display: block; color: #c5a059; font-family: 'Cinzel', serif; margin-bottom: 5px; text-align: left;">Phone Number</label>
-    <input type="tel" id="phone" name="phone" placeholder="303-913-0327" style="width: 100%; padding: 15px; margin-bottom: 15px; background: rgba(255, 255, 255, 0.1); border: 1px solid #c5a059; color: white; border-radius: 5px; box-sizing: border-box; display: block;" requiered>
-    <select name="carpet_type" style="width: 100%; padding: 15px; margin-bottom: 15px; background: rgba(255, 255, 255, 0.1); border: 1px solid #c5a059; color: #aaa; border-radius: 5px; box-sizing: border-box; display: block; appearance: none; -webkit-appearance: none;">
-    <option value="" disabled selected hidden style="background: #333; color: #aaa; ">Select Your Carpet Choice</option><option value="property_pro" style="background: #333;">The Property Pro (Pro Grade) </option><option value="everyday_home" style="background: #333; ">The Everyday Home (Durability)</option><option value="elite_comfort" style="background: #333; ">The Elite Comfort (Premium)</option>
-    <textarea name="message" placeholder="Tell us about your project..." rows="5" style="width: 100%; padding: 15px; margin-bottom: 20px; background: rgba(255,255,255,0.05); border: 1px solid #c5a059; color: white; border-radius: 8px;"></textarea>
-    <button type="submit" onmouseover="this.style.boxShadow= '0 0 20px #ffd700';" onmouseout="this.style.boxShadow= 'none';" style="background: #c5a059; color:black; padding: 18px; border:none; font-weight: bold; border-radius: 8px; cursor: pointer; transition: 0.3s; width: 100%;">SUBMIT REQUEST</button>
-    </form>
     </section>
     <footer style="text-align: center; padding: 40px 20px; color: #c5a059; border-top: 1px solid rgba(197, 160, 89, 0.3); margin-top: 50px;">
     <p style="margin: 0; font-weight: bold; letter-spacing: 2px; font-family: 'Cinzel', serif;">FLOOR HARMONY</p>
