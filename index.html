@@ -225,7 +225,9 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     height: auto !important;
                 }
                 #video-container-main {
-                    display: flex !important;
+                    overflow: hidden !important;
+                    position: relative !important;
+                    display: block !important;
                     flex-direction: column !important;
                     align-items: center !important;
                     width: 100% !important;
@@ -306,8 +308,11 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 }
                  #quote-form-container {
                     width: 100% !important;
-                    background-color: #ffffff !important;
-                    min-height: 500px !important;
+                    background-color: #efadadad !important;
+                    min-height: 600px !important;
+                    position: relative !important;
+                    z-index: 10 !important;
+                    clear: both !important;
                     margin: 0 !important;
                     padding: 0 !important;
                     display: block !important;
