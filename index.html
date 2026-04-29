@@ -13,10 +13,12 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
         <title>Floor Harmony</title>
         <style>
             html, body {
-                height: auto !important;
+                height: 100% !important;
                 margin: 0 !important;
                 padding: 0 !important;
-                background: #0317af !important;
+                overflow-x: hidden !important;
+                scroll-snap-type: y mandatory !important;
+                background: #3d0101 !important;
                 color: white !important;
                 font-family: 'Cinzel', serif !important;
             }
@@ -45,8 +47,8 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 to { background-position: 200% center; }
             }
             .video-wrapper {
-                height: 100vh !important;
                 width: 100% !important;
+                height: 100vh !important;
                 position: relative !important;
                 scroll-snap-align: start !important;
                 scroll-snap-stop: always !important;
@@ -58,12 +60,9 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 display: block !important;
             }
             #main-wrapper {
-                height: 100vh !important;
+                height: auto !important;
                 width: 100% !important;
-                overflow-y: scroll !important;
-                scroll-snap-type: y mandatory !important;
-                scroll-behavior: smooth;
-                position: relative;
+                display: block !important;
             }
             .skip-intro #splash-screen {
                 display: none !important;
