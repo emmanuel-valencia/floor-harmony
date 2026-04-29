@@ -13,7 +13,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
         <title>Floor Harmony</title>
         <style>
             html, body {
-                height: 100% !important;
+                height: auto !important;
                 scroll-snap-type: y mandatory !important;
                 margin: 0 !important;
                 padding: 0 !important;
@@ -60,7 +60,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 display: block !important;
             }
             #main-wrapper {
-                height: 100vh !important;
+                height: auto !important;
                 min-height: 100vh !important;
                 overflow-y: auto !important;
                 overflow-x: hidden !important;
@@ -235,10 +235,15 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     height: auto !important;
                 }
                 .video-wrapper {
+                    position: relative !important;
+                    width: 100% !important;
+                    height: 100vh !important;
                     display: flex !important;
                     flex-direction: column !important;
                     justify-content: center !important;
                     align-items: center !important;
+                    scroll-snap-align: start !important;
+                    scroll-snap-stop: always !important;
                     overflow: hidden !important;
                 }
                 .video-box {
