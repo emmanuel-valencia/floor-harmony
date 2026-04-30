@@ -435,6 +435,21 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     opacity: 1;
                     text-shadow: 1px 1px 5px rgba(0, 0, 0, 1) !important;
                 }
+                 .hero-cta, a[href="#quote-form-container"] {
+                    display: inline-block !important;
+                    background-color: #c5a059 !important;
+                    color: #000000 !important;
+                    padding: 12px 25px !important;
+                    text-decoration: none !important;
+                    font-weight: 700 !important;
+                    transition: none !important;
+                    touch-action: manipulation !important;
+                    cursor: pointer !important;
+                }
+                .hero-cta:hover {
+                    transform: scale(1.05);
+                    background-color: #d4af37 !important;
+                }
                 
                 .video-wrapper {
                     position: relative !important;
@@ -451,18 +466,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     height: 100% !important;
                     object-fit: cover !important;
                 }
-                .video-box a.hero-cta {
-                    display: block !important;
-                    width: fit-content !important;
-                    margin: 20px auto !important;
-                    color: #000000 !important;
-                    background-color: #ffffff !important;
-                    text-decoration: none !important;
-                    padding: 12px 25px !important;
-                    border-radius: 5px !important;
-                    font-weight: 700 !important;
-                    text-transform: uppercase !important;
-                }
+    
                 #quote-form-container {
                     width: 100% !important;
                     min-height: 100vh !important;
