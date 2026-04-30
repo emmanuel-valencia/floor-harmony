@@ -488,7 +488,19 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
     <section id="quote-form-container">
         <div class="quote-box-inner">
             <h2 id="quote-title">Request a Free Quote</h2>
-            <form id="actual-quote-form"></form>
+            <form id="actual-quote-form" action="https://formspree.io/f/https://formspree.io/f/maqleybw" method="POST">
+                <input type="hidden" name="_next" value="https://emmanuel-valencia.github.io/thank-you.html">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+                <input type="email" name="email" placeholder="Email Adress" required>
+                <select name="carpet-selection" required>
+                    <option value="" disabled selected>Which carpet option are you intersted in?</option>
+                    <option value="Elite Comfort">The Elite Comfort (Premium Berber)</option>
+                    <option value="Everyday Home">The Everyday Home (Residential Blend)</option>
+                    <option value="Property Pro">The Property Pro (Fast-Turnarounds)</option>
+                </select>
+                <button type="submit" class="hero-cta">Submit Request</button>
+            </form>
         </div>
     </section>
     <footer style="text-align: center; padding: 40px 20px; color: #c5a059; border-top: 1px solid rgba(197, 160, 89, 0.3); margin-top: 50px;">
