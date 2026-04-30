@@ -375,6 +375,18 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
             }
            
               @media (max-width: 767px) { /*Iphone section/*/
+                .header-container {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: auto !important;
+                z-index: 9999 !important;
+                background: #320000 !important;
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                }
                 .main-logo {
                     height: 45px !important;
                     width: auto !important;
@@ -394,17 +406,14 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     width: 100%;
                     margin-right: 40px;                
                 }
-                .header-container {
-                position: fixed !important;
-                top: 0 !important;
-                left: 0 !important;
-                width: 100% !important;
-                height: auto !important;
-                z-index: 9999 !important;
-                background: #320000 !important;
-                display: flex !important;
-                justify-content: space-between !important;
-                align-items: center !important;
+                .video-label {
+                    position: absolute !important;
+                    top: 50% !important;
+                    left: 50% !important;
+                    transform: translate(-50%, -50%) !important;
+                    text-align: center !important;
+                    z-index: 10 !important;
+                    pointer-events: auto !important;
                 }
                 
                 .video-wrapper {
