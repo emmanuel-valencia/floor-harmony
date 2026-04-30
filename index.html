@@ -398,7 +398,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                 to { opacity: 1; transform: translateY (0); }
             }
            
-              @media (max-width: 767px) {
+              @media (max-width: 767px) { /*Iphone section/*/
                 .main-logo {
                     height: 45px !important;
                     width: auto !important;
@@ -424,13 +424,7 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     align-items: center;
                     padding: 10px 15px;
                 }
-                #video-container-main {
-                    display: flex !important;
-                    flex-direction: column !important;
-                    width: 100% !important;
-                    margin-top: 0 !important;
-                    gap: 0        
-                }
+                
                 .video-wrapper {
                     position: relative !important;
                     width: 100% !important;
@@ -445,6 +439,33 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     width: 100% !important;
                     height: 100% !important;
                     object-fit: cover !important;
+                }
+                #quote-form-container {
+                    padding-top: 80px !important;
+                    min-height: 100vh !important;
+                    display: flex !important;
+                    flex-direction: column !important;
+                    align-items: center !important;
+                }
+                #actual-quote-form {
+                    width: 95% !important;
+                    gap: 15px !important;
+                }
+                #actual-quote-form input,
+                #actual-quote-form select {
+                    width: 100% !important;
+                    height: 50px !important;
+                    font-size: 16px !important;
+                    background: rgba(255, 255, 255, 0.05) !important;
+                    border: 2px solid #c5a059 !important;
+                    border-radius: 10px !important;
+                    color: white !important;
+                }
+                #actual-quote-form button.hero-cta {
+                    width: 80% !important;
+                    padding: 15px !important;
+                    font-size: 1rem !important;
+                    margin-top: 10px !important;
                 }
             }
 </style>
