@@ -334,39 +334,35 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     font-weight: 600;
                 }
                 #video-container-main {
-                    display: flex !important;
-                    flex-direction: row !important;
-                    flex-wrap: nowrap !important;
-                    justify-content: space-evenly!important;
+                    display: block !important;
                     width: 100% !important;
-                    align-items: flex-start !important;        
+                    height: auto !important;
                 }
                 .video-wrapper {
-                    width: 48% !important;
-                    margin: 10px !important;
+                    width: 100% !important;
+                    height: 100vh !important;
+                    position: relative !important;
                 }
                 .video-box {
-                    width: 100% !important;
-                    aspect-ratio: 16 / 9 !important;
-                    object-fit: cover !important;
-                }
-                .desktop-only {
-                    display: block !important;
+                    width: 50% !important;
+                    height: 100vh !important;
                     position: absolute !important;
-                    top: 50% !important;
-                    left: 10% !important;
-                    transform: translateY(-50%) !important;
-                    width: 500px !important;
-                    height: 500px !important;
-                    z-index: 10 !important;
-                    border-radius: 40px;
-                    overflow: hidden;
-                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    left: 0 !important;
+                    top: 0 !important;
+                    filter: brightness(0.7) contrast(1.1) !important;
                 }
-                .desktop-only video {
+                .video-box video {
                     width: 100% !important;
                     height: 100% !important;
                     object-fit: cover !important;
+                }
+                .video-label {
+                    position: absolute !important;
+                    top: 50% !important;
+                    left: 75% !important;
+                    transform: translate(-50%, -50%) !important;
+                    width: 40% !important;
+                    text-align: left !important;
                 }
                 }
            @keyframes fadeInUp {
