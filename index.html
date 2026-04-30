@@ -440,12 +440,27 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     height: 100% !important;
                     object-fit: cover !important;
                 }
+                .video-box a.hero-cta {
+                    color: #000000 !important;
+                    background-color: #c5a059 !important;
+                    text-decoration: none !important;
+                    padding: 10px 20px !important;
+                    border-radius: 5px !important;
+                    font-weight: 700 !important;
+                    display: inline-block !important;
+                }
                 #quote-form-container {
-                    padding-top: 80px !important;
+                    width: 100% !important;
                     min-height: 100vh !important;
                     display: flex !important;
                     flex-direction: column !important;
                     align-items: center !important;
+                    justify-content: center !important;
+                    background-color: #440a0a !important;
+                    scroll-snap-align: start !important;
+                    scroll-snap-stop: always !important;
+                    padding: 20px !important;
+                    box-sizing: border-box !important;
                 }
                 #actual-quote-form {
                     width: 95% !important;
@@ -462,10 +477,15 @@ if (sessionStorage.getItem( 'comingFromSubpage' )) {
                     color: white !important;
                 }
                 #actual-quote-form button.hero-cta {
-                    width: 80% !important;
-                    padding: 15px !important;
-                    font-size: 1rem !important;
-                    margin-top: 10px !important;
+                    background-color: #c5a059 !important;
+                    color: #000000 !important;
+                    font-weight: 700 !important;
+                    border: none !important;
+                    width: 100% !important;
+                    height: 55px !important;
+                    border-radius: 10px !important;
+                    font-size: 1.1rem !important;
+                    cursor: pointer !important;
                 }
             }
 </style>
