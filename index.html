@@ -767,46 +767,60 @@
             .mobile-only-video { display: block; }
             .desktop-only-video { display: none; }
             
-            /* Re-center the hero section for mobile */
-            .video-wrapper { align-items: center; }
-            
-            /* Change vignette to a full-screen center gradient for perfect readability */
-            .video-wrapper::after { 
-                width: 100%; 
-                background: radial-gradient(circle at center, rgba(0,7,10,0.6) 0%, rgba(0,7,10,0.85) 100%);
+            /* The Bottom-Anchor Technique for Videos */
+            .video-wrapper { 
+                justify-content: flex-end; /* Pushes content to the bottom */
+                padding-bottom: 60px; /* Gives breathing room from the bottom edge */
             }
             
-            /* Strip desktop margins and borders, center text perfectly */
+            /* Bottom-heavy gradient so the top of the video is crystal clear */
+            .video-wrapper::after { 
+                width: 100%; 
+                background: linear-gradient(to top, rgba(0,7,10,1) 0%, rgba(0,7,10,0.7) 45%, transparent 100%);
+            }
+            
+            /* Perfectly scaled and positioned text block */
             .video-label {
                 margin-left: 0;
                 padding-left: 0;
                 border-left: none;
-                left: 50%;
-                transform: translate(-50%, -50%);
+                left: 0;
+                transform: none; /* Removes the dead-center alignment */
                 text-align: center;
-                width: 95%; 
+                width: 100%; 
+                padding: 0 20px;
                 box-shadow: none;
             }
             
-            .main-title { font-size: 2.8rem; letter-spacing: 3px; }
-            .micro-desc { font-size: 1.2rem; margin-bottom: 25px; }
+            /* Scaled down UI elements for elegance */
+            .main-title { font-size: 2.1rem; letter-spacing: 2px; margin-bottom: 2px; }
+            .micro-desc { font-size: 1rem; margin-bottom: 20px; }
             
-            /* Stack the buttons vertically and make them full width */
             .cta-group {
                 flex-direction: column;
-                gap: 12px;
+                gap: 10px;
                 width: 100%;
                 justify-content: center;
+                align-items: center;
             }
             
             .hero-cta, .details-trigger {
                 width: 100%;
-                max-width: 400px;
-                height: 55px;
+                max-width: 320px; /* Slightly narrower buttons so they don't look bulky */
+                height: 48px; /* Slightly shorter for a sleeker profile */
+                font-size: 0.85rem;
             }
             
-            .featured-section { padding-top: 140px; }
-            .featured-title { font-size: 2.2rem; margin-bottom: 25px; letter-spacing: 4px; }
+            .featured-section { padding-top: 80px; }
+            
+            /* Fixed Craftsmanship Title: Scaled down and centered */
+            .featured-title { 
+                font-size: 1.8rem; /* Much smaller so it fits beautifully */
+                margin-bottom: 25px; 
+                letter-spacing: 3px; 
+                text-align: center; /* Forces perfect centering */
+                width: 100%;
+            }
             
             .featured-grid {
                 justify-content: flex-start;
@@ -822,15 +836,14 @@
                 height: 340px;
             }
             
-            .quote-section { padding-top: 140px; }
+            .quote-section { padding-top: 100px; }
             .quote-box-inner { padding: 35px 20px; width: 95%; }
-            .quote-title { font-size: 2rem; }
-            .quote-form input, .quote-form select { height: 50px; }
+            .quote-title { font-size: 1.8rem; }
+            .quote-form input, .quote-form select { height: 45px; }
         }
         
         .skip-intro #splash-screen { display: none; }
     </style>
-
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
