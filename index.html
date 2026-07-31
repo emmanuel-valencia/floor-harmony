@@ -730,12 +730,12 @@
         
         .service-area {
             padding: 100px 20px;
-            background: #000406; /* Deep luxurious black */
+            background: #000406; 
             display: flex;
             justify-content: center;
             align-items: center;
+            scroll-snap-align: start; /* Adds the magnetic scroll lock */
         }
-
         .service-content {
             max-width: 1200px;
             width: 100%;
@@ -807,9 +807,10 @@
             100% { transform: scale(2.5); opacity: 0; }
         }
 
-        .reviews-section {
+       .reviews-section {
             padding: 100px 20px;
             background: #05080c;
+            scroll-snap-align: start; /* Adds the magnetic scroll lock */
         }
 
         .reviews-grid {
