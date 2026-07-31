@@ -725,6 +725,158 @@
         .desktop-only-video { display: block; }
 
         /* ========================================= */
+        /* SERVICE AREA & REVIEWS STYLES             */
+        /* ========================================= */
+        
+        .service-area {
+            padding: 100px 20px;
+            background: #000406; /* Deep luxurious black */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .service-content {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .map-visual {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            margin: 40px auto 0;
+            background: linear-gradient(145deg, #0a1118, #05080c);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.8);
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            /* Creates a subtle grid pattern to look technical and high-end */
+            background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .map-marker {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2;
+        }
+
+        /* Denver roughly center-right, Lakewood slightly bottom-left of it */
+        .denver-marker { top: 40%; left: 55%; }
+        .lakewood-marker { top: 48%; left: 45%; }
+
+        .pulse-ring {
+            width: 15px;
+            height: 15px;
+            background: #d4af37;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .pulse-ring::after {
+            content: '';
+            position: absolute;
+            top: -10px; left: -10px; right: -10px; bottom: -10px;
+            border: 2px solid #d4af37;
+            border-radius: 50%;
+            animation: radarPulse 2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        .city-name {
+            color: #fff;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            margin-top: 8px;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        @keyframes radarPulse {
+            0% { transform: scale(0.5); opacity: 1; }
+            100% { transform: scale(2.5); opacity: 0; }
+        }
+
+        .reviews-section {
+            padding: 100px 20px;
+            background: #05080c;
+        }
+
+        .reviews-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .review-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            padding: 40px;
+            flex: 1;
+            border-radius: 4px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        .dynamic-stars {
+            color: #333; /* Dimmed base color */
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .dynamic-stars span {
+            display: inline-block;
+            animation: starShimmer 3s infinite linear;
+        }
+
+        /* Staggering the animation for each star to create a sweeping motion */
+        .dynamic-stars span:nth-child(1) { animation-delay: 0.0s; }
+        .dynamic-stars span:nth-child(2) { animation-delay: 0.2s; }
+        .dynamic-stars span:nth-child(3) { animation-delay: 0.4s; }
+        .dynamic-stars span:nth-child(4) { animation-delay: 0.6s; }
+        .dynamic-stars span:nth-child(5) { animation-delay: 0.8s; }
+
+        /* The second review card pulses at a slightly different time */
+        .delay-1 span { animation-delay: 1.5s !important; }
+
+        @keyframes starShimmer {
+            0%, 100% { color: #333; text-shadow: none; }
+            50% { color: #d4af37; text-shadow: 0 0 10px rgba(212, 175, 55, 0.8); }
+        }
+
+        .review-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #ddd;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .review-author {
+            color: #d4af37;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        /* ========================================= */
         /* TABLET SPECIFIC (768px - 1024px)          */
         /* ========================================= */
         @media only screen and (min-width: 768px) and (max-width: 1024px) {
@@ -840,9 +992,19 @@
             .quote-box-inner { padding: 35px 20px; width: 95%; }
             .quote-title { font-size: 1.8rem; }
             .quote-form input, .quote-form select { height: 45px; }
+
         }
         
         .skip-intro #splash-screen { display: none; }
+        /* Add this inside your max-width: 767px media query */
+            .service-area { padding: 80px 15px; }
+            .map-visual { height: 280px; }
+            
+            .reviews-grid { 
+                flex-direction: column; 
+                gap: 20px; 
+            }
+            .review-card { padding: 30px 20px; }
     </style>
     <script type="application/ld+json">
         {
@@ -1012,6 +1174,57 @@
             
             <div class="gallery-btn-container">
                 <a href="gallery.html" class="gallery-btn">View Full Gallery</a>
+            </div>
+        </section>
+
+        <!-- ========================================= -->
+        <!-- SERVICE AREA SECTION                      -->
+        <!-- ========================================= -->
+        <section class="service-area">
+            <div class="service-content">
+                <h2 class="featured-title">OUR TERRITORY</h2>
+                <div class="vibrant-line"></div>
+                <p class="micro-desc">Proudly elevating spaces across Colorado, with dedicated installation teams servicing Denver, Lakewood, and surrounding areas.</p>
+                
+                <div class="map-visual">
+                    <div class="map-overlay"></div>
+                    <div class="map-marker denver-marker">
+                        <div class="pulse-ring"></div>
+                        <span class="city-name">Denver</span>
+                    </div>
+                    <div class="map-marker lakewood-marker">
+                        <div class="pulse-ring"></div>
+                        <span class="city-name">Lakewood</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================= -->
+        <!-- DYNAMIC REVIEWS SECTION                   -->
+        <!-- ========================================= -->
+        <section class="reviews-section">
+            <h2 class="featured-title" style="text-align: center;">CLIENT ACCLAIM</h2>
+            <div class="vibrant-line" style="margin: 0 auto 40px auto;"></div>
+            
+            <div class="reviews-grid">
+                <!-- Review Card 1 -->
+                <div class="review-card">
+                    <div class="dynamic-stars">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="review-text">"The attention to detail on our Lakewood property was entirely unmatched. Floor Harmony completely transformed the space."</p>
+                    <p class="review-author">- Sarah M.</p>
+                </div>
+                
+                <!-- Review Card 2 -->
+                <div class="review-card">
+                    <div class="dynamic-stars delay-1">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="review-text">"True software engineering applied to physical craftsmanship. The plush nylon is incredible."</p>
+                    <p class="review-author">- David R., Denver</p>
+                </div>
             </div>
         </section>
 
