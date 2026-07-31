@@ -1,1160 +1,924 @@
 <!DOCTYPE html>
-<html>
-<script>
-if (sessionStorage.getItem( 'comingFromSubpage' )) { 
-    document.write( '<style>#splash-screen { display: none !important; } </style>');
-    document.documentElement.classicList.add( 'skip-intro' );
-    sessionStorage.removeItem( 'comingFromSubpage' );
-    }
-</script>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https//fonts.googleapis.com/css2? family=Cinzel:wght@700&display=swap" rel="stylesheet">
-        <title>Floor Harmony</title>
-        <style>
-            html, body {
-                height: 100% !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                overflow-y: scroll !important;
-                scroll-snap-type: y mandatory !important;
-                background: #002229 !important;
-                color: white !important;
-                font-family: 'Cinzel', serif !important;
-            }
-            .sub-nav {
-                display: flex;
-                justify-content: center;
-                gap: 30px;
-                padding: 15px 0;
-                text-align: center;
-            }
-            .sub-nav a {
-                color: white;
-                text-decoration: none;
-                font-family: Arial, sans-serif;
-                font-size: 0.9rem;
-                transition: color 0.3s ease;
-            }
-            .sub-nav a:hover {
-                color: #c5a059;
-                cursor: pointer;
-            }
-            .video-wrapper {
-                width: 100% !important;
-                height: 100vh !important;
-                position: relative !important;
-                scroll-snap-align: start !important;
-                scroll-snap-stop: always !important;
-                display: block !important;
-            }
-            .video-box {
-                width: 100% !important;
-                height: 100% !important;
-                object-fit: cover !important;
-                display: block !important;
-            }
-            #main-wrapper {
-                height: auto !important;
-                width: 100% !important;
-                display: block !important;
-            }
-            .skip-intro #splash-screen {
-                display: none !important;
-                visibility: hidden !important;
-                opacity: 0 !important;
-            }
-            #nav-drawer {
-                position: fixed !important;
-                top: 0 !important;
-                right: -100% !important;
-                width: 300px !important;
-                height: 100vh !important;
-                background: rgba(0, 26, 26, 0.95) !important;
-                transition: right 0.3s ease-in-out !important;
-                z-index: 1000000 !important;
-            }
-            #nav-drawer a {
-                color: #f5f5f5 !important;
-                text-decoration: none;
-                display: block;
-                padding: 15px;
-                font-family: 'Playfair Display', serif;
-            }
-            #nav-drawer.open {
-                right: 0 !important;
-            }
-
-            #vid-1 { animation-delay: 0.2s; }
-            #vid-2 { animation-delay: 0.6s; }
-            #vid-3 { animation-delay: 0.8s; }
-            
-            @import url( 'https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap');
-            
-            .logo-text {
-                font-family: 'Cinzel' , serif !important;
-                font-size: 3.5rem;
-                letter-spacing: 25px;
-                margin: 20px auto;
-                text-transform: uppercase;
-                display: block;
-            }
-            .gold-brand {
-                color: #c5a059;
-                font-weight: 900;
-                padding-right: 10px;
-                text-shadow: 0 0 15px rgba(197, 160, 89, 0.3);
-            }
-            .white-brand{
-                color: #ffffff;
-                font-weight: 200;
-                opacity: 0.95;
-            }
-            .vibrant-line {
-                width: 750px;
-                height: 3px;
-                margin: 10px auto;
-                background: linear-gradient(90deg, transparent, #c5a059, transparent);
-                transition: width 0.8s cubic-bezier(0.2, 1, 0.3, 1);
-                box-shadow: 0 0 15px rgba(197, 160, 89, 0.8);
-                
-            }
-            .vibrant-line:hover {
-                width: 750px;
-                background: linear-gradient(90deg, transparent, #c5a059, #ffffff, #c5a059, transparent);
-                box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.6);
-            }
-            * { 
-            box-sizing: border-box;
-            }
-            p {
-                font-size: 1rem;
-                font-weight: 300;
-                letter-spacing: 5px;
-                color: #888;
-                margin: 0;
-                text-transform: uppercase;
-            }
-            input, textarea, select {
-                font-size: 16px !important;
-            }
-             @keyframes LaserStrike {
-                0% { width: 0; opacity: 0; }
-                20% { opacity: 1; }
-                100% { width: 100%; opacity: 1; }
-             }
-             @keyframes cinematicIntro {
-                0% { opacity: 0; filter: blur(15px); transform: scale(1.1); letter-spacing: 15px; }
-                100% { opacity: 1; filter: blur(0px); transform: scale(1); letter-spacing: 6px; text-shadow: 0 0 15px rgba(197, 160, 89, 0.6); }
-            }
-            @keyframes shimmer {
-                0% { transform: translateX(-100%); }
-                100% { transform: translateX(100%); }
-            }
-            /*styling the main logo*/
-            .main-logo {
-                height: 100px !important;
-                width: auto !important;
-                display: block !important;
-                margin: 0 auto !important;
-                will-change: filter;
-                filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.8));
-            }
-            .video-label {
-               position: absolute !important;
-               top: 50% !important;
-               left: 50% !important;
-               transform: translate(-50%, -50%) !important;
-               width: 90%;
-               z-index: 10;
-               background: transparent !important;
-               text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8);
-
-            }
-            .video-label .main-title {
-                color: #c5a059;
-                font-family: 'Cinzel', serif;
-                font-size: 1.8rem;
-                display: block;
-                text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-            }
-            .video-label .micro-desc {
-                color: #ffff;
-                font-size: 1rem !important;
-                font-family: 'Playfair Display', serif;
-                font-style: italic;
-                text-transform: none;
-            }
-
-            #contact, footer {
-                width: 100% !important;
-                display: block;
-                clear: both !important;
-                text-align: center !important;
-                scroll-snap-align: end !important;
-            
-            }
-            .video-details-dropdown {
-                margin: 10px 0;
-            }
-            .details-trigger {
-                background: none;
-                border: 1px solid #c5a059;
-                color: #c5a059;
-                padding: 6px 12px;
-                cursor: pointer;
-                font-family: 'Playfair Display', serif;
-                font-size: 0.85rem;
-                border-radius: 4px;
-                transition: 0.3s;
-            }
-            .details-trigger:hover {
-                background: #c5a059;
-                color: #000;
-            }
-            .details-content {
-                display: none;
-                background: rgba(0, 0, 0, 0.85);
-                color: #f5f5f5;
-                padding: 20px 25px;
-                margin-top: 12px;
-                font-size: 1.1rem;
-                line-height: 1.6;
-                border-left: 3px solid #c5a059;
-                max-width: 550px;
-                width: 95%;
-                text-align: left;
-                border-radius: 4px;
-
-            }
-            .featured-section {
-                    background-color: #0a0a0a;
-                    text-align: center;
-                    min-height: 100vh;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    scroll-snap-align: start;
-                    padding: 40px 20px;
-                    box-sizing: border-box;
-                }
-                .featured-title{
-                    color: #ffffff;
-                    font-size: 2.5rem;
-                    margin-bottom: 40px;
-                    letter-spacing: 2px;
-                    text-transform: uppercase;
-                    font-family: 'Cinzel', serif;
-                }
-                .featured-grid {
-                    display: flex;
-                    justify-content: center;
-                    gap: 20px;
-                    flex-wrap: wrap;
-                    max-width: 1400px;
-                    margin: 0 auto;
-                }
-                .featured-card {
-                    width: 320px;
-                    background-color: #1a1a1a;
-                    border-radius: 8px;
-                    overflow: hidden;
-                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-                    border: 1px solid rgba(197, 160, 89, 0.3);
-                }
-                .featured-media {
-                    width: 100%;
-                    height: 450px;
-                    object-fit: cover;
-                    display: block;
-                    background-color: #000;
-                }
-                .featured-info {
-                    padding: 20px;
-                    text-align: left;
-                    border-top: 2px solid #c5a059;
-                }
-                .featured-info h3 {
-                    color: #c5a059;
-                    margin:0 0 10px 0;
-                    font-size: 1.3rem;
-                }
-                .featured-info p {
-                    color: #dddddd;
-                    margin: 0;
-                    font-size: 0.95rem;
-                    line-height: 1.5;
-                }
-                .gallery-btn-container {
-                    margin-top: 40px;
-                }
-                .gallery-btn {
-                    display: inline-block;
-                    padding: 15px 40px;
-                    background-color: #c5a059;
-                    color: #000000;
-                    text-decoration: none;
-                    font-weight: bold;
-                    text-transform: uppercase;
-                    border-radius: 4px;
-                    transition: all 0.3s ease;
-                }
-                .gallery-btn:hover {
-                    background-color: #ffffff;
-                    box-shadow: 0 0 15px rgba(197, 160, 89, 0.5);
-                }
-            @media only screen and (min-width: 768px) and (max-width: 1024px) { /************Tablet section*************/
-                .video-card {
-                    width: 65%;
-                    flex: 0 0 65%;
-                }
-                .featured-grid {
-                    display: flex !important;
-                    justify-content: flex-start !important;
-                    flex-wrap: nowrap !important;
-                    overflow-x: auto !important;
-                    gap: 14px;
-                    width: 100% !important;
-                    max-width: 100% !important;
-                    padding: 5px 20px !important;
-                    box-sizing: border-box;
-                }
-                .featured-card {
-                    flex: 0 0 280px !important;
-                }
-                .header-phone {
-                    font-size: 1rem;
-                }
-                .desktop-only-video {
-                display: none !important;
-                }
-                .mobile-only-video {
-                display: block !important;
-                }
-                header {
-                position: fixed !important;
-                top: 0 !important;
-                left: 0 !important;
-                width: 100% !important;
-                height: auto !important;
-                z-index: 9999 !important;
-                background: #1e0008 !important;
-                display: flex !important;
-                justify-content: space-between !important;
-                align-items: center !important;
-                }
-                #nav-drawer {
-                    top: 70px !important;
-                    bottom: auto !important;
-                    height: auto !important;
-                }
-                #video-container-main {
-                    overflow: visible !important;
-                    position: relative !important;
-                    display: block !important;
-                    flex-direction: column !important;
-                    align-items: center !important;
-                    width: 100% !important;
-                    height: auto !important;
-                }
-                .video-wrapper {
-                    display: flex !important;
-                    flex-direction: column !important;
-                    justify-content: center !important;
-                    align-items: center !important;
-                    height: 100vh !important;
-                    scroll-snap-align: start !important;
-                    scroll-snap-stop: always !important;
-                }
-                .video-box {
-                    width: 100% !important;
-                    height: 100vh !important;
-                    position: absolute !important;
-                    object-fit: cover !important;
-                    object-position: center !important;
-                    top: 0;
-                    left: 0;
-                    z-index: 1 !important;
-                    filter: brightness(0.6) contrast(1.1) !important;
-                }
-                .video-label {
-                    position: absolute !important;
-                    top: 50% !important;
-                    left: 50% !important;
-                    transform: translate(-50%, -50%) !important;
-                    text-align: center !important;
-                    z-index: 10 !important;
-                    pointer-events: auto !important;
-                }
-                .hero-cta,
-                .video-label a {
-                    pointer-events: auto !important;
-                }
-                .main-title {
-                    display: block !important;
-                    color: #ffffff !important;
-                    -webkit-text-fill-color: #ffffff !important;
-                    font-size: 2.8rem !important;
-                    font-weight: 300 !important;
-                    text-transform: uppercase;
-                    letter-spacing: 6px;
-                    margin-bottom: 5px;
-                    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8) !important;
-                    background: inherit !important;
-                }
-                .micro-desc {
-                    display: block !important;
-                    color: #f5f5f5 !important;
-                    font-size: 1.1rem !important;
-                    font-weight: 300 !important;
-                    font-style: italic;
-                    letter-spacing: 2px;
-                    margin-bottom: 20px;
-                    opacity: 1;
-                    text-shadow: 1px 1px 5px rgba(0, 0, 0, 1) !important;
-                }
-                .hero-cta, a[href="#quote-form-container"] {
-                    display: inline-block !important;
-                    background-color: #c5a059 !important;
-                    color: #000000 !important;
-                    padding: 12px 25px !important;
-                    text-decoration: none !important;
-                    font-weight: 700 !important;
-                    transition: none !important;
-                    touch-action: manipulation !important;
-                    cursor: pointer !important;
-                }
-                .hero-cta:hover {
-                    transform: scale(1.05);
-                    background-color: #d4af37 !important;
-                }
-                 #quote-form-container {
-                    width: 100% !important;
-                    background-color: #002229 !important;
-                    min-height: 100vh !important;
-                    z-index: 99 !important;
-                    display: flex !important;
-                    flex-direction: column !important;
-                    align-items: center !important;
-                    padding-top: 150px !important;
-                    scroll-snap-align: start !important;
-                    scroll-snap-stop: always !important;
-                    margin-top: 0 !important;
-
-                }
-                .quote-box-inner {
-                    width: 90% !important;
-                    max-width: 600px !important;
-                    text-align: center !important;
-                }
-                #quote-title {
-                    font-family: 'Cinzel', serif !important;
-                    color: #c5a059 !important;
-                    font-size: 2.5rem !important;
-                    margin-bottom: 30px !important;
-                }
-                #actual-quote-form {
-                    display: flex !important;
-                    flex-direction: column !important;
-                    align-items: center !important;
-                    gap: 20px !important;
-                    width: 100% !important;
-                }
-                #actual-quote-form input,
-                #actual-quote-form select {
-                    width: 85% !important;
-                    max-width: 450px !important;
-                    height: 55px !important;
-                    background: rgba(255, 255, 255, 0.05) !important;
-                    border: 2px solid #c5a059 !important;
-                    border-radius: 12px !important;
-                    padding: 0 20px !important;
-                    color: white !important;
-                    font-size: 1.1rem !important;
-                }
-                #actual-quote-form button.hero-cta {
-                    background-color: #002229 !important;
-                    color: #c5a059 !important;
-                    border: 2px solid #c5a059 !important;
-                    border-radius: 30px !important;
-                    padding: 15px 50px !important;
-                    font-weight: bold !important;
-                }
-            }
-                @media (min-width: 1025px) { /********** Desktop part************/
-                .featured-section {
-                    padding-top: 130px !important;
-                    padding-bottom: 20px !important;
-                }
-                .featured-grid {
-                    display: flex !important;
-                    justify-content: center !important;
-                    gap: 20px !important;
-                    margin-bottom: 25px !important;
-                }
-                .featured-card {
-                    display: flex !important;
-                    flex-direction: column !important;
-                    max-width: 250px !important;
-                    height: auto !important;
-                    background-color: #111 !important;
-                    border-radius: 12px !important;
-                    overflow: hidden !important;
-                }
-                .featured-media {
-                    height: 2o0px !important;
-                    width: 100% !important;
-                    object-fit: cover !important;
-                }
-                .featured-info {
-                    display: block !important;
-                    padding: 15px 12px !important;
-                }
-                .featured-info h3 {
-                    color: #c5a059 !important;
-                    margin-bottom: 6px !important;
-                }
-                .featured-info p {
-                    color: #ffffff !important;
-                }
-                .header-phone {
-                    font-size: 1.2rem !important;
-                    font-weight: bold;
-                    letter-spacing: 1px;
-                }
-                .mobile-only-video {
-                    display: none !important;
-                }
-                .desktop-only-video, .all-videos {
-                    display: block !important;
-                    filter: brightness(0.6) contrast(1.1) !important;
-                }
-                .main-title {
-                    font-size: 5rem !important;
-                    letter-spacing: 8px !important;
-                    color: white !important;
-                    text-transform: uppercase !important;
-               }
-                .video-label .micro-desc {
-                    font-size: 1.8rem !important;
-                    letter-spacing: 2px;
-                    line-height: 1.4 !important;
-                    color: #f5f5f5 !important;
-                    margin-bottom: 40px !important;
-                    display: block !important;
-               }
-                #video-container-main {
-                    display: block !important;
-                    width: 100% !important;
-                    background-color: #0d0d0d !important;
-                    margin: 0 !important;
-                    padding: 0 !important;
-                }
-                .video-wrapper {
-                    width: 100% !important;
-                    height: 100vh !important;
-                    position: relative !important;
-                    display: block !important;
-                }
-                .video-box.desktop-only-video {
-                    width: 100% !important;
-                    height: 100vh !important;
-                    position: absolute !important;
-                    left: 0 !important;
-                    top: 0 !important;
-                    filter: brightness(0.6) contrast(1.1) !important;
-                }
-                .video-box video{
-                    width: 100% !important;
-                    height: 100% !important;
-                    object-fit: cover !important;
-                }
-                .video-label {
-                    position: absolute !important;
-                    top: 50% !important;
-                    left: 8% !important;
-                    transform: translateY(-50%) !important;
-                    width: 550px !important;
-                    z-index: 10 !important;
-                    text-align: left !important;
-                }
-                 #quote-form-container {
-                    width: 100% !important;
-                    background-color: #002229 !important;
-                    min-height: 100vh !important;
-                    z-index: 99 !important;
-                    display: flex !important;
-                    flex-direction: column !important;
-                    align-items: center !important;
-                    padding-top: 210px !important;
-                    padding-bottom: 80px !important;
-                    scroll-snap-align: start !important;
-                    scroll-snap-stop: always !important;
-                    margin-top: 0 !important;
-
-                }
-                .quote-box-inner {
-                    width: 90% !important;
-                    max-width: 1300px !important;
-                    text-align: center !important;
-                }
-                #quote-title {
-                    font-family: 'Cinzel', serif !important;
-                    color: #c5a059 !important;
-                    font-size: 2.5rem !important;
-                    margin-bottom: 30px !important;
-                }
-                #actual-quote-form {
-                    display: flex !important;
-                    flex-direction: column !important;
-                    align-items: center !important;
-                    gap: 20px !important;
-                    width: 100% !important;
-                }
-                #actual-quote-form input,
-                #actual-quote-form select {
-                    width: 100% !important;
-                    max-width: 800px !important;
-                    height: 65px !important;
-                    background: rgba(255, 255, 255, 0.05) !important;
-                    border: 2px solid #c5a059 !important;
-                    border-radius: 12px !important;
-                    padding: 0 20px !important;
-                    color: white !important;
-                    font-size: 1.2rem !important;
-                }
-                #actual-quote-form button.hero-cta {
-                    background-color: #052d4f !important;
-                    color: #c5a059 !important;
-                    border: 2px solid #c5a059 !important;
-                    border-radius: 30px !important;
-                    padding: 15px 50px !important;
-                    font-weight: bold !important;
-                }
-                .video-label a {
-                    display: inline-block !important;
-                    width: auto !important;
-                    min-width: 280px !important;
-                    background-color: #c5a059 !important;
-                    color: #000000 !important;
-                    padding: 18px 35px !important;
-                    text-align: center !important;
-                    letter-spacing: 2px !important;
-                    margin-top: 30px !important;
-                    font-size: 1.2rem !important;
-                    transition: 0.3s ease !important;
-                    cursor: pointer !important;
-                }
-                .video-label a:hover {
-                    transform: scale(1.05) !important;
-                    background-color:#ddb73b
-                }
-                #nav-drawer a {
-                    font-size: 1.5rem;
-                    font-weight: 600;
-                    padding: 25px 20px;
-                    display: block;
-                    color:#f5f5f5;
-                    text-decoration: none;
-                }
-                #nav-drawer .hero-cta {
-                    background-color: #c5a059;
-                    color: #000 !important;
-                    margin: 10px 20px;
-                    border-radius: 5px;
-                    text-align: center;
-                }
-                .details-trigger {
-                    font-size: 1.1rem !important;
-                    padding: 10px 25px !important;
-                    border-width: 2px !important;
-                    margin-bottom: 15px;
-                    text-transform: uppercase;
-                }
-                .details-content {
-                    max-width: 550px !important;
-                    font-size: 1.15rem !important;
-                    padding: 20px !important;
-                }
-
-                }
-           @keyframes fadeInUp {
-                from { opacity: 0; transform: translateY(20px);}
-                to { opacity: 1; transform: translateY (0); }
-            }
-           
-              @media (max-width: 767px) { /*Iphone section/*/
-                .header-phone {
-                font-size: 0.8rem;
-                }
-                .desktop-only-video {
-                display: none !important;
-                }
-                .mobile-only-video {
-                display: block !important;
-                }
-                .header-container {
-                position: fixed !important;
-                top: 0 !important;
-                left: 0 !important;
-                width: 100% !important;
-                height: auto !important;
-                z-index: 9999 !important;
-                background:  #1e0008 !important;
-                display: flex !important;
-                justify-content: space-between !important;
-                align-items: center !important;
-                }
-                .main-logo {
-                    height: 45px !important;
-                    width: auto !important;
-                }
-                .logo-container p{
-                    width: 100% !important;
-                    text-align: center;
-                    white-space: nowrap;
-                }
-                body{
-                    width: 100%;
-                }
-                .video-label {
-                    position: absolute !important;
-                    top: 50% !important;
-                    left: 50% !important;
-                    transform: translate(-50%, -50%) !important;
-                    text-align: center !important;
-                    z-index: 10 !important;
-                    pointer-events: auto !important;
-                }
-                  .hero-cta,
-                .video-label a {
-                    pointer-events: auto !important;
-                }
-                .main-title {
-                    display: block !important;
-                    color: #ffffff !important;
-                    -webkit-text-fill-color: #ffffff !important;
-                    font-size: 1.8rem !important;
-                    font-weight: 300 !important;
-                    text-transform: uppercase;
-                    letter-spacing: 6px;
-                    margin-bottom: 5px;
-                    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8) !important;
-                    background: inherit !important;
-                }
-                .micro-desc {
-                    display: block !important;
-                    color: #f5f5f5 !important;
-                    font-size: 1.1rem !important;
-                    font-weight: 300 !important;
-                    font-style: italic;
-                    letter-spacing: 2px;
-                    margin-bottom: 20px;
-                    opacity: 1;
-                    text-shadow: 1px 1px 5px rgba(0, 0, 0, 1) !important;
-                }
-                 .hero-cta, a[href="#quote-form-container"] {
-                    display: inline-block !important;
-                    background-color: #c5a059 !important;
-                    color: #000000 !important;
-                    padding: 12px 25px !important;
-                    text-decoration: none !important;
-                    font-weight: 700 !important;
-                    transition: none !important;
-                    touch-action: manipulation !important;
-                    cursor: pointer !important;
-                }
-                .hero-cta:hover {
-                    transform: scale(1.05);
-                    background-color: #d4af37 !important;
-                }
-                
-                .video-wrapper {
-                    position: relative !important;
-                    width: 100% !important;
-                    height: 100vh !important;
-                }
-                 .video-box {
-                    width: 100% !important;
-                   height: 100% !important;
-                   object-fit: cover !important;
-                   filter: brightness(0.6) contrast(1.1) !important;
-                }
-                .video-box video {
-                    width: 100% !important;
-                    height: 100% !important;
-                    object-fit: cover !important;
-                }
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floor Harmony | Premium Carpet Installation</title>
     
-                #quote-form-container {
-                    width: 100% !important;
-                    min-height: 100vh !important;
-                    display: flex !important;
-                    flex-direction: column !important;
-                    align-items: center !important;
-                    justify-content: center !important;
-                    background-color: #002229 !important;
-                    scroll-snap-align: start !important;
-                    scroll-snap-stop: always !important;
-                    padding: 20px !important;
-                    box-sizing: border-box !important;
-                }
-                #quote-title {
-                    font-family: 'Cinzel', serif !important;
-                    color: #c5a059 !important;
-                    font-size: 2.5rem !important;
-                    margin-bottom: 30px !important;
-                }
-                #actual-quote-form {
-                    display: flex !important;
-                    flex-direction: column !important;
-                    align-items: center !important;
-                    gap: 20px !important;
-                    width: 100% !important;
-                }
-                #actual-quote-form input,
-                #actual-quote-form select {
-                    width: 85% !important;
-                    max-width: 450px !important;
-                    height: 55px !important;
-                    background: rgba(255, 255, 255, 0.05) !important;
-                    border: 2px solid #c5a059 !important;
-                    border-radius: 12px !important;
-                    padding: 0 20px !important;
-                    color: white !important;
-                    font-size: 1.1rem !important;
-                }
-                #actual-quote-form button.hero-cta {
-                    background-color: #002229 !important;
-                    color: #c5a059 !important;
-                    border: 2px solid #c5a059 !important;
-                    border-radius: 30px !important;
-                    padding: 15px 50px !important;
-                    font-weight: bold !important;
-                }
-                .featured-section {
-                    padding: 30px 0 !important;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    width: 100%;
-                    overflow: hidden;
-                    box-sizing: border-box;
-                }
-                .featured-title {
-                    font-size: 1.5rem !important;
-                    margin-top: 0 !important;
-                    margin-bottom: 20px !important;
-                }
-                .featured-grid {
-                    display: flex !important;
-                    justify-content: flex-start;
-                    flex-wrap: nowrap;
-                    overflow-x: auto !important;
-                    scroll-snap-type: x mandatory;
-                    padding: 5px 20px !important;
-                    gap: 14px;
-                    -webkit-overflow-scrolling: touch;
-                    width: 100%;
-                    box-sizing:border-box;
-                }
-                .featured-grid::-webkit-scrollbar {
-                    display: none;
-                }
-                .featured-card {
-                    flex: 0 0 235px !important;
-                    scroll-snap-align: start;
-                    background: #111;
-                    border-radius: 12px;
-                    overflow: hidden;
-                    box-shadow: 0 6px 20px rgba(0,0,0,0.6);
-                }
-                .featured-media {
-                    height: 290px !important;
-                    object-fit: cover;
-                    width: 100%;
-                }
-                .featured-info {
-                    padding: 12px 10px !important;
-                }
-                .featured-info h3 {
-                    font-size: 1.05rem !important;
-                    margin: 0 0 4px 0 !important;
-                }
-                .featured-info p {
-                    font-size: 0.75rem !important;
-                    line-height: 1.25 !important;
-                    margin: 0 !important;
-                }
-                .gallery-btn-container {
-                    margin-top: 25px !important;
-                    margin-bottom: 0 !important;
-                }
-                .gallery-btn {
-                    padding: 8px 24px !important;
-                    font-size: 0.82rem !important;
+    <!-- FIX: Corrected broken Google Fonts URL -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display:ital@0;1&family=Montserrat:wght@300;700;900&display=swap" rel="stylesheet">
+    
+    <!-- PRE-LOAD SCRIPT FOR SPLASH SCREEN -->
+    <script>
+        if (sessionStorage.getItem('comingFromSubpage')) { 
+            document.documentElement.classList.add('skip-intro');
+            sessionStorage.removeItem('comingFromSubpage');
+        }
+    </script>
+
+    <style>
+        /* ========================================= */
+        /* 01. GLOBAL VARIABLES (THE CONTROL PANEL)  */
+        /* ========================================= */
+        :root {
+            --bg-deep-teal: #002229;
+            --bg-pitch-black: #0a0a0a;
+            --bg-card-dark: #1a1a1a;
+            --brand-gold: #c5a059;
+            --text-pure-white: #ffffff;
+            --text-off-white: #f5f5f5;
+            --text-muted: #888888;
+            
+            --font-primary: 'Cinzel', serif;
+            --font-secondary: 'Playfair Display', serif;
+            --font-sans: 'Montserrat', Arial, sans-serif;
+            
+            --z-index-drawer: 2000;
+            --z-index-header: 1000;
+        }
+
+        /* ========================================= */
+        /* 02. CSS RESET & GLOBAL STYLES             */
+        /* ========================================= */
+        * { 
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            background-color: var(--bg-deep-teal);
+            color: var(--text-pure-white);
+            font-family: var(--font-primary);
+        }
+
+        p {
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        input, textarea, select {
+            font-size: 16px; /* Prevents iOS auto-zoom */
+            font-family: var(--font-sans);
+        }
+
+        /* ========================================= */
+        /* 03. HEADER & NAVIGATION ARCHITECTURE      */
+        /* ========================================= */
+        .site-header {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: var(--z-index-header);
+            height: auto;
+        }
+
+        .header-top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+        }
+
+        .header-phone-wrapper {
+            flex: 1;
+            text-align: left;
+        }
+
+        .header-phone {
+            color: var(--text-off-white);
+            white-space: nowrap;
+            font-family: var(--font-sans);
+            font-weight: bold;
+            letter-spacing: 1px;
+            font-size: 1.2rem;
+        }
+
+        .header-logo-wrapper {
+            flex: 0 0 auto;
+            text-align: center;
+        }
+
+        .main-logo {
+            height: 100px;
+            width: auto;
+            display: block;
+            margin: 0 auto;
+            filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.8));
+        }
+
+        .header-menu-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            cursor: pointer;
+        }
+
+        .hamburger-line {
+            width: 25px;
+            height: 2px;
+            background-color: var(--text-off-white);
+            margin: 4px 0;
+        }
+
+        /* The Gold Separation Line */
+        .vibrant-line {
+            width: 80%;
+            height: 1px;
+            margin: 15px auto;
+            background: linear-gradient(90deg, transparent, var(--brand-gold), transparent);
+            transition: width 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+            box-shadow: 0 0 15px rgba(197, 160, 89, 0.8);
+        }
+
+        .vibrant-line:hover {
+            background: linear-gradient(90deg, transparent, var(--brand-gold), #ffffff, var(--brand-gold), transparent);
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.6);
+        }
+
+        .header-subtitle {
+            text-align: center;
+            color: var(--text-pure-white);
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            font-family: var(--font-sans);
+        }
+
+        .sub-nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        .sub-nav a {
+            color: var(--text-pure-white);
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+        }
+
+        .sub-nav a:hover {
+            color: var(--brand-gold);
+        }
+
+        /* ========================================= */
+        /* 04. SLIDING NAVIGATION DRAWER             */
+        /* ========================================= */
+        #nav-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background: rgba(0, 34, 41, 0.98); /* Deep teal with slight transparency */
+            transition: right 0.4s ease-in-out;
+            z-index: var(--z-index-drawer);
+            box-shadow: -5px 0 25px rgba(0,0,0,0.7);
+            padding-top: 80px;
+        }
+
+        #nav-drawer.open {
+            right: 0;
+        }
+
+        #close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            color: var(--text-off-white);
+            font-size: 2.5rem;
+            cursor: pointer;
+            font-family: var(--font-sans);
+            line-height: 1;
+        }
+
+        .drawer-link {
+            display: block;
+            padding: 20px 25px;
+            color: var(--text-off-white);
+            font-family: var(--font-sans);
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .drawer-link:hover {
+            color: var(--brand-gold);
+            background: rgba(255,255,255,0.02);
+        }
+
+        #nav-drawer .hero-cta {
+            display: block;
+            margin: 30px 20px;
+            text-align: center;
+        }
+
+        /* ========================================= */
+        /* 05. CINEMATIC VIDEO SECTIONS              */
+        /* ========================================= */
+        .video-wrapper {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            display: block;
+            background-color: #0d0d0d;
+        }
+
+        .video-box {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            filter: brightness(0.6) contrast(1.1);
+        }
+
+        .video-label {
+            position: absolute;
+            top: 50%;
+            left: 8%;
+            transform: translateY(-50%);
+            width: 90%;
+            max-width: 600px;
+            z-index: 10;
+            text-align: left;
+            text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8);
+        }
+
+        .main-title {
+            color: var(--text-pure-white);
+            font-family: var(--font-primary);
+            font-size: 5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .micro-desc {
+            color: var(--text-off-white);
+            font-family: var(--font-secondary);
+            font-size: 1.8rem;
+            font-style: italic;
+            letter-spacing: 2px;
+            line-height: 1.4;
+            display: block;
+            margin-bottom: 30px;
+        }
+
+        /* Buttons & Interactions */
+        .hero-cta {
+            display: inline-block;
+            background-color: var(--brand-gold);
+            color: #000000;
+            padding: 18px 40px;
+            text-transform: uppercase;
+            font-family: var(--font-sans);
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 1.1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .hero-cta:hover {
+            background-color: #ffffff;
+            box-shadow: 0 0 20px rgba(197, 160, 89, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .video-details-dropdown {
+            margin-bottom: 30px;
+        }
+
+        .details-trigger {
+            background: transparent;
+            border: 2px solid var(--brand-gold);
+            color: var(--brand-gold);
+            padding: 10px 25px;
+            cursor: pointer;
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: 0.3s ease;
+        }
+
+        .details-trigger:hover {
+            background: var(--brand-gold);
+            color: #000000;
+        }
+
+        .details-content {
+            display: none;
+            background: rgba(0, 0, 0, 0.85);
+            color: var(--text-off-white);
+            padding: 20px 25px;
+            margin-top: 15px;
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            border-left: 3px solid var(--brand-gold);
+            border-radius: 0 4px 4px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        /* ========================================= */
+        /* 06. FEATURED CRAFTSMANSHIP GRID           */
+        /* ========================================= */
+        .featured-section {
+            background-color: var(--bg-pitch-black);
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            scroll-snap-align: start;
+            padding: 120px 20px 60px 20px;
+        }
+
+        .featured-title {
+            color: var(--text-pure-white);
+            font-size: 3rem;
+            margin-bottom: 50px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .featured-grid {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto 40px auto;
+            flex-wrap: wrap;
+        }
+
+        .featured-card {
+            width: 280px;
+            background-color: var(--bg-card-dark);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(197, 160, 89, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--brand-gold);
+        }
+
+        .featured-media {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+            background-color: #000;
+        }
+
+        .featured-info {
+            padding: 25px 20px;
+            text-align: left;
+            border-top: 3px solid var(--brand-gold);
+        }
+
+        .featured-info h3 {
+            color: var(--brand-gold);
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+            font-family: var(--font-primary);
+            letter-spacing: 1px;
+        }
+
+        .featured-info p {
+            color: #cccccc;
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            letter-spacing: 0;
+            text-transform: none;
+        }
+
+        .gallery-btn {
+            display: inline-block;
+            padding: 16px 45px;
+            background-color: transparent;
+            color: var(--brand-gold);
+            border: 2px solid var(--brand-gold);
+            text-decoration: none;
+            font-family: var(--font-sans);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-btn:hover {
+            background-color: var(--brand-gold);
+            color: #000000;
+        }
+
+        /* ========================================= */
+        /* 07. QUOTE FORM & FOOTER                   */
+        /* ========================================= */
+        .quote-section {
+            width: 100%;
+            background-color: var(--bg-deep-teal);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            scroll-snap-align: start;
+            padding: 100px 20px 40px 20px;
+        }
+
+        .quote-box-inner {
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .quote-title {
+            color: var(--brand-gold);
+            font-size: 3rem;
+            margin-bottom: 40px;
+            letter-spacing: 3px;
+        }
+
+        .quote-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            width: 100%;
+        }
+
+        .quote-form input,
+        .quote-form select {
+            width: 100%;
+            height: 65px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid rgba(197, 160, 89, 0.5);
+            border-radius: 8px;
+            padding: 0 25px;
+            color: var(--text-pure-white);
+            font-size: 1.1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .quote-form input:focus,
+        .quote-form select:focus {
+            outline: none;
+            border-color: var(--brand-gold);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .quote-form select option {
+            background-color: var(--bg-deep-teal);
+            color: var(--text-pure-white);
+        }
+
+        .quote-form button {
+            width: 100%;
+            max-width: 400px;
+            margin-top: 15px;
+        }
+
+        .site-footer {
+            text-align: center;
+            padding: 60px 20px 40px 20px;
+            background-color: var(--bg-pitch-black);
+            border-top: 1px solid rgba(197, 160, 89, 0.2);
+            scroll-snap-align: end;
+        }
+
+        .footer-brand {
+            color: var(--brand-gold);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+
+        .footer-tagline {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            color: #aaaaaa;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            text-transform: none;
+        }
+
+        .footer-copyright {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            color: #555555;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        /* ========================================= */
+        /* 08. RESPONSIVE DESIGN (MEDIA QUERIES)     */
+        /* ========================================= */
+        
+        /* Desktop vs Mobile Video Handling */
+        .mobile-only-video { display: none; }
+        .desktop-only-video { display: block; }
+
+        /* TABLET & MOBILE UNIFIED ADJUSTMENTS */
+        @media (max-width: 1024px) {
+            .site-header {
+                position: fixed;
+                background: #1e0008;
+                box-shadow: 0 2px 15px rgba(0,0,0,0.5);
+            }
+            .header-top-bar { padding: 10px 20px; }
+            .main-logo { height: 60px; }
+            #nav-drawer { top: 80px; height: calc(100vh - 80px); padding-top: 20px; }
+            
+            .video-label {
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                width: 90%;
+            }
+            
+            .main-title { font-size: 3rem; letter-spacing: 4px; }
+            .micro-desc { font-size: 1.3rem; }
+            
+            .featured-grid {
+                justify-content: flex-start;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                padding: 10px 20px;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .featured-grid::-webkit-scrollbar { display: none; }
+            .featured-card { flex: 0 0 300px; scroll-snap-align: start; }
+            
+            .quote-section { padding-top: 120px; }
+        }
+
+        /* MOBILE SPECIFIC */
+        @media (max-width: 767px) {
+            .header-phone { font-size: 0.9rem; }
+            .main-logo { height: 45px; }
+            .vibrant-line { margin: 10px auto; }
+            .header-subtitle { font-size: 0.75rem; }
+            .sub-nav { display: none; /* Hide sub-nav on mobile, rely on drawer */ }
+            
+            .mobile-only-video { display: block; }
+            .desktop-only-video { display: none; }
+            
+            .main-title { font-size: 2.2rem; }
+            .micro-desc { font-size: 1.1rem; }
+            .hero-cta { padding: 15px 30px; font-size: 0.95rem; }
+            
+            .featured-card { flex: 0 0 260px; }
+            .featured-media { height: 300px; }
+            
+            .quote-title { font-size: 2.2rem; }
+            .quote-form input, .quote-form select { height: 55px; font-size: 1rem; }
+        }
+        
+        /* UTILITY CLASSES */
+        .skip-intro #splash-screen { display: none; }
+    </style>
+
+    <!-- SCHEMA MARKUP (SEO) -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Floor Harmony LLC",
+            "telephone": "303-913-0327",
+            "url": "https://floorharmonyco.com",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "6193 W 10th Ave",
+                "addressLocality": "Lakewood",
+                "addressRegion": "CO",
+                "postalCode": "80214",
+                "addressCountry": "US"
+            },
+            "serviceArea": {
+                "@type": "GeoShape",
+                "containesInPlace": {
+                    "@type": "City",
+                    "name": "Denver, Lakewood, and surrounding Colorado areas"
                 }
             }
-</style>
-<script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Floor Harmony LLC",
-        "telephone": "303-913-0327",
-        "url": "https://floorharmonyco.com",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "6193 W 10th Ave Lakewood Colorado 80214",
-            "addressLocality": "Lakewood",
-            "addressRegion": "Colorado",
-            "addressCountry": "US",
-        },
-        "serviceArea": {
-            "@type": "GeoShape",
-            "containesInPlace": {
-            "@type": "City",
-            "name": "Denver, Lakewood, and surrounding Colorado areas"
         }
-      }
-    }
-</script>
+    </script>
 </head>
 <body>
-     <div style="position: absolute; top: 0; width: 100%; z-index: 1000; height: auto;">
 
-
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 15px;">
-        <div style="flex: 1; text-align: left;">
-        <a href="tel:3039130327" class="header-phone" style="color: #f5f5f5; text-decoration: none; white-space: nowrap;">📞 303-913-0327</a>
+    <!-- ========================================= -->
+    <!-- HEADER & NAVIGATION                       -->
+    <!-- ========================================= -->
+    <header class="site-header">
+        <div class="header-top-bar">
+            <div class="header-phone-wrapper">
+                <a href="tel:3039130327" class="header-phone">📞 303-913-0327</a>
+            </div>
+            
+            <div class="header-logo-wrapper">
+                <img src="floorharmony_braided_logo.png" class="main-logo" alt="Floor Harmony Logo">
+            </div>
+            
+            <div id="menu-icon" class="header-menu-wrapper">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </div>
         </div>
-        <div style="flex: 0 0 auto; text-align: center;">
-            <img src="floorharmony_braided_logo.png" class="main-logo" alt="Floor Harmony Logo" style="height: 45px; flex: 0 1 auto;">
-        </div>
-        <div id="menu-icon" style=" flex: 1; display: flex; flex-direction: column; align-items: flex-end; cursor: pointer;">
-    <div style="width: 25px; height: 2px; background-color: #f5f5f5; margin: 4px 0;"></div>
-    <div style="width: 25px; height: 2px; background-color: #f5f5f5; margin: 4px 0;"></div>
-    <div style="width: 25px; height: 2px; background-color: #f5f5f5; margin: 4px 0;"></div>
-    </div>
-    </div>
-    <!--<div id="splash-screen" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #002229; z-index: 9999; display: flex; align-items: center; justify-content: center; pointer-events: none; transition: opacity 1s ease;">
-    <div style="text-align: center; width: 100%; max-width: 600px; padding: 20px;">
-    <img src="floorharmony_braided_logo.png" alt="Floor Harmony Logo" style="width: 80%; max-width: 300px; height: auto; display: block; margin: 0 auto;">
-    <div style="height: 3px; background: linear-gradient(90deg, transparent, #c5a059, transparent); width: 100%; margin: 15px auto 0 auto; animation: shimmer 2s infinite;"></div>
-    </div>
-    </div>-->
-     <div class="vibrant-line" style="margin: 0 auto; width: 80%; height: 1px; background: #c5a059"></div>
-        <p style="text-align: center; margin: 5px 0; color: #fff; letter-spacing: 2px; font-size: 0.9rem;">Denver & Lakewood Carpet Installations.</p>
-    <div class="sub-nav">
-        <a href="services.html">Services</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="about.html">About</a>
-    </div>
-    </div>
-    <div id="nav-drawer" style="position: fixed; top: 0; right: -100%; width: 250px; height: 100%; background: #002229; transition: 0.5s; z-index: 2000; box-shadow: -5px 0 15px rgba(0,0,0,0.5); padding-top: 60px; font-family: 'Cinzel', serif;">
-    <div id="close-btn" style="position: absolute; top: 15px; right: 20px; color: #f5f5f5; font-size: 2rem; cursor: pointer; font-family: Arial, sans-serif;">&times</div>
-    <a href="gallery.html" style="display: block; padding: 15px; color: #f5f5f5; font-family: Arial, sans-serif; border-bottom: 1px solid rgba(197, 160, 89, 0.3);">Gallery</a>
-    <a href="about.html" style="display: block; padding: 15px; color: #f5f5f5; text-decoration: none; font-family: 'Playfair Display', serif; border-bottom: 1px solid rgba(197, 160, 89, 0.3);">About Us</a>
-    <a href="services.html" style="display: block; color: white; padding: 20px; text-decoration: none; font-family: Arial, sans-serif; border-bottom: 1px solid rgba(197, 160, 89, 0.3);">Services</a>
-    <a href="#quote-form-container" class="hero-cta">Request a Quote</a>
-    </div>
-    <div class="video-wrapper" id="vid-1">
-            <video autoplay muted loop playsinline preload="metadata" class="video-box desktop-only-video">
-                <source src="living-room.mp4" type="video/mp4">
-                </video>
-            <video autoplay muted loop playsinline preload="metadata" class="video-box mobile-only-video">
-                <source src="elite_comfort_final.mp4" type="video/mp4">
-                </video>
-            <div class="video-label">
-                <span class="main-title">The Elite Comfort</span>
-                <span class="micro-desc">High-Ounce Plush & Heavy Soft Nylon</span>
-            <div class="video-details-dropdown">
-                <button class="details-trigger" onclick="toggleDetails('details-1')">Learn More</button>
-                <div id="details-1" class="details-content">
-                    <p>This is our premium, high-density flooring designed for ultimate comfort. Featuring the softest fibers and a heavy face weight, this carpet offers a "walking on clouds" feel with maximum durability. It's the perfect choice for homeowners who want long-lasting luxury in bedrooms and living areas.</p>
-    </div>
-    </div>
-    <a href="#quote-form-container" class="hero-cta">Request a Free Quote</a>
-    </div>
-    </div>
+        
+        <div class="vibrant-line"></div>
+        <p class="header-subtitle">Denver & Lakewood Carpet Installations</p>
+        
+        <nav class="sub-nav">
+            <a href="services.html">Services</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
 
-    <div class="video-wrapper" id="vid-2">
-            <video autoplay muted loop playsinline preload="metadata" class="video-box desktop-only-video">
-                <source src="family-playing.mp4" type="video/mp4">
+    <!-- ========================================= -->
+    <!-- SLIDING NAVIGATION DRAWER                 -->
+    <!-- ========================================= -->
+    <aside id="nav-drawer">
+        <div id="close-btn">&times;</div>
+        <a href="gallery.html" class="drawer-link">Gallery</a>
+        <a href="about.html" class="drawer-link">About Us</a>
+        <a href="services.html" class="drawer-link">Services</a>
+        <a href="#quote-form-container" class="hero-cta" id="drawer-quote-btn">Request a Quote</a>
+    </aside>
+
+    <!-- ========================================= -->
+    <!-- MAIN CONTENT AREA                         -->
+    <!-- ========================================= -->
+    <main>
+        
+        <!-- VIDEO CAROUSEL SECTION -->
+        <section id="hero-carousel">
+            
+            <!-- Video 1 -->
+            <article class="video-wrapper" id="vid-1">
+                <video autoplay muted loop playsinline preload="metadata" class="video-box desktop-only-video">
+                    <source src="living-room.mp4" type="video/mp4">
                 </video>
-            <video autoplay muted loop playsinline preload="metadata" class="video-box mobile-only-video">
-                <source src="every_dayhome.mp4" type="video/mp4">
+                <video autoplay muted loop playsinline preload="metadata" class="video-box mobile-only-video">
+                    <source src="elite_comfort_final.mp4" type="video/mp4">
                 </video>
-            <div class="video-label">
-                <span class="main-title">The EveryDay Home</span>
-                <span class="micro-desc">Our Most Popular Residential Blends</span>
-            <div class="video-details-dropdown">
-                <button class="details-trigger" onclick="toggleDetails('details-2')">Learn More</button>
-                <div id="details-2" class="details-content">
-                    <p>Our most popular option for busy families. This carpet balances high-quality performance with affordability. It is specifically engineered to resist stains and stand up to heavy foot traffic, making it the ideal, worry-free solution for kids, pets, and everyday life.</p>
+                
+                <div class="video-label">
+                    <h2 class="main-title">The Elite Comfort</h2>
+                    <span class="micro-desc">High-Ounce Plush & Heavy Soft Nylon</span>
+                    
+                    <div class="video-details-dropdown">
+                        <button class="details-trigger" onclick="toggleDetails('details-1')">Learn More</button>
+                        <div id="details-1" class="details-content">
+                            <p>This is our premium, high-density flooring designed for ultimate comfort. Featuring the softest fibers and a heavy face weight, this carpet offers a "walking on clouds" feel with maximum durability. It's the perfect choice for homeowners who want long-lasting luxury in bedrooms and living areas.</p>
+                        </div>
+                    </div>
+                    
+                    <a href="#quote-form-container" class="hero-cta">Request a Free Quote</a>
                 </div>
-            </div>
-                <a href="#quote-form-container" class="hero-cta">Request a Free Quote</a>
-            </div>
-    </div>
-    <div class="video-wrapper" id="vid-3">
-            <video autoplay muted loop playsinline preload="metadata" class="video-box desktop-only-video property_pro">
-                <source src="property_pro_WIDE.mp4" type="video/mp4">
+            </article>
+
+            <!-- Video 2 -->
+            <article class="video-wrapper" id="vid-2">
+                <video autoplay muted loop playsinline preload="metadata" class="video-box desktop-only-video">
+                    <source src="family-playing.mp4" type="video/mp4">
                 </video>
-            <video autoplay muted loop playsinline preload="metadata" class="video-box mobile-only-video property_pro">
-                <source src="property_pro.mp4" type="video/mp4">
+                <video autoplay muted loop playsinline preload="metadata" class="video-box mobile-only-video">
+                    <source src="every_dayhome.mp4" type="video/mp4">
                 </video>
-            <div class="video-label">
-                <span class="main-title">THE PROPERTY PRO</span>
-                <span class="micro-desc">Fast-Turnaround Solutions for Rentals</span>
-                <div class="video-details-dropdown">
-                    <button class="details-trigger" onclick="toggleDetails('details-3')">Learn More</button>
-                    <div id="details-3" class="details-content">
-                        <p>This is our most cost-effective flooring, built for fast turn around times and high-traffic rental use. It's the best way to get a clean, professional look for your property while keeping your project well under budget.</p>
+                
+                <div class="video-label">
+                    <h2 class="main-title">The EveryDay Home</h2>
+                    <span class="micro-desc">Our Most Popular Residential Blends</span>
+                    
+                    <div class="video-details-dropdown">
+                        <button class="details-trigger" onclick="toggleDetails('details-2')">Learn More</button>
+                        <div id="details-2" class="details-content">
+                            <p>Our most popular option for busy families. This carpet balances high-quality performance with affordability. It is specifically engineered to resist stains and stand up to heavy foot traffic, making it the ideal, worry-free solution for kids, pets, and everyday life.</p>
+                        </div>
+                    </div>
+                    
+                    <a href="#quote-form-container" class="hero-cta">Request a Free Quote</a>
+                </div>
+            </article>
+
+            <!-- Video 3 -->
+            <article class="video-wrapper" id="vid-3">
+                <video autoplay muted loop playsinline preload="metadata" class="video-box desktop-only-video property_pro">
+                    <source src="property_pro_WIDE.mp4" type="video/mp4">
+                </video>
+                <video autoplay muted loop playsinline preload="metadata" class="video-box mobile-only-video property_pro">
+                    <source src="property_pro.mp4" type="video/mp4">
+                </video>
+                
+                <div class="video-label">
+                    <h2 class="main-title">The Property Pro</h2>
+                    <span class="micro-desc">Fast-Turnaround Solutions for Rentals</span>
+                    
+                    <div class="video-details-dropdown">
+                        <button class="details-trigger" onclick="toggleDetails('details-3')">Learn More</button>
+                        <div id="details-3" class="details-content">
+                            <p>This is our most cost-effective flooring, built for fast turnaround times and high-traffic rental use. It's the best way to get a clean, professional look for your property while keeping your project well under budget.</p>
+                        </div>
+                    </div>
+
+                    <a href="#quote-form-container" class="hero-cta">Request a Free Quote</a>
+                </div>
+            </article>
+        </section>
+
+        <!-- ========================================= -->
+        <!-- FEATURED CRAFTSMANSHIP SECTION            -->
+        <!-- ========================================= -->
+        <section id="featured-work" class="featured-section">
+            <h2 class="featured-title">Our Craftsmanship</h2>
+            
+            <div class="featured-grid">
+                
+                <div class="featured-card">
+                    <video src="carpet-steps.mp4" autoplay loop muted playsinline class="featured-media"></video>
+                    <div class="featured-info">
+                        <h3>Hollywood & Waterfall</h3>
+                        <p>Custom, tight wraps perfectly tailored on every step.</p>
                     </div>
                 </div>
+                
+                <div class="featured-card">
+                    <video src="seam-video.mp4" autoplay loop muted playsinline class="featured-media"></video>
+                    <div class="featured-info">
+                        <h3>Pattern Matching</h3>
+                        <p>Keeping complex patterns and seams completely straight.</p>
+                    </div>
+                </div>
+                
+                <div class="featured-card">
+                    <video src="custom-stepz.mp4" autoplay loop muted playsinline class="featured-media"></video>
+                    <div class="featured-info">
+                        <h3>Tear-outs & Fresh Lay</h3>
+                        <p>Ripping out old, worn-out carpet & making the room brand new.</p>
+                    </div>
+                </div>
+                
+                <div class="featured-card">
+                    <img src="power-stretch.JPG" alt="Power-Stretched carpet installation" class="featured-media">
+                    <div class="featured-info">
+                        <h3>Power Stretched</h3>
+                        <p>Stretched tight across the whole room so it never wrinkles.</p>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="gallery-btn-container">
+                <a href="gallery.html" class="gallery-btn">View Full Gallery</a>
+            </div>
+        </section>
 
-                <a href="#quote-form-container" class="hero-cta">Request a Free Quote</a>
+        <!-- ========================================= -->
+        <!-- QUOTE FORM SECTION                        -->
+        <!-- ========================================= -->
+        <section id="quote-form-container" class="quote-section">
+            <div class="quote-box-inner">
+                <h2 class="quote-title">Request a Free Quote</h2>
+                
+                <form id="actual-quote-form" class="quote-form" action="https://formspree.io/f/maqleybw" method="POST">
+                    <!-- Security/Redirect -->
+                    <input type="hidden" name="_next" value="https://emmanuel-valencia.github.io/thank-you.html">
+                    
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                    <input type="email" name="email" placeholder="Email Address" required>
+                    
+                    <select name="carpet-selection" required>
+                        <option value="" disabled selected>Carpet option interested in?</option>
+                        <option value="Elite Comfort">The Elite Comfort (Premium Berber)</option>
+                        <option value="Everyday Home">The Everyday Home (Residential Blend)</option>
+                        <option value="Property Pro">The Property Pro (Fast-Turnarounds)</option>
+                    </select>
+                    
+                    <button type="submit" class="hero-cta">Submit Request</button>
+                </form>
             </div>
-    </div>
-<section id="featured-work" class="featured-section">
-    <h2 class="featured-title">Our Craftsmanship</h2>
-    <div class="featured-grid">
-        <div class="featured-card">
-            <video src="carpet-steps.mp4" autoplay loop muted playsinline class="featured-media"></video>
-            <div class="featured-info">
-                <h3>Hollywod & Waterfall</h3>
-                <p>custom, tight wrapped perfectly on every step.</p>
-            </div>
-        </div>
-    <div class="featured-card">
-        <video src="seam-video.mp4" autoplay loop muted playsinline class="featured-media"></video>
-        <div class="featured-info">
-            <h3>Pattern Matching</h3>
-            <p>Keeping complex patterns and seams completely straight.</p>
-       </div>
-    </div>
-    <div class="featured-card">
-        <video src="custom-stepz.mp4" autoplay loop muted playsinline class="featured-media"></video>
-        <div class="featured-info">
-            <h3>Tear-outs & Fresh Lay</h3>
-            <p>Ripping out old, worn out carpet & making the room brand new.</p>
-        </div>
-    </div>
-     <div class="featured-card">
-            <img src="power-stretch.JPG" alt="Power-Stretched carpet installation" class="featured-media">
-            <div class="featured-info">
-                <h3>Power Stretched</h3>
-                <p>Stretched tight acroos the whole room so it never wrinkles.</p>
-            </div>
-        </div>
-    </div>
-    <div class="gallery-btn-container">
-        <a href="gallery.html" class="gallery-btn">View Full Gallery</a>
-    </div>
-</section>
+        </section>
 
-    <section id="quote-form-container">
-        <div class="quote-box-inner">
-            <h2 id="quote-title">Request a Free Quote</h2>
-            <form id="actual-quote-form" action="https://formspree.io/f/maqleybw" method="POST">
-                <input type="hidden" name="_next" value="https://emmanuel-valencia.github.io/thank-you.html">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="tel" name="phone" placeholder="Phone Number" required>
-                <input type="email" name="email" placeholder="Email Adress" required>
-                <select name="carpet-selection" required>
-                    <option value="" disabled selected>Carpet option interested in?</option>
-                    <option value="Elite Comfort">The Elite Comfort (Premium Berber)</option>
-                    <option value="Everyday Home">The Everyday Home (Residential Blend)</option>
-                    <option value="Property Pro">The Property Pro (Fast-Turnarounds)</option>
-                </select>
-                <button type="submit" class="hero-cta">Submit Request</button>
-            </form>
-        </div>
-    </section>
-    <footer style="text-align: center; padding: 40px 20px; color: #c5a059; border-top: 1px solid rgba(197, 160, 89, 0.3); margin-top: 50px;">
-    <p style="margin: 0; font-weight: bold; letter-spacing: 2px; font-family: 'Cinzel', serif;">FLOOR HARMONY</p>
-    <p style="font-size: 0.9em; color: #aaa; margin: 10px 0;">Professional Installation * Serving Denver & Lakewood Metro</p>
-    <p style="font-size: 0.8em; color: #666;">&copy; 2026 All Rights Reserved</p>
-    
+    </main>
+
+    <!-- ========================================= -->
+    <!-- FOOTER SECTION                            -->
+    <!-- ========================================= -->
+    <footer class="site-footer">
+        <p class="footer-brand">FLOOR HARMONY</p>
+        <p class="footer-tagline">Professional Installation • Serving Denver & Lakewood Metro</p>
+        <p class="footer-copyright">&copy; 2026 All Rights Reserved</p>
+    </footer>
+
+    <!-- ========================================= -->
+    <!-- SCRIPTS                                   -->
+    <!-- ========================================= -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script> 
-    function toggleDetails(id) {
-        const box = document.getElementById(id);
-        if (box.style.display === "none" || box.style.display === "") {
-            box.style.display = "block";
-            gsap.from(box, {
-            opacity: 0,
-            y: 20,
-            duration: 1.2,
-            ease: "power2.out"
+        // 1. Dropdown Details Toggle with GSAP Animation
+        function toggleDetails(id) {
+            const box = document.getElementById(id);
+            if (box.style.display === "none" || box.style.display === "") {
+                box.style.display = "block";
+                gsap.from(box, {
+                    opacity: 0,
+                    y: 15,
+                    duration: 0.8,
+                    ease: "power2.out"
+                });
+            } else {
+                box.style.display = "none";
+            }
+        }
+
+        // 2. Adjust specific video playback speeds
+        const propertyVideos = document.querySelectorAll(".property_pro");
+        propertyVideos.forEach(video => video.playbackRate = 0.5);
+
+        const cinematicVideos = document.querySelectorAll('.featured-media');
+        cinematicVideos.forEach(video => {
+            if(video.tagName === 'VIDEO') {
+                video.playbackRate = 0.65;
+            }
         });
-     } else  {
-        box.style.display = "none";
-     }
-    }
-    /* Java for the disney curtain (loading screen)** 
-    window.addEventListener('load', function() {
-    const curtain = document.getElementById('splash-screen');
-    if (sessionStorage.getItem( 'curtainShown ')) {
-        curtain.style.display = 'none';
-        return; 
-    }
-        setTimeout(() => {
-            curtain.style.opacity ='0';
-        setTimeout(() => { 
-            curtain.style.display = 'none';
-        }, 400);
-        sessionStorage.setItem( 'curtainShown', 'true' );
-        }, 300);
-    }); */
 
-    const propertyVideos = document.querySelectorAll(".property_pro");
-    propertyVideos.forEach(function(video) {
-        video.playbackRate = 0.5;
-    });
+        // 3. Mobile Navigation Drawer Logic
+        const menuBtn = document.getElementById('menu-icon');
+        const drawer = document.getElementById('nav-drawer');
+        const closeBtn = document.getElementById('close-btn');
+        const drawerQuoteBtn = document.getElementById('drawer-quote-btn');
 
-    const menuBtn = document.getElementById( 'menu-icon');
-    const drawer = document.getElementById( 'nav-drawer');
-    const closeBtn = document.getElementById( 'close-btn');
-    if (menuBtn && drawer) {
-        menuBtn.onclick = function() {
-            drawer.classList.add('open');
-        };
-    }
-    if (closeBtn && drawer) {
-        closeBtn.onclick = function() {
-            drawer.classList.remove( 'open');
-        };
-    }
-    const contactForm = document.getElementById( 'actual-quote-form' );
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(contactForm);
-            fetch(contactForm.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    window.location.href = "thank-you.html";
-                } else {
-                    alert("Oops there was a problem with the submission.");
-                }
-            }).catch(error => {
-                console.error("Form Error:", error);
+        if (menuBtn && drawer) {
+            menuBtn.onclick = () => drawer.classList.add('open');
+        }
+        if (closeBtn && drawer) {
+            closeBtn.onclick = () => drawer.classList.remove('open');
+        }
+        if (drawerQuoteBtn && drawer) {
+            drawerQuoteBtn.onclick = () => drawer.classList.remove('open');
+        }
+
+        // 4. Formspree Submission Handling
+        const contactForm = document.getElementById('actual-quote-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(contactForm);
+                fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                }).then(response => {
+                    if (response.ok) {
+                        window.location.href = "thank-you.html";
+                    } else {
+                        alert("Oops! There was a problem with the submission. Please try again.");
+                    }
+                }).catch(error => {
+                    console.error("Form Error:", error);
+                });
             });
-        });
-    }
-    const cinematicVideos = document.querySelectorAll('.featured-media');
-    cinematicVideos.forEach(video => {
-        video.playbackRate = 0.65;
-    });
+        }
     </script>
-    </footer>
-    </div>
-    </body>
-    </html>
+</body>
+</html>
