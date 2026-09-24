@@ -16,7 +16,7 @@
 
     <style>
         /* ========================================= */
-        /* 01. GLOBAL VARIABLES                      */
+        /* 01. GLOBAL VARIABLES (CLEAN CONTRACTOR)   */
         /* ========================================= */
         :root {
             --bg-page: #F7F9FA;
@@ -184,8 +184,10 @@
 
         .site-header.scrolled {
             top: 0;
-            padding: 8px 5vw;
+            padding: 12px 5vw;
         }
+
+        /* Fixed padding alignment */
 
         .main-logo {
             height: 60px;
@@ -195,7 +197,7 @@
         }
 
         .site-header.scrolled .main-logo {
-            height: 50px;
+            height: 55px;
         }
 
         .sub-nav {
@@ -461,16 +463,20 @@
         }
 
         .hero-subtext {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.9);
             font-size: 1rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
         }
 
+        /* Fixed button alignment */
         .btn-row {
             display: flex;
-            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
         }
 
         .btn-solid {
@@ -481,93 +487,35 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
-            border: 1px solid var(--brand-gold);
             transition: var(--transition);
             border-radius: 4px;
         }
 
         .btn-solid:hover {
-            background: transparent;
-            color: var(--brand-gold);
+            background: var(--bg-brand-teal);
         }
 
-        /* ========================================= */
-        /* 06. FLOORING 101 (EDUCATION SECTION)      */
-        /* ========================================= */
-        .edu-section {
-            padding: 120px 5vw;
-            background-color: var(--bg-white);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.03);
-        }
-
-        .edu-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            max-width: 1300px;
-            margin: 0 auto;
-            align-items: center;
-        }
-
-        .section-tag {
-            color: var(--brand-gold);
+        /* Fixed "Our Process" link */
+        .btn-text-link {
+            color: var(--text-light);
             font-size: 0.85rem;
             font-weight: 700;
-            letter-spacing: 3px;
             text-transform: uppercase;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .edu-text h2 {
-            font-family: var(--font-logo);
-            font-size: 3.5rem;
-            margin-bottom: 25px;
-            color: var(--bg-brand-teal);
-            line-height: 1.1;
-        }
-
-        .edu-text p {
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-        }
-
-        .edu-cards {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .edu-card {
-            background: var(--bg-page);
-            padding: 35px;
-            border-radius: var(--radius-md);
-            border-left: 4px solid var(--brand-gold);
+            letter-spacing: 2px;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 2px;
             transition: var(--transition);
-            opacity: 0;
-            transform: translateX(30px);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
         }
 
-        .edu-card:hover {
-            transform: translateX(10px);
-            box-shadow: var(--shadow-soft);
-            background: var(--bg-white);
-            border-color: var(--bg-brand-teal);
-        }
-
-        .edu-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: var(--bg-brand-teal);
-        }
-
-        .edu-card p {
-            font-size: 0.95rem;
-            margin: 0;
+        .btn-text-link:hover {
+            border-bottom-color: var(--brand-gold);
+            color: var(--brand-gold);
         }
 
         /* ========================================= */
-        /* 07. FLOORING OPTIONS GRID                 */
+        /* 06. FLOORING OPTIONS GRID (MERGED & CLEAN)*/
         /* ========================================= */
         .options-section {
             padding: 120px 5vw;
@@ -596,7 +544,7 @@
 
         .options-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 25px;
             max-width: 1300px;
             margin: 0 auto;
@@ -604,7 +552,7 @@
 
         .option-card {
             background: var(--bg-white);
-            padding: 40px 25px;
+            padding: 40px 30px;
             border-radius: var(--radius-md);
             transition: var(--transition);
             box-shadow: var(--shadow-soft);
@@ -621,9 +569,9 @@
         }
 
         .option-icon {
-            margin-bottom: 25px;
-            width: 50px;
-            height: 50px;
+            margin-bottom: 20px;
+            width: 45px;
+            height: 45px;
         }
 
         .option-icon svg {
@@ -633,7 +581,7 @@
         }
 
         .option-card h3 {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 12px;
             color: var(--bg-brand-teal);
         }
@@ -644,13 +592,40 @@
         }
 
         /* ========================================= */
-        /* 08. HOW IT WORKS (STICKY PROCESS)         */
+        /* 07. HOW IT WORKS (NEW VIDEO BACKGROUND)   */
         /* ========================================= */
         .process-section {
+            position: relative;
             padding: 120px 5vw;
-            background-color: var(--bg-brand-teal);
             text-align: center;
             color: var(--text-light);
+            overflow: hidden;
+        }
+
+        .process-bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .process-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(13, 59, 69, 0.90);
+            /* Dark teal overlay */
+            z-index: 2;
+        }
+
+        .process-container {
+            position: relative;
+            z-index: 3;
         }
 
         .process-section h2 {
@@ -676,11 +651,12 @@
             position: relative;
             padding: 40px 30px;
             text-align: center;
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: var(--radius-md);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             opacity: 0;
             transform: translateY(30px);
+            backdrop-filter: blur(10px);
         }
 
         .step-number {
@@ -699,13 +675,13 @@
         }
 
         .process-step p {
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.8);
             font-size: 0.95rem;
             line-height: 1.6;
         }
 
         /* ========================================= */
-        /* 09. PROFESSIONAL SERVICES GRID            */
+        /* 08. PROFESSIONAL SERVICES GRID            */
         /* ========================================= */
         .services-section {
             padding: 120px 5vw;
@@ -715,7 +691,7 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             max-width: 1300px;
             margin: 0 auto;
@@ -763,7 +739,7 @@
         }
 
         /* ========================================= */
-        /* 10. CRAFTSMANSHIP GALLERY                 */
+        /* 09. CRAFTSMANSHIP GALLERY                 */
         /* ========================================= */
         .gallery-section {
             padding: 120px 5vw;
@@ -819,7 +795,7 @@
         }
 
         /* ========================================= */
-        /* 11. GOOGLE MAPS & TERRITORY               */
+        /* 10. GOOGLE MAPS & TERRITORY               */
         /* ========================================= */
         .map-section {
             display: grid;
@@ -885,7 +861,7 @@
         }
 
         /* ========================================= */
-        /* 12. FAQ ACCORDION SECTION                 */
+        /* 11. FAQ ACCORDION SECTION                 */
         /* ========================================= */
         .faq-section {
             padding: 120px 5vw;
@@ -899,7 +875,7 @@
             text-align: left;
             background: var(--bg-page);
             padding: 50px;
-            border-radius: var(--radius-lg);
+            border-radius: var(--radius-md);
             box-shadow: var(--shadow-soft);
             opacity: 0;
             transform: translateY(30px);
@@ -945,7 +921,7 @@
         }
 
         /* ========================================= */
-        /* 13. REVIEWS & QUOTE FORM                  */
+        /* 12. REVIEWS & QUOTE FORM                  */
         /* ========================================= */
         .reviews-quote-wrap {
             display: grid;
@@ -1013,7 +989,7 @@
             max-width: 500px;
             background: rgba(255, 255, 255, 0.02);
             padding: 50px;
-            border-radius: var(--radius-lg);
+            border-radius: var(--radius-md);
             border: 1px solid rgba(255, 255, 255, 0.05);
             opacity: 0;
             transform: scale(0.95);
@@ -1073,7 +1049,7 @@
         }
 
         /* ========================================= */
-        /* 14. FOOTER                                */
+        /* 13. FOOTER                                */
         /* ========================================= */
         footer {
             padding: 80px 5vw 30px;
@@ -1103,13 +1079,9 @@
         }
 
         /* ========================================= */
-        /* 15. DYNAMIC MOBILE RESPONSIVE ENGINEERING */
+        /* 14. DYNAMIC MOBILE RESPONSIVE ENGINEERING */
         /* ========================================= */
         @media (max-width: 1024px) {
-            .edu-container {
-                grid-template-columns: 1fr;
-            }
-
             .options-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -1148,9 +1120,18 @@
                 display: none;
             }
 
+            /* Force exact alignment on header */
             .site-header {
-                top: 0;
-                padding: 15px 5vw;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 75px;
+                padding: 0 5vw;
+            }
+
+            .site-header.scrolled {
+                height: 65px;
+                padding: 0 5vw;
             }
 
             .sub-nav {
@@ -1158,22 +1139,32 @@
             }
 
             .main-logo {
-                height: 45px;
+                height: 50px;
                 position: absolute;
                 left: 50%;
                 transform: translateX(-50%);
+                top: 50%;
+                margin-top: -25px;
             }
 
             .site-header.scrolled .main-logo {
                 height: 40px;
+                margin-top: -20px;
+            }
+
+            /* Ensure buttons sit correctly on the sides */
+            .mobile-phone-link {
+                display: block;
+                position: relative;
+                z-index: 1002;
+                margin-top: 5px;
             }
 
             .mobile-menu-btn {
                 display: flex;
-            }
-
-            .mobile-phone-link {
-                display: block;
+                position: relative;
+                z-index: 1002;
+                margin-top: 5px;
             }
 
             /* Mobile Hero Refactoring */
@@ -1187,7 +1178,7 @@
             }
 
             .focal-text {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
                 letter-spacing: 2px;
             }
 
@@ -1201,9 +1192,15 @@
                 bottom: 3vh;
             }
 
+            .btn-row {
+                flex-direction: column;
+                gap: 15px;
+            }
+
             /* Horizontal Scroll Snapping (Breaks vertical monotony) */
             .options-grid,
-            .gallery-grid {
+            .gallery-grid,
+            .services-grid {
                 display: flex;
                 flex-wrap: nowrap;
                 overflow-x: auto;
@@ -1214,12 +1211,14 @@
             }
 
             .options-grid::-webkit-scrollbar,
-            .gallery-grid::-webkit-scrollbar {
+            .gallery-grid::-webkit-scrollbar,
+            .services-grid::-webkit-scrollbar {
                 display: none;
             }
 
             .option-card,
-            .gallery-item {
+            .gallery-item,
+            .service-card {
                 flex: 0 0 85%;
                 scroll-snap-align: center;
             }
@@ -1227,12 +1226,13 @@
             /* Sticky Stacking Timeline (Awwwards Effect) */
             .process-grid {
                 display: block;
+                margin-top: 40px;
             }
 
             .process-step {
                 position: sticky;
                 margin-bottom: 20px;
-                height: 350px;
+                height: 320px;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -1253,10 +1253,6 @@
 
             .process-step:nth-child(4) {
                 top: 160px;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
             }
 
             .quote-box {
@@ -1324,8 +1320,8 @@
     <!-- MAIN HEADER -->
     <header class="site-header" id="navbar">
         <!-- Mobile Left: Phone -->
-        <a href="tel:3039130327" class="mobile-phone-link">
-            <svg viewBox="0 0 24 24" style="width:24px;height:24px;fill:var(--bg-brand-teal);">
+        <a href="tel:3039130327" class="mobile-phone-link hover-target">
+            <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:var(--bg-brand-teal);">
                 <path
                     d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
             </svg>
@@ -1345,7 +1341,7 @@
         </nav>
 
         <!-- Mobile Right: Hamburger -->
-        <button class="mobile-menu-btn" id="mobile-toggle">
+        <button class="mobile-menu-btn hover-target" id="mobile-toggle">
             <span></span><span></span><span></span>
         </button>
     </header>
@@ -1366,6 +1362,7 @@
                     <div class="bracket bl"></div>
                     <div class="bracket br"></div>
                     <video autoplay muted loop playsinline class="center-video">
+                        <!-- Restored Local Video -->
                         <source src="elite_comfort_final.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -1373,53 +1370,21 @@
                 <div class="focal-text">CARPETS</div>
             </div>
 
-            <div class="hero-actions">
+            <div class="hero-actions gs-reveal">
                 <p class="hero-subtext">Expert in-house installation across Denver & Lakewood.</p>
                 <div class="btn-row">
                     <a href="#quote" class="btn-solid hover-target">Get Free Estimate</a>
-                    <a href="#process" class="btn-outline hover-target">Our Process</a>
+                    <!-- Sleek white text link instead of default blue -->
+                    <a href="#process" class="btn-text-link hover-target">Our Process</a>
                 </div>
             </div>
         </section>
 
-        <!-- FLOORING 101 EDUCATION SECTION -->
-        <section class="edu-section">
-            <div class="edu-container">
-                <div class="edu-text gs-fade-up">
-                    <span class="section-tag">Flooring 101</span>
-                    <h2>Know Your Floors</h2>
-                    <p>Replacing your floors is a major investment. Most showrooms use confusing terminology to upsell
-                        you. At Floor Harmony, we believe an educated homeowner is our best client. Here is exactly what
-                        matters when choosing your new floors.</p>
-                    <a href="#quote" class="hero-cta hover-target" style="margin-top: 10px;">Talk to an Expert</a>
-                </div>
-                <div class="edu-cards">
-                    <div class="edu-card gs-stagger-card hover-target">
-                        <h3>1. Carpet Face Weight</h3>
-                        <p>This is the amount of yarn used in one square yard of carpet. Higher face weight generally
-                            means a denser, softer, and more durable carpet. We recommend heavy nylon for high-traffic
-                            living rooms.</p>
-                    </div>
-                    <div class="edu-card gs-stagger-card hover-target">
-                        <h3>2. The Importance of Padding</h3>
-                        <p>A great carpet feels terrible if installed over cheap padding. We strictly use high-density,
-                            spill-resistant padding to extend the life of your carpet and provide that "walking on
-                            clouds" feel.</p>
-                    </div>
-                    <div class="edu-card gs-stagger-card hover-target">
-                        <h3>3. LVP Waterproofing</h3>
-                        <p>Luxury Vinyl Plank (LVP) is perfect for kitchens and basements because of its rigid core. It
-                            mimics the texture of authentic hardwood but is 100% waterproof and scratch-resistant
-                            against pets.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- OPTIONS GRID (HORIZONTAL SWIPE ON MOBILE) -->
+        <!-- PUNCHY OPTIONS GRID (Educational copy injected directly) -->
         <section class="options-section">
             <div class="section-header gs-fade-up">
-                <span class="section-tag" style="justify-content: center; display: flex;">Our Products</span>
+                <span class="section-tag" style="justify-content: center; display: flex; color: var(--brand-gold);">Our
+                    Products</span>
                 <h2>Flooring Options for Denver Homes</h2>
                 <p>We source heavy-weight carpets and durable hard surfaces directly from designer mills, cutting out
                     the middleman to pass the unbeatable value on to you.</p>
@@ -1430,9 +1395,10 @@
                     <div class="option-icon"><svg viewBox="0 0 24 24">
                             <path d="M21 3H3v18h18V3zM5 19V5h14v14H5zm10-7H9v2h6v-2zm0-4H9v2h6V8z" />
                         </svg></div>
-                    <h3>Premium Carpet</h3>
-                    <p>Plush, pattern, and heavy nylon options for every room and budget. Maximum comfort guaranteed.
-                    </p>
+                    <h3>Premium Carpet & Pad</h3>
+                    <p>Experience maximum comfort with dense, heavy nylon built for high-traffic living spaces. Every
+                        installation includes high-density, spill-resistant padding to guarantee a true "walking on
+                        clouds" feel.</p>
                 </div>
                 <div class="option-card gs-stagger-up hover-target">
                     <div class="option-icon"><svg viewBox="0 0 24 24">
@@ -1440,7 +1406,8 @@
                                 d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z" />
                         </svg></div>
                     <h3>Luxury Vinyl Plank</h3>
-                    <p>100% waterproof LVP. The authentic look of hardwood that survives pets, kids, and Colorado
+                    <p>Perfect for kitchens and basements. LVP features a rigid core that mimics authentic hardwood but
+                        offers 100% waterproof and scratch-resistant durability against pets, kids, and Colorado
                         winters.</p>
                 </div>
                 <div class="option-card gs-stagger-up hover-target">
@@ -1448,64 +1415,73 @@
                             <path
                                 d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z" />
                         </svg></div>
-                    <h3>Custom Stairs</h3>
-                    <p>Hollywood and Waterfall wraps perfectly tailored on every step for a flawless architectural
-                        finish.</p>
+                    <h3>Custom Stairs & Pattern Matching</h3>
+                    <p>Expert geometric pattern matching keeps complex seams invisible. We provide architectural
+                        Hollywood and Waterfall wraps perfectly tailored on every single step.</p>
                 </div>
                 <div class="option-card gs-stagger-up hover-target">
                     <div class="option-icon"><svg viewBox="0 0 24 24">
                             <path
-                                d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
                         </svg></div>
-                    <h3>Premium Padding</h3>
-                    <p>Extend the life of your floors with high-density, spill-resistant padding, included with our
-                        installs.</p>
+                    <h3>Wholesale Value & Tear-Outs</h3>
+                    <p>Access our premium lines directly from American mills. We handle complete tear-outs, proper
+                        disposal of old materials, and can move basic furniture for a simple flat fee.</p>
                 </div>
             </div>
         </section>
 
-        <!-- HOW IT WORKS (STICKY STACKING ON MOBILE) -->
+        <!-- HOW IT WORKS (VIDEO BACKGROUND & STICKY STACKING) -->
         <section id="process" class="process-section">
-            <div class="section-header gs-fade-up">
-                <span class="section-tag"
-                    style="justify-content: center; display: flex; color: var(--brand-gold);">Simple &
-                    Transparent</span>
-                <h2 style="color: var(--text-light);">How It Works</h2>
-                <p style="color: rgba(255,255,255,0.7);">We eliminated the frustrating showroom process to get your home
-                    upgraded faster.</p>
-            </div>
+            <!-- Background Video added as requested -->
+            <video autoplay muted loop playsinline class="process-bg-video">
+                <source src="carpet-steps.mp4" type="video/mp4">
+            </video>
+            <!-- Dark Teal Overlay -->
+            <div class="process-overlay"></div>
 
-            <div class="process-grid">
-                <div class="process-step gs-stagger-up hover-target">
-                    <span class="step-number">01</span>
-                    <div class="step-content">
-                        <h3>Reach Out</h3>
-                        <p>Call or fill out our quick estimate form. Tell us about your project, whether it is a single
-                            bedroom or an entire home.</p>
-                    </div>
+            <div class="process-container">
+                <div class="section-header gs-fade-up" style="margin-bottom: 30px;">
+                    <span class="section-tag"
+                        style="justify-content: center; display: flex; color: var(--brand-gold);">Simple &
+                        Transparent</span>
+                    <h2 style="color: var(--text-light);">How It Works</h2>
+                    <p style="color: rgba(255,255,255,0.7);">We eliminated the frustrating showroom process to get your
+                        home upgraded faster.</p>
                 </div>
-                <div class="process-step gs-stagger-up hover-target">
-                    <span class="step-number">02</span>
-                    <div class="step-content">
-                        <h3>Shop at Home</h3>
-                        <p>We bring premium samples directly to your door so you can see them in your own lighting and
-                            against your actual furniture.</p>
+
+                <div class="process-grid">
+                    <div class="process-step gs-stagger-up hover-target">
+                        <span class="step-number">01</span>
+                        <div class="step-content">
+                            <h3>Reach Out</h3>
+                            <p>Call or fill out our quick estimate form. Tell us about your project, whether it is a
+                                single bedroom or an entire home.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="process-step gs-stagger-up hover-target">
-                    <span class="step-number">03</span>
-                    <div class="step-content">
-                        <h3>Honest Quote</h3>
-                        <p>We laser-measure the space and give you an exact, transparent quote with zero hidden fees or
-                            high-pressure sales tactics.</p>
+                    <div class="process-step gs-stagger-up hover-target">
+                        <span class="step-number">02</span>
+                        <div class="step-content">
+                            <h3>Shop at Home</h3>
+                            <p>We bring premium samples directly to your door so you can see them in your own lighting
+                                and against your actual furniture.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="process-step gs-stagger-up hover-target">
-                    <span class="step-number">04</span>
-                    <div class="step-content">
-                        <h3>Expert Install</h3>
-                        <p>Our in-house family crew arrives on time, preps the floor, installs the carpet, and leaves
-                            your home absolutely spotless.</p>
+                    <div class="process-step gs-stagger-up hover-target">
+                        <span class="step-number">03</span>
+                        <div class="step-content">
+                            <h3>Honest Quote</h3>
+                            <p>We laser-measure the space and give you an exact, transparent quote with zero hidden fees
+                                or high-pressure sales tactics.</p>
+                        </div>
+                    </div>
+                    <div class="process-step gs-stagger-up hover-target">
+                        <span class="step-number">04</span>
+                        <div class="step-content">
+                            <h3>Expert Install</h3>
+                            <p>Our in-house family crew arrives on time, preps the floor, installs the carpet, and
+                                leaves your home absolutely spotless.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1514,7 +1490,9 @@
         <!-- SERVICES GRID -->
         <section class="services-section">
             <div class="section-header gs-fade-up">
-                <span class="section-tag" style="justify-content: center; display: flex;">Professional Services</span>
+                <span class="section-tag"
+                    style="justify-content: center; display: flex; color: var(--brand-gold);">Professional
+                    Services</span>
                 <h2>Flooring Services in Lakewood & Denver</h2>
             </div>
 
@@ -1522,7 +1500,7 @@
                 <div class="service-card gs-stagger-up hover-target">
                     <h3>In-House Installation</h3>
                     <p>We do not outsource to shady sub-contractors. Your project is handled start to finish by our
-                        highly experienced, in-house family installation crew.</p>
+                        highly experienced, in-house family installation crew. Same faces, guaranteed quality.</p>
                 </div>
                 <div class="service-card gs-stagger-up hover-target">
                     <h3>Shop at Home</h3>
@@ -1531,8 +1509,8 @@
                 </div>
                 <div class="service-card gs-stagger-up hover-target">
                     <h3>Furniture & Tear-Out</h3>
-                    <p>We handle the heavy lifting. We offer basic furniture moving and complete tear-out and disposal
-                        of your old, worn-out flooring.</p>
+                    <p>We handle the heavy lifting. We offer basic furniture moving for a simple fee, alongside complete
+                        tear-out and disposal of your old, worn-out flooring.</p>
                 </div>
                 <div class="service-card gs-stagger-up hover-target">
                     <h3>Free Measurement</h3>
@@ -1542,10 +1520,11 @@
             </div>
         </section>
 
-        <!-- CRAFTSMANSHIP GALLERY (HORIZONTAL SWIPE ON MOBILE) -->
+        <!-- CRAFTSMANSHIP GALLERY (LOCAL VIDEOS) -->
         <section class="gallery-section">
             <div class="section-header gs-fade-up">
-                <span class="section-tag" style="justify-content: center; display: flex;">Our Work</span>
+                <span class="section-tag" style="justify-content: center; display: flex; color: var(--brand-gold);">Our
+                    Work</span>
                 <h2>Craftsmanship Gallery</h2>
             </div>
             <div class="gallery-grid">
@@ -1586,9 +1565,9 @@
                     </div>
                 </div>
             </div>
-            <a href="gallery.html" class="hero-cta hover-target gs-fade-up"
-                style="border: 2px solid var(--bg-brand-teal); background: transparent; color: var(--bg-brand-teal);">View
-                Full Gallery</a>
+            <div style="text-align: center;">
+                <a href="gallery.html" class="btn-solid hover-target gs-fade-up">View Full Gallery</a>
+            </div>
         </section>
 
         <!-- GOOGLE MAPS & TERRITORY -->
@@ -1621,15 +1600,16 @@
         <!-- FAQ ACCORDION SECTION -->
         <section class="faq-section">
             <div class="section-header gs-fade-up">
-                <span class="section-tag" style="justify-content: center; display: flex;">Information</span>
+                <span class="section-tag"
+                    style="justify-content: center; display: flex; color: var(--brand-gold);">Information</span>
                 <h2>Frequently Asked Questions</h2>
             </div>
             <div class="faq-container gs-fade-up">
                 <div class="faq-item hover-target">
                     <div class="faq-question">Do you move furniture? <span class="faq-icon">+</span></div>
-                    <div class="faq-answer">Yes, we can move basic furniture as an added service. We require homeowners
-                        to remove all small breakables, electronics, and clear the tops of surfaces before our crew
-                        arrives.</div>
+                    <div class="faq-answer">Yes, we can move basic furniture as an added service for a simple fee. We
+                        require homeowners to remove all small breakables, electronics, and clear the tops of surfaces
+                        before our crew arrives.</div>
                 </div>
                 <div class="faq-item hover-target">
                     <div class="faq-question">Do you haul away the old carpet? <span class="faq-icon">+</span></div>
@@ -1747,12 +1727,10 @@
             mobileToggle.addEventListener('click', () => {
                 mobileToggle.classList.toggle('active');
                 mobileMenu.classList.toggle('active');
-                // Lock scrolling when menu is open
                 if (mobileMenu.classList.contains('active')) { document.body.style.overflow = 'hidden'; }
                 else { document.body.style.overflow = ''; }
             });
 
-            // Close menu when clicking a link
             menuLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     mobileToggle.classList.remove('active');
@@ -1764,13 +1742,11 @@
             // 5. ADVANCED GSAP SCROLL REVEALS
             gsap.registerPlugin(ScrollTrigger);
 
-            // Hero Animation (Plays immediately on load)
             const heroTl = gsap.timeline();
             heroTl.to('.center-window', { opacity: 1, scale: 1, duration: 1.5, ease: "power4.out" })
                 .to('.focal-text', { opacity: 1, y: 0, duration: 1, ease: "power3.out", stagger: 0.2 }, "-=1")
                 .to('.hero-actions', { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, "-=0.5");
 
-            // Standard Fade Up
             document.querySelectorAll('.gs-fade-up').forEach(elem => {
                 gsap.fromTo(elem,
                     { y: 40, opacity: 0 },
@@ -1778,7 +1754,6 @@
                 );
             });
 
-            // Fade In (Map)
             document.querySelectorAll('.gs-fade-in').forEach(elem => {
                 gsap.fromTo(elem,
                     { opacity: 0 },
@@ -1786,8 +1761,7 @@
                 );
             });
 
-            // Stagger Cards Up (Grids)
-            const gridsToStaggerUp = ['.edu-cards', '.options-grid', '.process-grid', '.services-grid'];
+            const gridsToStaggerUp = ['.options-grid', '.process-grid', '.services-grid'];
             gridsToStaggerUp.forEach(selector => {
                 const container = document.querySelector(selector);
                 if (container) {
@@ -1799,7 +1773,6 @@
                 }
             });
 
-            // Stagger Right (Regions & Reviews)
             const rightStaggers = ['.region-list', '.reviews-half'];
             rightStaggers.forEach(selector => {
                 const container = document.querySelector(selector);
@@ -1812,7 +1785,6 @@
                 }
             });
 
-            // Scale Up (Gallery & Quote Box)
             document.querySelectorAll('.gs-scale-up').forEach(elem => {
                 gsap.fromTo(elem,
                     { scale: 0.95, opacity: 0 },
@@ -1841,7 +1813,7 @@
             });
 
             // 7. Local Video Speed Control
-            const cinematicVideos = document.querySelectorAll('.gallery-media, .center-video');
+            const cinematicVideos = document.querySelectorAll('.gallery-media, .center-video, .process-bg-video');
             cinematicVideos.forEach(video => {
                 if (video.tagName === 'VIDEO') video.playbackRate = 0.8;
             });
