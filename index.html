@@ -4,45 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Floor Harmony | Premium Denver Carpet Installation</title>
+    <title>Floor Harmony | Lakewood & Denver Premium Flooring</title>
     <meta name="description"
-        content="Expert flooring installation in Lakewood and Denver. Premium carpet direct to your door, installed by our in-house family crew. Free measurements and shop-at-home service.">
+        content="Expert carpet and LVP installation in Lakewood and Denver. Premium materials direct to your door, installed by our in-house family crew. Free measurements and shop-at-home service.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
     <style>
         /* ========================================= */
-        /* 01. GLOBAL VARIABLES (LUXURY STONE & SLATE) */
+        /* 01. GLOBAL VARIABLES                      */
         /* ========================================= */
         :root {
-            --bg-page: #F5F5F0;
-            /* Soft luxurious Alabaster/Stone */
+            --bg-page: #F7F9FA;
             --bg-white: #FFFFFF;
-            /* Pure white for popping cards */
-            --bg-slate-teal: #182B32;
-            /* Refined, deep architectural slate-teal */
+            --bg-brand-teal: #0D3B45;
+            --brand-gold: #c5a059;
 
-            --brand-gold: #C5A059;
-            /* Classic elegant gold */
-
-            --text-main: #2A2A2A;
-            /* Softened black for readability */
-            --text-muted: #666666;
-            /* Elegant gray */
+            --text-main: #2D3748;
+            --text-muted: #718096;
             --text-light: #FFFFFF;
 
             --font-display: 'Montserrat', sans-serif;
-            --font-serif: 'Cinzel', serif;
+            --font-logo: 'Cinzel', serif;
 
-            --radius-md: 4px;
-            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.04);
-            --shadow-hover: 0 20px 40px rgba(24, 43, 50, 0.1);
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 20px 40px rgba(13, 59, 69, 0.1);
 
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition: all 0.3s ease;
         }
 
         /* ========================================= */
@@ -68,8 +62,9 @@
         h2,
         h3,
         h4 {
-            font-weight: 700;
+            font-weight: 800;
             color: var(--text-main);
+            letter-spacing: -0.5px;
         }
 
         p {
@@ -85,7 +80,7 @@
         }
 
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 10px;
         }
 
         ::-webkit-scrollbar-track {
@@ -93,7 +88,8 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: var(--bg-slate-teal);
+            background: var(--bg-brand-teal);
+            border-radius: 5px;
         }
 
         /* ========================================= */
@@ -103,8 +99,8 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 6px;
-            height: 6px;
+            width: 8px;
+            height: 8px;
             background-color: var(--brand-gold);
             border-radius: 50%;
             transform: translate(-50%, -50%);
@@ -118,7 +114,7 @@
             left: 0;
             width: 40px;
             height: 40px;
-            border: 1px solid rgba(197, 160, 89, 0.5);
+            border: 2px solid rgba(13, 59, 69, 0.3);
             border-radius: 50%;
             transform: translate(-50%, -50%);
             z-index: 9998;
@@ -129,21 +125,21 @@
         .cursor-ring.hover-active {
             width: 70px;
             height: 70px;
-            background-color: rgba(197, 160, 89, 0.1);
-            border-color: transparent;
+            background-color: rgba(13, 59, 69, 0.05);
+            border-color: var(--bg-brand-teal);
         }
 
         /* ========================================= */
         /* 04. TOP BAR & NAVIGATION                  */
         /* ========================================= */
         .top-bar {
-            background-color: var(--bg-slate-teal);
+            background-color: var(--bg-brand-teal);
             padding: 10px 5vw;
             display: flex;
             justify-content: space-between;
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 2px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
             color: rgba(255, 255, 255, 0.7);
             z-index: 1001;
             position: relative;
@@ -161,8 +157,8 @@
             width: 14px;
             height: 14px;
             fill: var(--brand-gold);
-            margin-right: 6px;
-            vertical-align: text-top;
+            margin-right: 5px;
+            vertical-align: middle;
         }
 
         .top-bar .highlight {
@@ -176,13 +172,13 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
             padding: 10px 5vw;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
             transition: top 0.3s ease, padding 0.3s ease;
         }
 
@@ -192,11 +188,10 @@
         }
 
         .main-logo {
-            height: 65px;
+            height: 60px;
             width: auto;
             display: block;
             transition: 0.3s ease;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
         }
 
         .site-header.scrolled .main-logo {
@@ -211,10 +206,10 @@
 
         .sub-nav a {
             color: var(--text-main);
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
+            letter-spacing: 1px;
+            font-weight: 700;
             position: relative;
         }
 
@@ -225,7 +220,7 @@
             left: 0;
             width: 0%;
             height: 2px;
-            background: var(--bg-slate-teal);
+            background: var(--bg-brand-teal);
             transition: 0.3s;
         }
 
@@ -233,22 +228,122 @@
             width: 100%;
         }
 
-        .hero-cta-btn {
+        .hero-cta {
             background-color: var(--brand-gold);
-            color: #fff;
+            color: #000;
             padding: 12px 30px;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.8rem;
-            border-radius: 2px;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            border-radius: 4px;
             display: inline-block;
             transition: 0.3s;
         }
 
-        .hero-cta-btn:hover {
-            background-color: var(--bg-slate-teal);
+        .hero-cta:hover {
+            background-color: var(--bg-brand-teal);
             color: var(--text-light);
+        }
+
+        /* Mobile Nav Elements (Hidden on Desktop) */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            padding: 10px;
+            z-index: 2000;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 2px;
+            background-color: var(--bg-brand-teal);
+            transition: 0.3s;
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        .mobile-phone-link {
+            display: none;
+            color: var(--bg-brand-teal);
+            font-size: 1.2rem;
+        }
+
+        /* Full Screen Mobile Overlay */
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.4s ease;
+        }
+
+        .mobile-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .mobile-overlay-links {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            text-align: center;
+        }
+
+        .mobile-overlay-links a {
+            font-size: 1.5rem;
+            font-family: var(--font-logo);
+            font-weight: 700;
+            color: var(--bg-brand-teal);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: 0.4s ease;
+        }
+
+        .mobile-overlay.active .mobile-overlay-links a {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .mobile-overlay.active .mobile-overlay-links a:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+
+        .mobile-overlay.active .mobile-overlay-links a:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        .mobile-overlay.active .mobile-overlay-links a:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+
+        .mobile-overlay.active .mobile-overlay-links a:nth-child(4) {
+            transition-delay: 0.4s;
         }
 
         /* ========================================= */
@@ -290,7 +385,7 @@
         }
 
         .focal-text {
-            font-family: var(--font-serif);
+            font-family: var(--font-logo);
             font-size: clamp(2.5rem, 5vw, 4.5rem);
             color: var(--text-light);
             letter-spacing: 4px;
@@ -370,6 +465,7 @@
             font-size: 1rem;
             letter-spacing: 2px;
             text-transform: uppercase;
+            font-weight: 600;
         }
 
         .btn-row {
@@ -387,6 +483,7 @@
             letter-spacing: 2px;
             border: 1px solid var(--brand-gold);
             transition: var(--transition);
+            border-radius: 4px;
         }
 
         .btn-solid:hover {
@@ -423,10 +520,10 @@
         }
 
         .edu-text h2 {
-            font-family: var(--font-serif);
+            font-family: var(--font-logo);
             font-size: 3.5rem;
             margin-bottom: 25px;
-            color: var(--bg-slate-teal);
+            color: var(--bg-brand-teal);
             line-height: 1.1;
         }
 
@@ -455,13 +552,13 @@
             transform: translateX(10px);
             box-shadow: var(--shadow-soft);
             background: var(--bg-white);
-            border-color: var(--bg-slate-teal);
+            border-color: var(--bg-brand-teal);
         }
 
         .edu-card h3 {
             font-size: 1.2rem;
             margin-bottom: 10px;
-            color: var(--bg-slate-teal);
+            color: var(--bg-brand-teal);
         }
 
         .edu-card p {
@@ -470,7 +567,7 @@
         }
 
         /* ========================================= */
-        /* 07. FLOORING OPTIONS GRID (SIMPLIFIED)    */
+        /* 07. FLOORING OPTIONS GRID                 */
         /* ========================================= */
         .options-section {
             padding: 120px 5vw;
@@ -485,10 +582,10 @@
         }
 
         .section-header h2 {
-            font-family: var(--font-serif);
+            font-family: var(--font-logo);
             font-size: clamp(2.5rem, 4vw, 3.5rem);
             margin-bottom: 20px;
-            color: var(--bg-slate-teal);
+            color: var(--bg-brand-teal);
         }
 
         .section-header p {
@@ -499,15 +596,15 @@
 
         .options-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            max-width: 1000px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            max-width: 1300px;
             margin: 0 auto;
         }
 
         .option-card {
             background: var(--bg-white);
-            padding: 50px 40px;
+            padding: 40px 25px;
             border-radius: var(--radius-md);
             transition: var(--transition);
             box-shadow: var(--shadow-soft);
@@ -520,7 +617,7 @@
         .option-card:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow-hover);
-            border-color: rgba(24, 43, 50, 0.1);
+            border-color: rgba(13, 59, 69, 0.1);
         }
 
         .option-icon {
@@ -536,29 +633,29 @@
         }
 
         .option-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: var(--bg-slate-teal);
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: var(--bg-brand-teal);
         }
 
         .option-card p {
-            font-size: 1rem;
+            font-size: 0.95rem;
             line-height: 1.6;
         }
 
         /* ========================================= */
-        /* 08. HOW IT WORKS (THE PROCESS TIMELINE)   */
+        /* 08. HOW IT WORKS (STICKY PROCESS)         */
         /* ========================================= */
         .process-section {
             padding: 120px 5vw;
-            background-color: var(--bg-slate-teal);
+            background-color: var(--bg-brand-teal);
             text-align: center;
             color: var(--text-light);
         }
 
         .process-section h2 {
             color: var(--text-light);
-            font-family: var(--font-serif);
+            font-family: var(--font-logo);
             font-size: 3.5rem;
         }
 
@@ -587,7 +684,7 @@
         }
 
         .step-number {
-            font-family: var(--font-serif);
+            font-family: var(--font-logo);
             font-size: 3rem;
             color: var(--brand-gold);
             font-weight: 700;
@@ -644,7 +741,7 @@
             left: 0;
             width: 100%;
             height: 4px;
-            background: var(--bg-slate-teal);
+            background: var(--bg-brand-teal);
             transition: var(--transition);
         }
 
@@ -657,7 +754,7 @@
         .service-card h3 {
             font-size: 1.3rem;
             margin-bottom: 15px;
-            color: var(--bg-slate-teal);
+            color: var(--bg-brand-teal);
         }
 
         .service-card p {
@@ -666,7 +763,7 @@
         }
 
         /* ========================================= */
-        /* 10. CRAFTSMANSHIP GALLERY (LOCAL VIDEOS)  */
+        /* 10. CRAFTSMANSHIP GALLERY                 */
         /* ========================================= */
         .gallery-section {
             padding: 120px 5vw;
@@ -709,12 +806,12 @@
             left: 0;
             width: 100%;
             padding: 40px 20px 20px;
-            background: linear-gradient(to top, rgba(24, 43, 50, 0.9) 0%, transparent 100%);
+            background: linear-gradient(to top, rgba(13, 59, 69, 0.9) 0%, transparent 100%);
             text-align: left;
         }
 
         .gallery-info h3 {
-            font-family: var(--font-serif);
+            font-family: var(--font-logo);
             font-size: 1.4rem;
             color: var(--text-light);
             text-transform: uppercase;
@@ -752,10 +849,10 @@
         }
 
         .territory-info h2 {
-            font-family: var(--font-serif);
+            font-family: var(--font-logo);
             font-size: 3rem;
             margin-bottom: 30px;
-            color: var(--bg-slate-teal);
+            color: var(--bg-brand-teal);
             opacity: 0;
             transform: translateX(30px);
         }
@@ -778,13 +875,13 @@
 
         .region:hover {
             transform: translateX(10px);
-            border-color: var(--bg-slate-teal);
+            border-color: var(--bg-brand-teal);
         }
 
         .region h4 {
             font-size: 1.2rem;
             margin-bottom: 5px;
-            color: var(--bg-slate-teal);
+            color: var(--bg-brand-teal);
         }
 
         /* ========================================= */
@@ -802,7 +899,7 @@
             text-align: left;
             background: var(--bg-page);
             padding: 50px;
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-lg);
             box-shadow: var(--shadow-soft);
             opacity: 0;
             transform: translateY(30px);
@@ -820,7 +917,7 @@
         .faq-question {
             font-size: 1.1rem;
             font-weight: 700;
-            color: var(--bg-slate-teal);
+            color: var(--bg-brand-teal);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -844,7 +941,7 @@
 
         .faq-item.active .faq-icon {
             transform: rotate(45deg);
-            color: var(--bg-slate-teal);
+            color: var(--bg-brand-teal);
         }
 
         /* ========================================= */
@@ -896,7 +993,7 @@
 
         .review-author {
             font-weight: 700;
-            color: var(--bg-slate-teal);
+            color: var(--bg-brand-teal);
             text-transform: uppercase;
             font-size: 0.85rem;
             letter-spacing: 1px;
@@ -904,7 +1001,7 @@
 
         .quote-half {
             padding: 120px 5vw;
-            background-color: var(--bg-slate-teal);
+            background-color: var(--bg-brand-teal);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -916,14 +1013,14 @@
             max-width: 500px;
             background: rgba(255, 255, 255, 0.02);
             padding: 50px;
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-lg);
             border: 1px solid rgba(255, 255, 255, 0.05);
             opacity: 0;
             transform: scale(0.95);
         }
 
         .quote-box h2 {
-            font-family: var(--font-serif);
+            font-family: var(--font-logo);
             font-size: 2.5rem;
             margin-bottom: 30px;
             text-align: center;
@@ -972,7 +1069,7 @@
 
         .quote-btn:hover {
             background-color: var(--text-light);
-            color: var(--bg-slate-teal);
+            color: var(--bg-brand-teal);
         }
 
         /* ========================================= */
@@ -1006,11 +1103,15 @@
         }
 
         /* ========================================= */
-        /* 15. RESPONSIVE DESIGN                     */
+        /* 15. DYNAMIC MOBILE RESPONSIVE ENGINEERING */
         /* ========================================= */
         @media (max-width: 1024px) {
             .edu-container {
                 grid-template-columns: 1fr;
+            }
+
+            .options-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .process-grid {
@@ -1041,6 +1142,8 @@
         }
 
         @media (max-width: 768px) {
+
+            /* Mobile Nav Override */
             .top-bar {
                 display: none;
             }
@@ -1054,38 +1157,114 @@
                 display: none;
             }
 
-            /* Mobile Alcove Hero Fix */
+            .main-logo {
+                height: 45px;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .site-header.scrolled .main-logo {
+                height: 40px;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .mobile-phone-link {
+                display: block;
+            }
+
+            /* Mobile Hero Refactoring */
+            .hero-alcove {
+                padding-top: 80px;
+            }
+
             .hero-focal-container {
                 flex-direction: column;
-                gap: 2rem;
+                gap: 1rem;
             }
 
             .focal-text {
-                font-size: 3rem;
+                font-size: 2.5rem;
+                letter-spacing: 2px;
             }
 
             .center-window {
-                width: 70vw;
+                width: 75vw;
+                aspect-ratio: 1/1;
+                margin: 10px 0;
             }
 
-            .options-grid {
-                grid-template-columns: 1fr;
+            .hero-actions {
+                bottom: 3vh;
             }
 
+            /* Horizontal Scroll Snapping (Breaks vertical monotony) */
+            .options-grid,
+            .gallery-grid {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                padding-bottom: 20px;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+
+            .options-grid::-webkit-scrollbar,
+            .gallery-grid::-webkit-scrollbar {
+                display: none;
+            }
+
+            .option-card,
+            .gallery-item {
+                flex: 0 0 85%;
+                scroll-snap-align: center;
+            }
+
+            /* Sticky Stacking Timeline (Awwwards Effect) */
             .process-grid {
-                grid-template-columns: 1fr;
+                display: block;
+            }
+
+            .process-step {
+                position: sticky;
+                margin-bottom: 20px;
+                height: 350px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            .process-step:nth-child(1) {
+                top: 100px;
+            }
+
+            .process-step:nth-child(2) {
+                top: 120px;
+            }
+
+            .process-step:nth-child(3) {
+                top: 140px;
+            }
+
+            .process-step:nth-child(4) {
+                top: 160px;
             }
 
             .services-grid {
                 grid-template-columns: 1fr;
             }
 
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-
             .quote-box {
                 padding: 30px 20px;
+            }
+
+            .territory-info {
+                padding: 50px 5vw;
             }
         }
 
@@ -1099,15 +1278,33 @@
             * {
                 cursor: auto !important;
             }
+
+            .option-card:hover,
+            .service-card:hover,
+            .edu-card:hover {
+                transform: none !important;
+            }
         }
     </style>
 </head>
 
 <body>
 
+    <!-- CUSTOM CURSOR -->
     <div class="cursor-dot" id="cursor-dot"></div>
     <div class="cursor-ring" id="cursor-ring"></div>
 
+    <!-- FULL SCREEN MOBILE OVERLAY MENU -->
+    <div class="mobile-overlay" id="mobile-menu">
+        <div class="mobile-overlay-links">
+            <a href="services.html">Services</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="about.html">About Us</a>
+            <a href="#quote" style="color: var(--brand-gold);">Free Estimate</a>
+        </div>
+    </div>
+
+    <!-- TOP BAR (Desktop only) -->
     <div class="top-bar">
         <div class="top-bar-left">
             <span><svg viewBox="0 0 24 24">
@@ -1124,16 +1321,33 @@
         </div>
     </div>
 
+    <!-- MAIN HEADER -->
     <header class="site-header" id="navbar">
+        <!-- Mobile Left: Phone -->
+        <a href="tel:3039130327" class="mobile-phone-link">
+            <svg viewBox="0 0 24 24" style="width:24px;height:24px;fill:var(--bg-brand-teal);">
+                <path
+                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+            </svg>
+        </a>
+
+        <!-- Logo (Centered on mobile, left on desktop) -->
         <div class="nav-brand hover-target">
             <img src="floorharmony_braided_logo.png" class="main-logo" alt="Floor Harmony Logo">
         </div>
+
+        <!-- Desktop Right: Nav Links -->
         <nav class="sub-nav">
             <a href="services.html" class="hover-target">Services</a>
             <a href="gallery.html" class="hover-target">Gallery</a>
             <a href="about.html" class="hover-target">About Us</a>
-            <a href="#quote" class="hero-cta-btn hover-target">Free Estimate</a>
+            <a href="#quote" class="hero-cta hover-target">Free Estimate</a>
         </nav>
+
+        <!-- Mobile Right: Hamburger -->
+        <button class="mobile-menu-btn" id="mobile-toggle">
+            <span></span><span></span><span></span>
+        </button>
     </header>
 
     <main>
@@ -1177,7 +1391,7 @@
                     <p>Replacing your floors is a major investment. Most showrooms use confusing terminology to upsell
                         you. At Floor Harmony, we believe an educated homeowner is our best client. Here is exactly what
                         matters when choosing your new floors.</p>
-                    <a href="#quote" class="hero-cta-btn hover-target" style="margin-top: 10px;">Talk to an Expert</a>
+                    <a href="#quote" class="hero-cta hover-target" style="margin-top: 10px;">Talk to an Expert</a>
                 </div>
                 <div class="edu-cards">
                     <div class="edu-card gs-stagger-card hover-target">
@@ -1202,7 +1416,7 @@
             </div>
         </section>
 
-        <!-- OPTIONS GRID (SIMPLIFIED TO 4) -->
+        <!-- OPTIONS GRID (HORIZONTAL SWIPE ON MOBILE) -->
         <section class="options-section">
             <div class="section-header gs-fade-up">
                 <span class="section-tag" style="justify-content: center; display: flex;">Our Products</span>
@@ -1250,7 +1464,7 @@
             </div>
         </section>
 
-        <!-- HOW IT WORKS (PROCESS TIMELINE) -->
+        <!-- HOW IT WORKS (STICKY STACKING ON MOBILE) -->
         <section id="process" class="process-section">
             <div class="section-header gs-fade-up">
                 <span class="section-tag"
@@ -1328,7 +1542,7 @@
             </div>
         </section>
 
-        <!-- CRAFTSMANSHIP GALLERY (LOCAL VIDEOS) -->
+        <!-- CRAFTSMANSHIP GALLERY (HORIZONTAL SWIPE ON MOBILE) -->
         <section class="gallery-section">
             <div class="section-header gs-fade-up">
                 <span class="section-tag" style="justify-content: center; display: flex;">Our Work</span>
@@ -1372,8 +1586,8 @@
                     </div>
                 </div>
             </div>
-            <a href="gallery.html" class="hero-cta-btn hover-target gs-fade-up"
-                style="border: 2px solid var(--bg-slate-teal); background: transparent; color: var(--bg-slate-teal);">View
+            <a href="gallery.html" class="hero-cta hover-target gs-fade-up"
+                style="border: 2px solid var(--bg-brand-teal); background: transparent; color: var(--bg-brand-teal);">View
                 Full Gallery</a>
         </section>
 
@@ -1525,7 +1739,29 @@
                 else header.classList.remove('scrolled');
             });
 
-            // 4. ADVANCED GSAP SCROLL REVEALS
+            // 4. Mobile Menu Toggle
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuLinks = document.querySelectorAll('.mobile-overlay-links a');
+
+            mobileToggle.addEventListener('click', () => {
+                mobileToggle.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                // Lock scrolling when menu is open
+                if (mobileMenu.classList.contains('active')) { document.body.style.overflow = 'hidden'; }
+                else { document.body.style.overflow = ''; }
+            });
+
+            // Close menu when clicking a link
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileToggle.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // 5. ADVANCED GSAP SCROLL REVEALS
             gsap.registerPlugin(ScrollTrigger);
 
             // Hero Animation (Plays immediately on load)
@@ -1584,7 +1820,7 @@
                 );
             });
 
-            // 5. FAQ Accordion Logic
+            // 6. FAQ Accordion Logic
             const faqItems = document.querySelectorAll('.faq-item');
             faqItems.forEach(item => {
                 item.addEventListener('click', () => {
@@ -1604,7 +1840,13 @@
                 });
             });
 
-            // 6. Formspree Logic
+            // 7. Local Video Speed Control
+            const cinematicVideos = document.querySelectorAll('.gallery-media, .center-video');
+            cinematicVideos.forEach(video => {
+                if (video.tagName === 'VIDEO') video.playbackRate = 0.8;
+            });
+
+            // 8. Formspree Logic
             const contactForm = document.getElementById('actual-quote-form');
             if (contactForm) {
                 contactForm.addEventListener('submit', function (e) {
