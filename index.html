@@ -4,39 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Floor Harmony | Lakewood & Denver Premium Flooring</title>
+    <title>Floor Harmony | Premium Denver Carpet Installation</title>
     <meta name="description"
-        content="Expert carpet and LVP installation in Lakewood and Denver. Premium materials direct to your door, installed by our in-house family crew. Free measurements and shop-at-home service.">
+        content="Expert flooring installation in Lakewood and Denver. Premium carpet direct to your door, installed by our in-house family crew. Free measurements and shop-at-home service.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
     <style>
         /* ========================================= */
-        /* 01. GLOBAL VARIABLES                      */
+        /* 01. GLOBAL VARIABLES (LUXURY STONE & SLATE) */
         /* ========================================= */
         :root {
-            --bg-page: #F7F9FA;
+            --bg-page: #F5F5F0;
             --bg-white: #FFFFFF;
-            --bg-brand-teal: #0D3B45;
-            --brand-gold: #c5a059;
+            --bg-slate-teal: #182B32;
+            --bg-slate-hover: #112025;
 
-            --text-main: #2D3748;
-            --text-muted: #718096;
+            --brand-gold: #C5A059;
+
+            --text-main: #2A2A2A;
+            --text-muted: #666666;
             --text-light: #FFFFFF;
 
             --font-display: 'Montserrat', sans-serif;
-            --font-logo: 'Cinzel', serif;
+            --font-serif: 'Cinzel', serif;
 
-            --radius-md: 8px;
-            --radius-lg: 12px;
-            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
-            --shadow-hover: 0 20px 40px rgba(13, 59, 69, 0.1);
+            --radius-md: 4px;
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 20px 40px rgba(24, 43, 50, 0.1);
 
-            --transition: all 0.3s ease;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         /* ========================================= */
@@ -62,9 +63,8 @@
         h2,
         h3,
         h4 {
-            font-weight: 800;
+            font-weight: 700;
             color: var(--text-main);
-            letter-spacing: -0.5px;
         }
 
         p {
@@ -80,7 +80,7 @@
         }
 
         ::-webkit-scrollbar {
-            width: 10px;
+            width: 8px;
         }
 
         ::-webkit-scrollbar-track {
@@ -88,8 +88,7 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: var(--bg-brand-teal);
-            border-radius: 5px;
+            background: var(--bg-slate-teal);
         }
 
         /* ========================================= */
@@ -99,8 +98,8 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
             background-color: var(--brand-gold);
             border-radius: 50%;
             transform: translate(-50%, -50%);
@@ -114,7 +113,7 @@
             left: 0;
             width: 40px;
             height: 40px;
-            border: 2px solid rgba(13, 59, 69, 0.3);
+            border: 1px solid rgba(197, 160, 89, 0.5);
             border-radius: 50%;
             transform: translate(-50%, -50%);
             z-index: 9998;
@@ -125,21 +124,21 @@
         .cursor-ring.hover-active {
             width: 70px;
             height: 70px;
-            background-color: rgba(13, 59, 69, 0.05);
-            border-color: var(--bg-brand-teal);
+            background-color: rgba(197, 160, 89, 0.1);
+            border-color: transparent;
         }
 
         /* ========================================= */
         /* 04. TOP BAR & NAVIGATION                  */
         /* ========================================= */
         .top-bar {
-            background-color: var(--bg-brand-teal);
+            background-color: var(--bg-slate-teal);
             padding: 10px 5vw;
             display: flex;
             justify-content: space-between;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 1px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 2px;
             color: rgba(255, 255, 255, 0.7);
             z-index: 1001;
             position: relative;
@@ -157,8 +156,8 @@
             width: 14px;
             height: 14px;
             fill: var(--brand-gold);
-            margin-right: 5px;
-            vertical-align: middle;
+            margin-right: 6px;
+            vertical-align: text-top;
         }
 
         .top-bar .highlight {
@@ -172,13 +171,13 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             padding: 10px 5vw;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
             transition: top 0.3s ease, padding 0.3s ease;
         }
 
@@ -187,17 +186,12 @@
             padding: 8px 5vw;
         }
 
-        /* Fixed Header Alignment */
-        .nav-brand {
-            display: flex;
-            align-items: center;
-        }
-
         .main-logo {
-            height: 60px;
+            height: 65px;
             width: auto;
             display: block;
             transition: 0.3s ease;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
         }
 
         .site-header.scrolled .main-logo {
@@ -212,10 +206,10 @@
 
         .sub-nav a {
             color: var(--text-main);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 700;
+            letter-spacing: 2px;
+            font-weight: 600;
             position: relative;
         }
 
@@ -226,7 +220,7 @@
             left: 0;
             width: 0%;
             height: 2px;
-            background: var(--bg-brand-teal);
+            background: var(--bg-slate-teal);
             transition: 0.3s;
         }
 
@@ -234,23 +228,21 @@
             width: 100%;
         }
 
-        .hero-cta {
+        .hero-cta-btn {
             background-color: var(--brand-gold);
             color: #fff;
             padding: 12px 30px;
-            font-weight: 800;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.85rem;
-            border-radius: 4px;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            border-radius: 2px;
             display: inline-block;
             transition: 0.3s;
-            border: 1px solid var(--brand-gold);
         }
 
-        .hero-cta:hover {
-            background-color: var(--bg-brand-teal);
-            border-color: var(--bg-brand-teal);
+        .hero-cta-btn:hover {
+            background-color: var(--bg-slate-teal);
             color: var(--text-light);
         }
 
@@ -262,35 +254,21 @@
             background: none;
             border: none;
             padding: 10px;
-            z-index: 2000;
+            z-index: 1005;
         }
 
         .mobile-menu-btn span {
             width: 28px;
             height: 2px;
-            background-color: var(--bg-brand-teal);
+            background-color: var(--bg-slate-teal);
             transition: 0.3s;
-        }
-
-        .mobile-menu-btn.active span:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
-            background-color: #fff;
-        }
-
-        .mobile-menu-btn.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-menu-btn.active span:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
-            background-color: #fff;
         }
 
         .mobile-phone-link {
             display: none;
-            color: var(--bg-brand-teal);
+            color: var(--bg-slate-teal);
             font-size: 1.2rem;
-            z-index: 2000;
+            z-index: 1005;
         }
 
         /* GSAP Advanced Full Screen Mobile Overlay */
@@ -300,7 +278,7 @@
             left: 0;
             width: 100%;
             height: 100vh;
-            background: var(--bg-brand-teal);
+            background: var(--bg-slate-teal);
             z-index: 1999;
             display: flex;
             flex-direction: column;
@@ -308,6 +286,19 @@
             align-items: center;
             opacity: 0;
             pointer-events: none;
+        }
+
+        /* The specific fix for the missing 'X' */
+        .close-overlay {
+            position: absolute;
+            top: 20px;
+            right: 5vw;
+            font-size: 3.5rem;
+            color: var(--text-light);
+            font-weight: 300;
+            line-height: 1;
+            z-index: 2005;
+            padding: 10px;
         }
 
         .mobile-overlay-links {
@@ -318,7 +309,7 @@
         }
 
         .mobile-overlay-links a {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-family: var(--font-logo);
             font-weight: 700;
             color: var(--text-light);
@@ -341,7 +332,6 @@
             justify-content: center;
             align-items: center;
             background-color: #000;
-            padding-top: 50px;
         }
 
         .hero-bg-video {
@@ -386,7 +376,6 @@
             opacity: 0;
             transform: scale(0.9);
             background-color: #111;
-            /* Clean fallback background */
         }
 
         .bracket {
@@ -457,9 +446,9 @@
 
         .btn-row {
             display: flex;
-            gap: 30px;
             align-items: center;
             justify-content: center;
+            gap: 24px;
         }
 
         .btn-solid {
@@ -470,15 +459,13 @@
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 2px;
-            border: 1px solid var(--brand-gold);
             transition: var(--transition);
             border-radius: 4px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
         .btn-solid:hover {
-            background: var(--bg-brand-teal);
-            border-color: var(--bg-brand-teal);
+            background: var(--bg-slate-teal);
         }
 
         .btn-text {
@@ -498,7 +485,7 @@
         }
 
         /* ========================================= */
-        /* 06. FLOORING OPTIONS GRID                 */
+        /* 06. FLOORING OPTIONS GRID (MERGED & CLEAN)*/
         /* ========================================= */
         .options-section {
             padding: 120px 5vw;
@@ -516,7 +503,7 @@
             font-family: var(--font-logo);
             font-size: clamp(2.5rem, 4vw, 3.5rem);
             margin-bottom: 20px;
-            color: var(--bg-brand-teal);
+            color: var(--bg-slate-teal);
         }
 
         .section-header p {
@@ -527,7 +514,7 @@
 
         .options-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 25px;
             max-width: 1300px;
             margin: 0 auto;
@@ -535,7 +522,7 @@
 
         .option-card {
             background: var(--bg-white);
-            padding: 40px 25px;
+            padding: 40px 30px;
             border-radius: var(--radius-md);
             transition: var(--transition);
             box-shadow: var(--shadow-soft);
@@ -548,13 +535,13 @@
         .option-card:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow-hover);
-            border-color: rgba(13, 59, 69, 0.1);
+            border-color: rgba(24, 43, 50, 0.1);
         }
 
         .option-icon {
-            margin-bottom: 25px;
-            width: 50px;
-            height: 50px;
+            margin-bottom: 20px;
+            width: 45px;
+            height: 45px;
         }
 
         .option-icon svg {
@@ -564,9 +551,9 @@
         }
 
         .option-card h3 {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 12px;
-            color: var(--bg-brand-teal);
+            color: var(--bg-slate-teal);
         }
 
         .option-card p {
@@ -620,7 +607,7 @@
         }
 
         .process-section p {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.8);
         }
 
         .process-grid {
@@ -724,7 +711,7 @@
         .service-content h3 {
             font-size: 1.3rem;
             margin-bottom: 15px;
-            color: var(--bg-brand-teal);
+            color: var(--bg-slate-teal);
         }
 
         .service-content p {
@@ -751,7 +738,7 @@
 
         .gallery-item {
             position: relative;
-            height: 400px;
+            height: 450px;
             border-radius: var(--radius-md);
             overflow: hidden;
             box-shadow: var(--shadow-soft);
@@ -776,7 +763,7 @@
             left: 0;
             width: 100%;
             padding: 40px 20px 20px;
-            background: linear-gradient(to top, rgba(13, 59, 69, 0.9) 0%, transparent 100%);
+            background: linear-gradient(to top, rgba(24, 43, 50, 0.9) 0%, transparent 100%);
             text-align: left;
         }
 
@@ -822,7 +809,7 @@
             font-family: var(--font-logo);
             font-size: 3rem;
             margin-bottom: 30px;
-            color: var(--bg-brand-teal);
+            color: var(--bg-slate-teal);
             opacity: 0;
             transform: translateX(30px);
         }
@@ -845,13 +832,13 @@
 
         .region:hover {
             transform: translateX(10px);
-            border-color: var(--bg-brand-teal);
+            border-color: var(--bg-slate-teal);
         }
 
         .region h4 {
             font-size: 1.2rem;
             margin-bottom: 5px;
-            color: var(--bg-brand-teal);
+            color: var(--bg-slate-teal);
         }
 
         /* ========================================= */
@@ -887,7 +874,7 @@
         .faq-question {
             font-size: 1.1rem;
             font-weight: 700;
-            color: var(--bg-brand-teal);
+            color: var(--bg-slate-teal);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -911,7 +898,7 @@
 
         .faq-item.active .faq-icon {
             transform: rotate(45deg);
-            color: var(--bg-brand-teal);
+            color: var(--bg-slate-teal);
         }
 
         /* ========================================= */
@@ -963,7 +950,7 @@
 
         .review-author {
             font-weight: 700;
-            color: var(--bg-brand-teal);
+            color: var(--bg-slate-teal);
             text-transform: uppercase;
             font-size: 0.85rem;
             letter-spacing: 1px;
@@ -971,7 +958,7 @@
 
         .quote-half {
             padding: 120px 5vw;
-            background-color: var(--bg-brand-teal);
+            background-color: var(--bg-slate-teal);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -1039,7 +1026,7 @@
 
         .quote-btn:hover {
             background-color: var(--text-light);
-            color: var(--bg-brand-teal);
+            color: var(--bg-slate-teal);
         }
 
         /* ========================================= */
@@ -1109,21 +1096,22 @@
 
         @media (max-width: 768px) {
 
-            /* Fix Header Bleed: Solid White Background */
+            /* Mobile Nav Override */
             .top-bar {
                 display: none;
             }
 
+            /* Force exact alignment on header */
             .site-header {
-                top: 0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 75px;
                 padding: 0 5vw;
-                height: 70px;
-                background: #FFFFFF;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             }
 
             .site-header.scrolled {
-                height: 70px;
+                height: 65px;
                 padding: 0 5vw;
             }
 
@@ -1132,20 +1120,24 @@
             }
 
             .main-logo {
-                height: 45px;
+                height: 50px;
                 position: absolute;
                 left: 50%;
                 transform: translateX(-50%);
+                top: 50%;
+                margin-top: -25px;
             }
 
             .site-header.scrolled .main-logo {
-                height: 45px;
+                height: 40px;
+                margin-top: -20px;
             }
 
+            /* Ensure buttons sit correctly on the sides */
             .mobile-phone-link {
                 display: block;
                 position: relative;
-                z-index: 2005;
+                z-index: 1002;
                 margin-top: 5px;
             }
 
@@ -1156,54 +1148,37 @@
                 margin-top: 5px;
             }
 
-            /* Fix Mobile Overlap in Hero */
+            /* Mobile Hero Refactoring */
             .hero-alcove {
-                padding-top: 100px;
-                padding-bottom: 50px;
-                height: auto;
-                min-height: 100vh;
-                justify-content: flex-start;
+                padding-top: 80px;
             }
 
             .hero-focal-container {
                 flex-direction: column;
-                gap: 0;
+                gap: 1rem;
             }
 
             .focal-text {
-                font-size: 3.5rem;
+                font-size: 2.8rem;
                 letter-spacing: 2px;
-                margin: 15px 0;
             }
 
             .center-window {
-                width: 85vw;
-                max-height: 400px;
-                aspect-ratio: 4/5;
-                margin: 0;
+                width: 75vw;
+                aspect-ratio: 1/1;
+                margin: 10px 0;
             }
 
-            /* Fix Absolute Positioning Overlap */
             .hero-actions {
-                position: relative;
-                bottom: auto;
-                margin-top: 30px;
-                padding: 0 20px;
+                bottom: 3vh;
             }
 
             .btn-row {
                 flex-direction: column;
                 gap: 15px;
-                width: 100%;
             }
 
-            .btn-solid,
-            .btn-text {
-                width: 100%;
-                text-align: center;
-            }
-
-            /* Horizontal Swipe Galleries */
+            /* Horizontal Scroll Snapping (Breaks vertical monotony) */
             .options-grid,
             .gallery-grid,
             .services-grid {
@@ -1229,7 +1204,7 @@
                 scroll-snap-align: center;
             }
 
-            /* Sticky Stacking Process */
+            /* Sticky Stacking Timeline (Awwwards Effect) */
             .process-grid {
                 display: block;
                 margin-top: 40px;
@@ -1270,7 +1245,6 @@
             }
         }
 
-        /* Kill physics on mobile to prevent lag */
         @media (hover: none) and (pointer: coarse) {
 
             .cursor-dot,
@@ -1299,6 +1273,9 @@
 
     <!-- GSAP FULL SCREEN MOBILE MENU -->
     <div class="mobile-overlay" id="mobile-menu">
+        <!-- New Dedicated Close Button to fix mobile z-index trap -->
+        <div class="close-overlay hover-target" id="close-overlay">&times;</div>
+
         <div class="mobile-overlay-links">
             <a href="services.html">Services</a>
             <a href="gallery.html">Gallery</a>
@@ -1307,7 +1284,7 @@
         </div>
     </div>
 
-    <!-- TOP BAR -->
+    <!-- TOP BAR (Desktop only) -->
     <div class="top-bar">
         <div class="top-bar-left">
             <span><svg viewBox="0 0 24 24">
@@ -1326,17 +1303,20 @@
 
     <!-- MAIN HEADER -->
     <header class="site-header" id="navbar">
+        <!-- Mobile Left: Phone -->
         <a href="tel:3039130327" class="mobile-phone-link hover-target">
-            <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:var(--bg-brand-teal);">
+            <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:var(--bg-slate-teal);">
                 <path
                     d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
             </svg>
         </a>
 
+        <!-- Logo (Centered on mobile, left on desktop) -->
         <div class="nav-brand hover-target">
             <img src="floorharmony_braided_logo.png" class="main-logo" alt="Floor Harmony Logo">
         </div>
 
+        <!-- Desktop Right: Nav Links -->
         <nav class="sub-nav">
             <a href="services.html" class="hover-target">Services</a>
             <a href="gallery.html" class="hover-target">Gallery</a>
@@ -1344,6 +1324,7 @@
             <a href="#quote" class="hero-cta hover-target">Free Estimate</a>
         </nav>
 
+        <!-- Mobile Right: Hamburger (Hidden on Desktop) -->
         <button class="mobile-menu-btn hover-target" id="mobile-toggle">
             <span></span><span></span><span></span>
         </button>
@@ -1364,8 +1345,8 @@
                     <div class="bracket tr"></div>
                     <div class="bracket bl"></div>
                     <div class="bracket br"></div>
-                    <!-- Poster ensures no cat image ever appears -->
-                   <video autoplay muted loop playsinline class="center-video">
+                    <!-- Poster removed here so the cat video plays immediately without a flash -->
+                    <video autoplay muted loop playsinline class="center-video">
                         <source src="elite_comfort_final.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -1373,21 +1354,19 @@
                 <div class="focal-text">CARPETS</div>
             </div>
 
-            <!-- Changed to relative positioning on mobile to prevent overlap -->
             <div class="hero-actions gs-reveal">
                 <p class="hero-subtext">Expert in-house installation across Denver & Lakewood.</p>
                 <div class="btn-row">
                     <a href="#quote" class="btn-solid hover-target">Get Free Estimate</a>
-                    <a href="#process" class="btn-text hover-target">Our Process</a>
+                    <a href="#process" class="btn-text-link hover-target">Our Process</a>
                 </div>
             </div>
         </section>
 
-        <!-- OPTIONS GRID (4 CARDS - CLEANED) -->
+        <!-- PUNCHY OPTIONS GRID (Educational copy injected directly) -->
         <section class="options-section">
             <div class="section-header gs-fade-up">
-                <span class="hero-tag"
-                    style="justify-content: center; display: flex; color: var(--brand-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 15px;">Our
+                <span class="section-tag" style="justify-content: center; display: flex; color: var(--brand-gold);">Our
                     Products</span>
                 <h2>Flooring Options for Denver Homes</h2>
                 <p>We source heavy-weight carpets and durable hard surfaces directly from designer mills, cutting out
@@ -1406,8 +1385,7 @@
                 </div>
                 <div class="option-card gs-stagger-up hover-target">
                     <div class="option-icon"><svg viewBox="0 0 24 24">
-                            <path
-                                d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z" />
+                            <path d="M3 13h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z" />
                         </svg></div>
                     <h3>Luxury Vinyl Plank</h3>
                     <p>Perfect for kitchens and basements. LVP features a rigid core that mimics authentic hardwood but
@@ -1419,7 +1397,7 @@
                             <path
                                 d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z" />
                         </svg></div>
-                    <h3>Custom Stairs</h3>
+                    <h3>Custom Stairs & Pattern Matching</h3>
                     <p>Expert geometric pattern matching keeps complex seams invisible. We provide architectural
                         Hollywood and Waterfall wraps perfectly tailored on every single step.</p>
                 </div>
@@ -1428,14 +1406,14 @@
                             <path
                                 d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
                         </svg></div>
-                    <h3>Wholesale Value</h3>
+                    <h3>Wholesale Value & Tear-Outs</h3>
                     <p>Access our premium lines directly from American mills. We handle complete tear-outs, proper
-                        disposal of old materials, and guarantee honest, transparent yardage pricing.</p>
+                        disposal of old materials, and can move basic furniture for a simple flat fee.</p>
                 </div>
             </div>
         </section>
 
-        <!-- HOW IT WORKS (VIDEO BG + STICKY STACKING) -->
+        <!-- HOW IT WORKS (VIDEO BACKGROUND & STICKY STACKING) -->
         <section id="process" class="process-section">
             <video autoplay muted loop playsinline class="process-bg-video">
                 <source src="every_dayhome.mp4" type="video/mp4">
@@ -1590,7 +1568,7 @@
             </div>
             <div style="text-align: center; margin-top: 30px;">
                 <a href="gallery.html" class="btn-solid hover-target gs-fade-up"
-                    style="background: transparent; color: var(--bg-brand-teal); border-color: var(--bg-brand-teal);">View
+                    style="background: transparent; color: var(--bg-slate-teal); border-color: var(--bg-slate-teal);">View
                     Full Gallery</a>
             </div>
         </section>
@@ -1746,10 +1724,11 @@
                 else header.classList.remove('scrolled');
             });
 
-            // 4. GSAP Advanced Mobile Menu
+            // 4. GSAP Advanced Mobile Menu (WITH DEDICATED CLOSE BUTTON)
             const mobileToggle = document.getElementById('mobile-toggle');
             const mobileMenu = document.getElementById('mobile-menu');
             const menuLinks = document.querySelectorAll('.mobile-overlay-links a');
+            const closeOverlayBtn = document.getElementById('close-overlay');
 
             const menuTl = gsap.timeline({ paused: true });
             menuTl.to('.mobile-overlay', { opacity: 1, pointerEvents: 'auto', duration: 0.4, ease: "power2.inOut" })
@@ -1764,6 +1743,13 @@
                     document.body.style.overflow = '';
                     menuTl.reverse();
                 }
+            });
+
+            // Fix: The new dedicated 'X' button inside the overlay
+            closeOverlayBtn.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                document.body.style.overflow = '';
+                menuTl.reverse();
             });
 
             menuLinks.forEach(link => {
