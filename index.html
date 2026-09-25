@@ -420,6 +420,8 @@
             object-fit: cover;
             filter: brightness(1.1) contrast(1.05);
         }
+        .mobile-center-vid {
+             display: none; }
 
         .hero-actions {
             position: absolute;
@@ -1179,6 +1181,12 @@
                 aspect-ratio: 4/5;
                 margin: 10px 0;
             }
+            .desktop-center-vid {
+                 display: none !important; 
+                }
+            .mobile-center-vid { 
+                display: block !important; 
+            }
 
             /* Fix Absolute Positioning Overlap & Blue Link */
             .hero-actions {
@@ -1443,16 +1451,20 @@
                 <source src="living-room.mp4" type="video/mp4">
             </video>
 
-            <div class="hero-focal-container">
-                <div class="focal-text">PREMIUM</div>
-
-                <div class="center-window hover-target">
+           <div class="center-window hover-target">
                     <div class="bracket tl"></div>
                     <div class="bracket tr"></div>
                     <div class="bracket bl"></div>
                     <div class="bracket br"></div>
-                    <video autoplay muted loop playsinline class="center-video">
+                    
+                    <!-- Desktop Video (Cat) -->
+                    <video autoplay muted loop playsinline class="center-video desktop-center-vid">
                         <source src="elite_comfort_final.mp4" type="video/mp4">
+                    </video>
+                    
+                    <!-- Mobile Video (Fireplace) -->
+                    <video autoplay muted loop playsinline class="center-video mobile-center-vid">
+                        <source src="living-room.mp4" type="video/mp4">
                     </video>
                 </div>
 
