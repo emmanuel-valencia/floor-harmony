@@ -246,7 +246,7 @@
             color: var(--text-light);
         }
 
-        /* Mobile Nav Elements (Hidden on Desktop) */
+        /* Mobile Nav Elements */
         .mobile-menu-btn {
             display: none;
             flex-direction: column;
@@ -271,7 +271,6 @@
             z-index: 1005;
         }
 
-        /* GSAP Advanced Full Screen Mobile Overlay */
         .mobile-overlay {
             position: fixed;
             top: 0;
@@ -317,6 +316,11 @@
             letter-spacing: 4px;
             transform: translateY(30px);
             opacity: 0;
+        }
+
+        /* Floating CTA for Mobile */
+        .floating-cta {
+            display: none;
         }
 
         /* ========================================= */
@@ -420,8 +424,10 @@
             object-fit: cover;
             filter: brightness(1.1) contrast(1.05);
         }
+
         .mobile-center-vid {
-             display: none; }
+            display: none;
+        }
 
         .hero-actions {
             position: absolute;
@@ -489,7 +495,7 @@
         }
 
         /* ========================================= */
-        /* 06. FLOORING OPTIONS GRID (MERGED & CLEAN)*/
+        /* 06. FLOORING OPTIONS GRID                 */
         /* ========================================= */
         .options-section {
             padding: 120px 5vw;
@@ -1181,11 +1187,13 @@
                 aspect-ratio: 4/5;
                 margin: 10px 0;
             }
+
             .desktop-center-vid {
-                 display: none !important; 
-                }
-            .mobile-center-vid { 
-                display: block !important; 
+                display: none !important;
+            }
+
+            .mobile-center-vid {
+                display: block !important;
             }
 
             /* Fix Absolute Positioning Overlap & Blue Link */
@@ -1216,7 +1224,7 @@
                 text-align: center;
             }
 
-            .btn-text-link {
+            .btn-text {
                 width: 100%;
                 text-align: center;
                 color: var(--text-light) !important;
@@ -1226,7 +1234,7 @@
                 border: none;
             }
 
-            .btn-text-link:hover {
+            .btn-text:hover {
                 color: var(--brand-gold) !important;
                 border: none;
             }
@@ -1289,7 +1297,7 @@
                 top: 160px;
             }
 
-            /* Fix 5: Map Merged Compact Alignment */
+            /* Map Merged Compact Alignment */
             .map-section {
                 display: flex;
                 flex-direction: column;
@@ -1310,7 +1318,7 @@
                 box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.05);
             }
 
-            /* Fix 4: Form & Reviews Merged Alignment (Reverses stacking) */
+            /* Form & Reviews Merged Alignment (Reverses stacking) */
             .reviews-quote-wrap {
                 display: flex;
                 flex-direction: column-reverse;
@@ -1345,18 +1353,18 @@
                 align-items: center;
                 justify-content: center;
                 position: fixed;
-                bottom: 20px;
+                bottom: 35px;
                 right: 20px;
                 z-index: 990;
                 background: var(--brand-gold);
                 color: #000;
-                padding: 12px 24px;
+                padding: 10px 20px;
                 border-radius: 30px;
                 font-weight: 800;
                 font-family: var(--font-display);
                 text-transform: uppercase;
                 letter-spacing: 1px;
-                font-size: 0.8rem;
+                font-size: 0.75rem;
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
                 border: 2px solid var(--brand-gold);
             }
@@ -1387,6 +1395,7 @@
     <!-- CUSTOM CURSOR -->
     <div class="cursor-dot" id="cursor-dot"></div>
     <div class="cursor-ring" id="cursor-ring"></div>
+
     <!-- FLOATING MOBILE CTA -->
     <a href="#quote" class="floating-cta hover-target">Get Estimate</a>
 
@@ -1451,17 +1460,18 @@
                 <source src="living-room.mp4" type="video/mp4">
             </video>
 
-           <div class="center-window hover-target">
+            <div class="hero-focal-container">
+                <div class="focal-text">PREMIUM</div>
+
+                <div class="center-window hover-target">
                     <div class="bracket tl"></div>
                     <div class="bracket tr"></div>
                     <div class="bracket bl"></div>
                     <div class="bracket br"></div>
-                    
                     <!-- Desktop Video (Cat) -->
                     <video autoplay muted loop playsinline class="center-video desktop-center-vid">
                         <source src="elite_comfort_final.mp4" type="video/mp4">
                     </video>
-                    
                     <!-- Mobile Video (Fireplace) -->
                     <video autoplay muted loop playsinline class="center-video mobile-center-vid">
                         <source src="living-room.mp4" type="video/mp4">
@@ -1686,7 +1696,7 @@
             </div>
             <div style="text-align: center; margin-top: 30px;">
                 <a href="gallery.html" class="btn-solid hover-target gs-fade-up"
-                    style="background: transparent; color: var(--bg-brand-teal); border-color: var(--bg-brand-teal);">View
+                    style="background: transparent; color: var(--bg-slate-teal); border-color: var(--bg-slate-teal);">View
                     Full Gallery</a>
             </div>
         </section>
@@ -1863,7 +1873,6 @@
                 }
             });
 
-            // Close button inside the overlay
             closeOverlayBtn.addEventListener('click', () => {
                 mobileToggle.classList.remove('active');
                 document.body.style.overflow = '';
