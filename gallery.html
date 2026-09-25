@@ -1,45 +1,769 @@
 <!DOCTYPE html>
-<html>
-<script>
-    function goHome() {
-        sessionStorage.setItem( 'comingFromSubpage', 'true' ); 
-        window.location.href = 'index.html';
-    }
-</script>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery - Floor Harmony</title>
-    <link rel="stylesheet" href="stytle.css">
-<style>
-    .skip-intro #splash-screen { display: none !important; }
-    section {
-        display: grid !important;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
-        gap: 20px;
-        padding: 20px;
-    }
-</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Craftsmanship Gallery | Floor Harmony</title>
+    <meta name="description"
+        content="View our portfolio of premium carpet installations, custom stair wraps, and luxury flooring across Denver and Lakewood.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <script>
+        function goHome() {
+            sessionStorage.setItem('comingFromSubpage', 'true');
+            window.location.href = 'index.html';
+        }
+    </script>
+
+    <style>
+        /* ========================================= */
+        /* 01. GLOBAL VARIABLES                      */
+        /* ========================================= */
+        :root {
+            --bg-page: #F5F5F0;
+            --bg-white: #FFFFFF;
+            --bg-slate-teal: #182B32;
+
+            --brand-gold: #C5A059;
+
+            --text-main: #2A2A2A;
+            --text-muted: #666666;
+            --text-light: #FFFFFF;
+
+            --font-display: 'Montserrat', sans-serif;
+            --font-logo: 'Cinzel', serif;
+
+            --radius-md: 8px;
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* ========================================= */
+        /* 02. CSS RESET & GLOBAL STYLES             */
+        /* ========================================= */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            cursor: none;
+        }
+
+        html,
+        body {
+            width: 100%;
+            overflow-x: hidden;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            font-family: var(--font-display);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        a {
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-page);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--bg-slate-teal);
+        }
+
+        /* ========================================= */
+        /* 03. MAGNETIC CURSOR                       */
+        /* ========================================= */
+        .cursor-dot {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 6px;
+            background-color: var(--brand-gold);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        .cursor-ring {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(197, 160, 89, 0.5);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9998;
+            pointer-events: none;
+            transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s;
+        }
+
+        .cursor-ring.hover-active {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(197, 160, 89, 0.1);
+            border-color: transparent;
+        }
+
+        /* ========================================= */
+        /* 04. HEADER & NAVIGATION                   */
+        /* ========================================= */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(245, 245, 240, 0.94);
+            backdrop-filter: blur(12px);
+            padding: 12px 5vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(24, 43, 50, 0.1);
+        }
+
+        .main-logo {
+            height: 50px;
+            width: auto;
+            display: block;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
+        }
+
+        .sub-nav {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .sub-nav a {
+            color: var(--text-main);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .sub-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--bg-slate-teal);
+            transition: 0.3s;
+        }
+
+        .sub-nav a:hover::after {
+            width: 100%;
+        }
+
+        .hero-cta-btn {
+            background-color: var(--brand-gold);
+            color: #fff;
+            padding: 10px 25px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.75rem;
+            border-radius: 2px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .hero-cta-btn:hover {
+            background-color: var(--bg-slate-teal);
+            color: var(--text-light);
+        }
+
+        /* Mobile Nav */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: none;
+            border: none;
+            padding: 10px;
+            z-index: 1005;
+        }
+
+        .mobile-menu-btn span {
+            width: 28px;
+            height: 2px;
+            background-color: var(--bg-slate-teal);
+            transition: 0.3s;
+        }
+
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--bg-slate-teal);
+            z-index: 1999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.4s ease;
+        }
+
+        .close-overlay {
+            position: absolute;
+            top: 20px;
+            right: 5vw;
+            font-size: 3.5rem;
+            color: var(--text-light);
+            font-weight: 300;
+            line-height: 1;
+            z-index: 2005;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .mobile-overlay-links {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            text-align: center;
+        }
+
+        .mobile-overlay-links a {
+            font-size: 1.5rem;
+            font-family: var(--font-logo);
+            font-weight: 700;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            transform: translateY(30px);
+            opacity: 0;
+            transition: 0.4s ease;
+        }
+
+        /* ========================================= */
+        /* 05. GALLERY INTRO SECTION                 */
+        /* ========================================= */
+        .gallery-intro {
+            padding: 150px 5vw 60px;
+            text-align: center;
+        }
+
+        .intro-tag {
+            color: var(--brand-gold);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .intro-title {
+            font-family: var(--font-logo);
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            color: var(--bg-slate-teal);
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .intro-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ========================================= */
+        /* 06. ADVANCED MASONRY GRID                 */
+        /* ========================================= */
+        .masonry-container {
+            padding: 0 5vw 120px;
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 350px;
+            /* Base height for standard blocks */
+            gap: 20px;
+        }
+
+        .masonry-item {
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            background: #000;
+        }
+
+        /* Grid Spanning Classes for the "Bento Box" Look */
+        .span-2-col {
+            grid-column: span 2;
+        }
+
+        .span-2-row {
+            grid-row: span 2;
+        }
+
+        .span-full {
+            grid-column: span 4;
+        }
+
+        .masonry-media {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+            filter: brightness(0.9);
+        }
+
+        .masonry-item:hover .masonry-media {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        /* Awwwards Style Hover Overlay */
+        .item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 25px 25px;
+            background: linear-gradient(to top, rgba(24, 43, 50, 0.95) 0%, transparent 100%);
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .masonry-item:hover .item-overlay {
+            transform: translateY(0);
+        }
+
+        .item-title {
+            font-family: var(--font-logo);
+            font-size: 1.3rem;
+            color: var(--text-light);
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .item-category {
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            color: var(--brand-gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* ========================================= */
+        /* 07. CTA BANNER                            */
+        /* ========================================= */
+        .cta-banner {
+            padding: 100px 5vw;
+            background: var(--bg-slate-teal);
+            text-align: center;
+        }
+
+        .cta-banner h2 {
+            color: var(--text-light);
+            font-family: var(--font-logo);
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-banner p {
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        /* ========================================= */
+        /* 08. FOOTER                                */
+        /* ========================================= */
+        footer {
+            padding: 80px 5vw 30px;
+            background: #0b1417;
+            text-align: center;
+        }
+
+        .footer-logo {
+            height: 70px;
+            width: auto;
+            margin: 0 auto 25px;
+            filter: brightness(1.2);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 25px;
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ========================================= */
+        /* 09. RESPONSIVE DESIGN                     */
+        /* ========================================= */
+        @media (max-width: 1024px) {
+            .masonry-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .span-full {
+                grid-column: span 2;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .site-header {
+                padding: 0 5vw;
+                height: 70px;
+                background: #FFFFFF;
+            }
+
+            .sub-nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .main-logo {
+                height: 42px;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .gallery-intro {
+                padding-top: 120px;
+                padding-bottom: 40px;
+            }
+
+            .intro-title {
+                font-size: 2.5rem;
+            }
+
+            .masonry-container {
+                grid-template-columns: 1fr;
+                grid-auto-rows: 300px;
+                gap: 15px;
+            }
+
+            .span-2-col,
+            .span-full {
+                grid-column: span 1;
+            }
+
+            .span-2-row {
+                grid-row: span 1;
+            }
+
+            /* Show overlays by default on mobile since hover doesn't exist */
+            .item-overlay {
+                transform: translateY(0);
+                padding: 30px 20px 20px;
+                background: linear-gradient(to top, rgba(24, 43, 50, 0.85) 0%, transparent 100%);
+            }
+
+            .cta-banner h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+
+            .cursor-dot,
+            .cursor-ring {
+                display: none !important;
+            }
+
+            * {
+                cursor: auto !important;
+            }
+        }
+    </style>
 </head>
-<body style="margin: 0; padding: 0; background-color: #002229; font-family: 'Playfair Display', serif; color: white; text-align: center">
-    <header style="padding: 100px 20px 40px; background: #001a1f; border-bottom: 2px solid #c5a059; position: relative;">
-    <a href="javascript:goHome()" style="position: absolute; top: 20px; left: 20px; color: #c5a059;">HOME</a>
-    <a href="javascript:goHome()" style="display: block; width: fit-content; margin: 0 auto; text-decoration: none;">
-    <img src="floorharmony_braided_logo.png" alt="Floor Harmony Logo" style="height: 110px !important; width: auto; display: block; margin: 0 auto; filter: drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.9)) drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.4)); transform: scale(1.1);">
-    <p style="margin: 15px 0 0; font-size: 0.9rem; color: rgba(255, 255, 255, 0.7); letter-spacing: 6px; text-transform: uppercase;">GALLERY</p>
-    </a>
-</header>
-<section>
-    <div style="position: relative; overflow: hidden; border-radius: 8px; height: 350px; background: #1a1a1a;">
-        <img src="carpet-room-1.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Floor Harmony Project 1">
+
+<body>
+
+    <!-- MAGNETIC CURSOR -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+
+    <!-- MOBILE OVERLAY MENU -->
+    <div class="mobile-overlay" id="mobile-menu">
+        <div class="close-overlay hover-target" id="close-overlay">&times;</div>
+        <div class="mobile-overlay-links">
+            <a href="javascript:goHome()">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="index.html#quote" style="color: var(--brand-gold);">Free Estimate</a>
+        </div>
     </div>
-    <div style="position: relative; overflow: hidden; border-radius: 8px; height: 350px; background: #1a1a1a;">
-        <img src="carpet-room-2.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Floor Harmony Project 2">
-    </div>
-    <div style="position: relative; overflow: hidden; border-radius: 8px; height: 350px; background: #1a1a1a;">
-        <img src="carpet-room-3.jpg" style="width: 100%; height: 100%; object-fit: cover" alt="Floor Harmony Project 3">
-   </div>
-</section>
-</div>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <a href="javascript:goHome()" class="nav-brand hover-target">
+            <img src="floorharmony_braided_logo.png" class="main-logo" alt="Floor Harmony Logo">
+        </a>
+
+        <nav class="sub-nav">
+            <a href="javascript:goHome()" class="hover-target">Home</a>
+            <a href="services.html" class="hover-target">Services</a>
+            <a href="about.html" class="hover-target">About Us</a>
+            <a href="index.html#quote" class="hero-cta-btn hover-target">Free Estimate</a>
+        </nav>
+
+        <button class="mobile-menu-btn hover-target" id="mobile-toggle">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <main>
+        <!-- INTRO -->
+        <section class="gallery-intro gs-fade-up">
+            <span class="intro-tag">Portfolio</span>
+            <h1 class="intro-title">Our Craftsmanship</h1>
+            <p class="intro-desc">Explore a curated selection of our recent premium carpet and LVP installations across
+                the Denver Metro area.</p>
+        </section>
+
+        <!-- MASONRY GRID -->
+        <section class="masonry-container">
+
+            <!-- 1. Video (Standard Square) -->
+            <div class="masonry-item hover-target gs-scale-up">
+                <video src="custom-stepz.mp4" autoplay loop muted playsinline class="masonry-media"></video>
+                <div class="item-overlay">
+                    <div class="item-title">Custom Stair Wrap</div>
+                    <div class="item-category">Architectural Detail</div>
+                </div>
+            </div>
+
+            <!-- 2. Image (Wide Rectangle) -->
+            <div class="masonry-item span-2-col hover-target gs-scale-up">
+                <img src="carpet-room-1.jpg" alt="Living Room Carpet" class="masonry-media">
+                <div class="item-overlay">
+                    <div class="item-title">Plush Living Room</div>
+                    <div class="item-category">High-Density Nylon</div>
+                </div>
+            </div>
+
+            <!-- 3. Image (Standard Square) -->
+            <div class="masonry-item hover-target gs-scale-up">
+                <img src="power-stretch.JPG" alt="Power Stretching Carpet" class="masonry-media">
+                <div class="item-overlay">
+                    <div class="item-title">Wall-To-Wall Tension</div>
+                    <div class="item-category">Power Stretching</div>
+                </div>
+            </div>
+
+            <!-- 4. Video (Tall Rectangle) -->
+            <div class="masonry-item span-2-row hover-target gs-scale-up">
+                <video src="carpet-steps.mp4" autoplay loop muted playsinline class="masonry-media"></video>
+                <div class="item-overlay">
+                    <div class="item-title">Waterfall Flow</div>
+                    <div class="item-category">Stairway Installation</div>
+                </div>
+            </div>
+
+            <!-- 5. Video (Standard Square) -->
+            <div class="masonry-item hover-target gs-scale-up">
+                <video src="seam-video.mp4" autoplay loop muted playsinline class="masonry-media"></video>
+                <div class="item-overlay">
+                    <div class="item-title">Invisible Seaming</div>
+                    <div class="item-category">Pattern Matching</div>
+                </div>
+            </div>
+
+            <!-- 6. Image (Standard Square) -->
+            <div class="masonry-item hover-target gs-scale-up">
+                <img src="carpet-room-2.jpg" alt="Master Bedroom Carpet" class="masonry-media">
+                <div class="item-overlay">
+                    <div class="item-title">Master Suite Refit</div>
+                    <div class="item-category">Residential Blend</div>
+                </div>
+            </div>
+
+            <!-- 7. Video (Standard Square) -->
+            <div class="masonry-item hover-target gs-scale-up">
+                <video src="property_pro_WIDE.mp4" autoplay loop muted playsinline class="masonry-media"></video>
+                <div class="item-overlay">
+                    <div class="item-title">Rental Turnaround</div>
+                    <div class="item-category">Commercial Grade</div>
+                </div>
+            </div>
+
+            <!-- 8. Image (Wide Rectangle) -->
+            <div class="masonry-item span-2-col hover-target gs-scale-up">
+                <img src="carpet-room-3.jpg" alt="Guest Room Carpet" class="masonry-media">
+                <div class="item-overlay">
+                    <div class="item-title">Guest Room Prep</div>
+                    <div class="item-category">Tear-out & Re-lay</div>
+                </div>
+            </div>
+
+            <!-- 9. Video (Standard Square) -->
+            <div class="masonry-item hover-target gs-scale-up">
+                <video src="every_dayhome.mp4" autoplay loop muted playsinline class="masonry-media"></video>
+                <div class="item-overlay">
+                    <div class="item-title">Family Living Space</div>
+                    <div class="item-category">Stain-Resistant Carpet</div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- CTA BANNER -->
+        <section class="cta-banner">
+            <h2 class="gs-fade-up">Ready to upgrade your home?</h2>
+            <p class="gs-fade-up">Skip the showroom. Let us bring the samples directly to your door for a free,
+                zero-pressure measurement.</p>
+            <a href="index.html#quote" class="hero-cta-btn hover-target gs-fade-up"
+                style="font-size: 0.85rem; padding: 15px 35px;">Request a Free Estimate</a>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <img src="floorharmony_braided_logo.png" alt="Floor Harmony Logo" class="footer-logo">
+        <p style="margin-bottom: 15px; letter-spacing: 2px; text-transform: uppercase; font-size: 0.85rem;">Master
+            Carpet & Flooring Installations</p>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Floor Harmony LLC.</span>
+            <span>Lakewood • Denver • Front Range</span>
+        </div>
+    </footer>
+
+    <!-- GSAP & LENIS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Smooth Scroll
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                smooth: true
+            });
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+
+            // Cursor
+            const dot = document.getElementById('cursor-dot');
+            const ring = document.getElementById('cursor-ring');
+            const targets = document.querySelectorAll('.hover-target, a, button');
+
+            window.addEventListener('mousemove', (e) => {
+                dot.style.left = `${e.clientX}px`;
+                dot.style.top = `${e.clientY}px`;
+                ring.animate({ left: `${e.clientX}px`, top: `${e.clientY}px` }, { duration: 300, fill: "forwards" });
+            });
+
+            targets.forEach(t => {
+                t.addEventListener('mouseenter', () => ring.classList.add('hover-active'));
+                t.addEventListener('mouseleave', () => ring.classList.remove('hover-active'));
+            });
+
+            // Mobile Menu
+            const toggle = document.getElementById('mobile-toggle');
+            const menu = document.getElementById('mobile-menu');
+            const closeBtn = document.getElementById('close-overlay');
+            const menuLinks = document.querySelectorAll('.mobile-overlay-links a');
+
+            const menuTl = gsap.timeline({ paused: true });
+            menuTl.to(menu, { opacity: 1, pointerEvents: 'auto', duration: 0.4, ease: "power2.inOut" })
+                .to('.mobile-overlay-links a', { y: 0, opacity: 1, duration: 0.4, stagger: 0.1, ease: "power2.out" }, "-=0.2");
+
+            toggle.addEventListener('click', () => {
+                document.body.style.overflow = 'hidden';
+                menuTl.play();
+            });
+
+            closeBtn.addEventListener('click', () => {
+                document.body.style.overflow = '';
+                menuTl.reverse();
+            });
+
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    document.body.style.overflow = '';
+                    menuTl.reverse();
+                });
+            });
+
+            // Video Playback Speed
+            const videos = document.querySelectorAll('.masonry-media');
+            videos.forEach(video => {
+                if (video.tagName === 'VIDEO') video.playbackRate = 0.8;
+            });
+
+            // GSAP Scroll Animations
+            gsap.registerPlugin(ScrollTrigger);
+
+            document.querySelectorAll('.gs-fade-up').forEach(elem => {
+                gsap.fromTo(elem,
+                    { y: 30, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 1, ease: "power2.out", scrollTrigger: { trigger: elem, start: "top 85%" } }
+                );
+            });
+
+            // Stagger Grid Items
+            const gridItems = document.querySelectorAll('.gs-scale-up');
+            gsap.fromTo(gridItems,
+                { scale: 0.9, opacity: 0 },
+                { scale: 1, opacity: 1, duration: 0.8, stagger: 0.1, ease: "power2.out", scrollTrigger: { trigger: '.masonry-container', start: "top 80%" } }
+            );
+        });
+    </script>
 </body>
+
 </html>

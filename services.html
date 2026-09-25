@@ -1,66 +1,882 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services - Floor Harmony</title>
-    <link rel="stylesheet" href="style.css">
-<script>
-    function goHome() {
-        sessionStorage.setItem( 'comingFromSubpage', 'true' );
-        window.location.href = 'index.html';
-    }
-</script>
-<style>
-    body { 
-        background-color: #002229; 
-        color: #fff; 
-        font-family: 'Playfair Display', serif;
-         margin: 0; 
-         text-align: center; }
-    .services-container { 
-        padding: 40px 20px; 
-        max-width: 1000px; 
-        margin: auto; }
-    .service-card {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(197, 160, 89, 0.3);
-        border-radius: 15px;
-        padding: 40px;
-        margin: 20px 0;
-        transition: all 0.4s ease;
-    }
-    .service-card:hover {
-        transform: translateY(-10);
-        border-color: rgba(197, 160, 89, 0.8);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    }
-    .service-card p{
-        color: rgba(255, 255, 255, 0.9);
-        font-size: 1.1rem;
-        line-height: 1.6;
-    }
-    h2 {
-        color: #c5a059;
-        letter-spacing: 2px;
-    }
-</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Our Services | Floor Harmony Lakewood</title>
+    <meta name="description"
+        content="Premium carpet installation, LVP, custom stair wraps, and complete tear-out services in Lakewood and Denver. No sub-contractors, just master craftsmanship.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <script>
+        function goHome() {
+            sessionStorage.setItem('comingFromSubpage', 'true');
+            window.location.href = 'index.html';
+        }
+    </script>
+
+    <style>
+        /* ========================================= */
+        /* 01. GLOBAL VARIABLES (SYNCED WITH MASTER) */
+        /* ========================================= */
+        :root {
+            --bg-page: #F5F5F0;
+            --bg-white: #FFFFFF;
+            --bg-slate-teal: #182B32;
+
+            --brand-gold: #C5A059;
+
+            --text-main: #2A2A2A;
+            --text-muted: #666666;
+            --text-light: #FFFFFF;
+
+            --font-display: 'Montserrat', sans-serif;
+            --font-serif: 'Cinzel', serif;
+
+            --radius-md: 4px;
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.04);
+
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* ========================================= */
+        /* 02. CSS RESET & GLOBAL STYLES             */
+        /* ========================================= */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            cursor: none;
+        }
+
+        html,
+        body {
+            width: 100%;
+            overflow-x: hidden;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            font-family: var(--font-display);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        p {
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-page);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--bg-slate-teal);
+        }
+
+        /* ========================================= */
+        /* 03. MAGNETIC CURSOR                       */
+        /* ========================================= */
+        .cursor-dot {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 6px;
+            background-color: var(--brand-gold);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        .cursor-ring {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(197, 160, 89, 0.5);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9998;
+            pointer-events: none;
+            transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s;
+        }
+
+        .cursor-ring.hover-active {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(197, 160, 89, 0.1);
+            border-color: transparent;
+        }
+
+        /* ========================================= */
+        /* 04. TOP BAR & NAVIGATION                  */
+        /* ========================================= */
+        .top-bar {
+            background-color: var(--bg-slate-teal);
+            padding: 10px 5vw;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.7);
+            z-index: 1001;
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        .top-bar-left,
+        .top-bar-right {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .top-bar svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--brand-gold);
+            margin-right: 6px;
+            vertical-align: text-top;
+        }
+
+        .top-bar .highlight {
+            color: var(--text-light);
+            font-weight: 700;
+        }
+
+        .site-header {
+            position: fixed;
+            top: 38px;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 10px 5vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
+            transition: top 0.3s ease, padding 0.3s ease;
+        }
+
+        .site-header.scrolled {
+            top: 0;
+            padding: 8px 5vw;
+        }
+
+        .main-logo {
+            height: 65px;
+            width: auto;
+            display: block;
+            transition: 0.3s ease;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        .site-header.scrolled .main-logo {
+            height: 50px;
+        }
+
+        .sub-nav {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .sub-nav a {
+            color: var(--text-main);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .sub-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--bg-slate-teal);
+            transition: 0.3s;
+        }
+
+        .sub-nav a:hover::after {
+            width: 100%;
+        }
+
+        .hero-cta-btn {
+            background-color: var(--brand-gold);
+            color: #fff;
+            padding: 12px 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            border-radius: 2px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .hero-cta-btn:hover {
+            background-color: var(--bg-slate-teal);
+            color: var(--text-light);
+        }
+
+        /* Mobile Nav */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: none;
+            border: none;
+            padding: 10px;
+            z-index: 1005;
+        }
+
+        .mobile-menu-btn span {
+            width: 28px;
+            height: 2px;
+            background-color: var(--bg-slate-teal);
+            transition: 0.3s;
+        }
+
+        .mobile-phone-link {
+            display: none;
+            color: var(--bg-slate-teal);
+            font-size: 1.2rem;
+            z-index: 1005;
+        }
+
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--bg-slate-teal);
+            z-index: 1999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.4s ease;
+        }
+
+        .close-overlay {
+            position: absolute;
+            top: 20px;
+            right: 5vw;
+            font-size: 3.5rem;
+            color: var(--text-light);
+            font-weight: 300;
+            line-height: 1;
+            z-index: 2005;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .mobile-overlay-links {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            text-align: center;
+        }
+
+        .mobile-overlay-links a {
+            font-size: 1.5rem;
+            font-family: var(--font-logo);
+            font-weight: 700;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            transform: translateY(30px);
+            opacity: 0;
+            transition: 0.4s ease;
+        }
+
+        /* ========================================= */
+        /* 05. SERVICES INTRO HERO                   */
+        /* ========================================= */
+        .services-intro {
+            padding: 180px 5vw 80px;
+            text-align: center;
+            background-color: var(--bg-page);
+        }
+
+        .intro-tag {
+            color: var(--brand-gold);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .intro-title {
+            font-family: var(--font-logo);
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            color: var(--bg-slate-teal);
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .intro-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* ========================================= */
+        /* 06. CINEMATIC VIDEO SERVICE PANELS        */
+        /* ========================================= */
+        .service-panel {
+            position: relative;
+            width: 100%;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding: 100px 5vw;
+        }
+
+        .panel-bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .panel-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(24, 43, 50, 0.88);
+            /* Exact slate-teal hex with 88% opacity */
+            z-index: 2;
+        }
+
+        .panel-content {
+            position: relative;
+            z-index: 3;
+            max-width: 600px;
+            color: var(--text-light);
+        }
+
+        /* Alternating Alignments */
+        .align-left {
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .align-right {
+            margin-left: auto;
+            text-align: left;
+        }
+
+        .align-center {
+            margin: 0 auto;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .panel-number {
+            font-family: var(--font-logo);
+            font-size: 1.5rem;
+            color: var(--brand-gold);
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: block;
+            letter-spacing: 2px;
+        }
+
+        .panel-title {
+            font-family: var(--font-logo);
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: var(--text-light);
+            margin-bottom: 25px;
+            line-height: 1.1;
+            letter-spacing: 1px;
+        }
+
+        .panel-desc {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .panel-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .align-center .panel-list {
+            align-items: center;
+        }
+
+        .panel-list li {
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--brand-gold);
+        }
+
+        .panel-list li::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--brand-gold);
+            border-radius: 50%;
+        }
+
+        /* ========================================= */
+        /* 07. CTA BANNER                            */
+        /* ========================================= */
+        .cta-banner {
+            padding: 120px 5vw;
+            background: var(--bg-white);
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .cta-banner h2 {
+            color: var(--bg-slate-teal);
+            font-family: var(--font-logo);
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-banner p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        /* ========================================= */
+        /* 08. FOOTER                                */
+        /* ========================================= */
+        footer {
+            padding: 80px 5vw 30px;
+            background: #0b1417;
+            text-align: center;
+        }
+
+        .footer-logo {
+            height: 70px;
+            width: auto;
+            margin: 0 auto 25px;
+            filter: brightness(1.2);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 25px;
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ========================================= */
+        /* 09. RESPONSIVE DESIGN                     */
+        /* ========================================= */
+        @media (max-width: 1024px) {
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                display: none !important;
+            }
+
+            .site-header {
+                top: 0 !important;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 75px;
+                padding: 0 5vw;
+                background: #FFFFFF;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            }
+
+            .site-header.scrolled {
+                height: 70px;
+                padding: 0 5vw;
+            }
+
+            .sub-nav {
+                display: none;
+            }
+
+            .main-logo {
+                height: 42px;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                top: 50%;
+                margin-top: -21px;
+            }
+
+            .site-header.scrolled .main-logo {
+                height: 40px;
+                margin-top: -20px;
+            }
+
+            .mobile-phone-link {
+                display: block;
+                position: relative;
+                z-index: 1002;
+                margin-top: 5px;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+                position: relative;
+                z-index: 1002;
+                margin-top: 5px;
+            }
+
+            .services-intro {
+                padding-top: 140px;
+                padding-bottom: 60px;
+            }
+
+            .intro-title {
+                font-size: 2.5rem;
+            }
+
+            /* Center everything on mobile */
+            .service-panel {
+                min-height: auto;
+                padding: 80px 5vw;
+            }
+
+            .align-left,
+            .align-right {
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            .panel-list {
+                align-items: center;
+            }
+
+            .cta-banner h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+
+            .cursor-dot,
+            .cursor-ring {
+                display: none !important;
+            }
+
+            * {
+                cursor: auto !important;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <header style="padding: 100px 20px 40px; background: linear-gradient(to bottom, #001a1f, #002229); border-bottom: 2px solid #c5a059; position: relative;">
-        <a href="javascript:goHome()" style="position: absolute; top: 20px; left: 20px; color: #c5a059;">HOME</a>
-        <a href="javascript:goHome()" style="text-decoration: none;">
-            <img src="floorharmony_braided_logo.png" alt="Floor Harmony Logo" style="height: 110px !important; width: auto; display: block; margin: 0 auto; filter: drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.9)) drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.4)); transform: scale(1.1);">
-            <p style="margin: 15px 0 0; font-size: 0.9rem; color: rgba(255, 255, 255, 0.7); letter-spacing: 6px;">Professional Installation</p>
+
+    <!-- MAGNETIC CURSOR -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+
+    <!-- MOBILE OVERLAY MENU -->
+    <div class="mobile-overlay" id="mobile-menu">
+        <div class="close-overlay hover-target" id="close-overlay">&times;</div>
+        <div class="mobile-overlay-links">
+            <a href="javascript:goHome()">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="index.html#quote" style="color: var(--brand-gold);">Free Estimate</a>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <span><svg viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                </svg> Serving Denver, Lakewood & Front Range</span>
+            <span class="highlight">★ 5.0 Rating on Google</span>
+        </div>
+        <div class="top-bar-right">
+            <span>Mon-Sat 8am-6pm</span>
+            <span><svg viewBox="0 0 24 24">
+                    <path
+                        d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                </svg> (303) 913-0327</span>
+        </div>
+    </div>
+
+    <header class="site-header">
+        <a href="tel:3039130327" class="mobile-phone-link hover-target">
+            <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:var(--bg-slate-teal);">
+                <path
+                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+            </svg>
         </a>
+
+        <a href="javascript:goHome()" class="nav-brand hover-target">
+            <img src="floorharmony_braided_logo.png" class="main-logo" alt="Floor Harmony Logo">
+        </a>
+
+        <nav class="sub-nav">
+            <a href="javascript:goHome()" class="hover-target">Home</a>
+            <a href="about.html" class="hover-target">About Us</a>
+            <a href="gallery.html" class="hover-target">Gallery</a>
+            <a href="index.html#quote" class="hero-cta-btn hover-target">Free Estimate</a>
+        </nav>
+
+        <button class="mobile-menu-btn hover-target" id="mobile-toggle">
+            <span></span><span></span><span></span>
+        </button>
     </header>
-    <div class="services-container">
-        <h1>Our Services</h1>
-    <div class="service-card">
-        <div class="service-icon" style="font-size: 2rem; color: #c5a059; margin-bottom: 15px;">✨</div>
-        <h2>Carpet Installation</h2>
-        <p>Expert stretching and seamless transitions for a plush, professional finish.</p>
-    </div>
-    </div>
+
+    <main>
+        <!-- INTRO -->
+        <section class="services-intro gs-fade-up">
+            <span class="intro-tag">Master Craftsmanship</span>
+            <h1 class="intro-title">Our Capabilities</h1>
+            <p class="intro-desc">We do not believe in a one-size-fits-all approach. From luxury custom staircases to
+                high-durability rental turnarounds, our in-house crew executes every project with architectural
+                precision.</p>
+        </section>
+
+        <!-- PANEL 1: PREMIUM CARPET (ALIGNED LEFT) -->
+        <section class="service-panel">
+            <video autoplay muted loop playsinline class="panel-bg-video">
+                <source src="every_dayhome.mp4" type="video/mp4">
+            </video>
+            <div class="panel-overlay"></div>
+
+            <div class="panel-content align-left gs-fade-up">
+                <span class="panel-number">01</span>
+                <h2 class="panel-title">Premium Carpet Installation</h2>
+                <p class="panel-desc">We source heavy-weight, high-density nylons directly from designer mills. Every
+                    room is meticulously power-stretched wall-to-wall, guaranteeing your carpet remains drum-tight and
+                    wrinkle-free for years.</p>
+                <ul class="panel-list">
+                    <li>High-Density Spill-Resistant Padding Included</li>
+                    <li>Wall-to-Wall Power Stretching</li>
+                    <li>Invisible Geometric Pattern Matching</li>
+                </ul>
+                <a href="index.html#quote" class="hero-cta-btn hover-target">Request Estimate</a>
+            </div>
+        </section>
+
+        <!-- PANEL 2: CUSTOM STAIRS (ALIGNED RIGHT) -->
+        <section class="service-panel">
+            <video autoplay muted loop playsinline class="panel-bg-video">
+                <source src="carpet-steps.mp4" type="video/mp4">
+            </video>
+            <div class="panel-overlay"></div>
+
+            <div class="panel-content align-right gs-fade-up">
+                <span class="panel-number">02</span>
+                <h2 class="panel-title">Custom Stair Wraps</h2>
+                <p class="panel-desc">Stairs are the focal point of a home and require true mastery to execute properly.
+                    We specialize in highly architectural stair installations that are tightly wrapped, perfectly
+                    centered, and built to withstand heavy foot traffic.</p>
+                <ul class="panel-list">
+                    <li>Tailored Hollywood Wraps</li>
+                    <li>Flowing Waterfall Installations</li>
+                    <li>Custom Carpet Runners & Bindings</li>
+                </ul>
+                <a href="index.html#quote" class="hero-cta-btn hover-target">Request Estimate</a>
+            </div>
+        </section>
+
+        <!-- PANEL 3: LUXURY VINYL PLANK (ALIGNED CENTER) -->
+        <section class="service-panel">
+            <video autoplay muted loop playsinline class="panel-bg-video">
+                <source src="property_pro_WIDE.mp4" type="video/mp4">
+            </video>
+            <div class="panel-overlay"></div>
+
+            <div class="panel-content align-center gs-fade-up">
+                <span class="panel-number">03</span>
+                <h2 class="panel-title">Luxury Vinyl Plank (LVP)</h2>
+                <p class="panel-desc">The ultimate solution for high-traffic zones, basements, and kitchens. LVP
+                    provides the authentic, warm aesthetic of natural hardwood but is engineered with a rigid core that
+                    makes it 100% waterproof and highly scratch-resistant against pets and kids.</p>
+                <ul class="panel-list"
+                    style="justify-content: center; flex-direction: row; flex-wrap: wrap; gap: 20px;">
+                    <li>100% Waterproof Core</li>
+                    <li>Scratch & Dent Resistant</li>
+                    <li>Seamless Subfloor Preparation</li>
+                </ul>
+                <a href="index.html#quote" class="hero-cta-btn hover-target">Request Estimate</a>
+            </div>
+        </section>
+
+        <!-- PANEL 4: TURNKEY TEAR-OUT (ALIGNED LEFT) -->
+        <section class="service-panel">
+            <video autoplay muted loop playsinline class="panel-bg-video">
+                <source src="custom-stepz.mp4" type="video/mp4">
+            </video>
+            <div class="panel-overlay"></div>
+
+            <div class="panel-content align-left gs-fade-up">
+                <span class="panel-number">04</span>
+                <h2 class="panel-title">Turnkey Prep & Tear-Out</h2>
+                <p class="panel-desc">We handle the heavy lifting so you don't have to. From moving your living room
+                    furniture to ripping out decades-old carpet and padding, our crew leaves your home spotless before
+                    laying the new foundation.</p>
+                <ul class="panel-list">
+                    <li>Basic Furniture Moving Services</li>
+                    <li>Complete Removal & Disposal of Old Materials</li>
+                    <li>Thorough Subfloor Cleaning & Prep</li>
+                </ul>
+                <a href="index.html#quote" class="hero-cta-btn hover-target">Request Estimate</a>
+            </div>
+        </section>
+
+        <!-- CTA BANNER -->
+        <section class="cta-banner">
+            <h2 class="gs-fade-up">Ready to upgrade your home?</h2>
+            <p class="gs-fade-up">Skip the showroom. Let us bring the samples directly to your door for a free,
+                zero-pressure measurement.</p>
+            <a href="index.html#quote" class="hero-cta-btn hover-target gs-fade-up"
+                style="font-size: 0.85rem; padding: 15px 35px;">Shop At Home</a>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <img src="floorharmony_braided_logo.png" alt="Floor Harmony Logo" class="footer-logo">
+        <p
+            style="margin-bottom: 15px; letter-spacing: 2px; text-transform: uppercase; font-size: 0.85rem; color: rgba(255,255,255,0.7);">
+            Master Carpet & Flooring Installations</p>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Floor Harmony LLC.</span>
+            <span>Lakewood • Denver • Front Range</span>
+        </div>
+    </footer>
+
+    <!-- GSAP & LENIS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Smooth Scroll
+            const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smooth: true });
+            function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+            requestAnimationFrame(raf);
+
+            // Cursor
+            const dot = document.getElementById('cursor-dot');
+            const ring = document.getElementById('cursor-ring');
+            const targets = document.querySelectorAll('.hover-target, a, button');
+
+            window.addEventListener('mousemove', (e) => {
+                dot.style.left = `${e.clientX}px`; dot.style.top = `${e.clientY}px`;
+                ring.animate({ left: `${e.clientX}px`, top: `${e.clientY}px` }, { duration: 300, fill: "forwards" });
+            });
+
+            targets.forEach(t => {
+                t.addEventListener('mouseenter', () => ring.classList.add('hover-active'));
+                t.addEventListener('mouseleave', () => ring.classList.remove('hover-active'));
+            });
+
+            // Sticky Header
+            const header = document.querySelector('.site-header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) header.classList.add('scrolled');
+                else header.classList.remove('scrolled');
+            });
+
+            // Mobile Menu
+            const toggle = document.getElementById('mobile-toggle');
+            const menu = document.getElementById('mobile-menu');
+            const closeBtn = document.getElementById('close-overlay');
+            const menuLinks = document.querySelectorAll('.mobile-overlay-links a');
+
+            const menuTl = gsap.timeline({ paused: true });
+            menuTl.to(menu, { opacity: 1, pointerEvents: 'auto', duration: 0.4, ease: "power2.inOut" })
+                .to('.mobile-overlay-links a', { y: 0, opacity: 1, duration: 0.4, stagger: 0.1, ease: "power2.out" }, "-=0.2");
+
+            toggle.addEventListener('click', () => { document.body.style.overflow = 'hidden'; menuTl.play(); });
+            closeBtn.addEventListener('click', () => { document.body.style.overflow = ''; menuTl.reverse(); });
+            menuLinks.forEach(link => { link.addEventListener('click', () => { document.body.style.overflow = ''; menuTl.reverse(); }); });
+
+            // Video Playback Speed
+            document.querySelectorAll('.panel-bg-video').forEach(video => { video.playbackRate = 0.8; });
+
+            // GSAP Scroll Animations
+            gsap.registerPlugin(ScrollTrigger);
+
+            document.querySelectorAll('.gs-fade-up').forEach(elem => {
+                gsap.fromTo(elem,
+                    { y: 40, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 1, ease: "power2.out", scrollTrigger: { trigger: elem, start: "top 85%" } }
+                );
+            });
+        });
+    </script>
 </body>
+
 </html>

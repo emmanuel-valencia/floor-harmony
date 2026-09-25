@@ -1,24 +1,935 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Floor Harmony</title>
-    <link href="https://fonts.googleapis.com/css2? family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>About Us | Floor Harmony Lakewood</title>
+    <meta name="description"
+        content="Based in Lakewood, Colorado, Floor Harmony is a family-operated premium flooring agency bringing decades of master craftsmanship directly to your home.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ========================================= */
+        /* 01. GLOBAL VARIABLES (SYNCED WITH INDEX)  */
+        /* ========================================= */
+        :root {
+            --bg-page: #F5F5F0;
+            --bg-white: #FFFFFF;
+            --bg-slate-teal: #182B32;
+
+            --brand-gold: #C5A059;
+
+            --text-main: #2A2A2A;
+            --text-muted: #666666;
+            --text-light: #FFFFFF;
+
+            --font-display: 'Montserrat', sans-serif;
+            --font-serif: 'Cinzel', serif;
+
+            --radius-md: 4px;
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.04);
+
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* ========================================= */
+        /* 02. CSS RESET & GLOBAL STYLES             */
+        /* ========================================= */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            cursor: none;
+        }
+
+        html,
+        body {
+            width: 100%;
+            overflow-x: hidden;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            font-family: var(--font-display);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        p {
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-page);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--bg-slate-teal);
+        }
+
+        /* ========================================= */
+        /* 03. MAGNETIC CURSOR                       */
+        /* ========================================= */
+        .cursor-dot {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 6px;
+            background-color: var(--brand-gold);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        .cursor-ring {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(197, 160, 89, 0.5);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9998;
+            pointer-events: none;
+            transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s;
+        }
+
+        .cursor-ring.hover-active {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(197, 160, 89, 0.1);
+            border-color: transparent;
+        }
+
+        /* ========================================= */
+        /* 04. TOP BAR & NAVIGATION                  */
+        /* ========================================= */
+        .top-bar {
+            background-color: var(--bg-slate-teal);
+            padding: 10px 5vw;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.7);
+            z-index: 1001;
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        .top-bar-left,
+        .top-bar-right {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .top-bar svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--brand-gold);
+            margin-right: 6px;
+            vertical-align: text-top;
+        }
+
+        .top-bar .highlight {
+            color: var(--text-light);
+            font-weight: 700;
+        }
+
+        .site-header {
+            position: fixed;
+            top: 38px;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 10px 5vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
+            transition: top 0.3s ease, padding 0.3s ease;
+        }
+
+        .site-header.scrolled {
+            top: 0;
+            padding: 8px 5vw;
+        }
+
+        .main-logo {
+            height: 65px;
+            width: auto;
+            display: block;
+            transition: 0.3s ease;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        .site-header.scrolled .main-logo {
+            height: 50px;
+        }
+
+        .sub-nav {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .sub-nav a {
+            color: var(--text-main);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .sub-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--bg-slate-teal);
+            transition: 0.3s;
+        }
+
+        .sub-nav a:hover::after {
+            width: 100%;
+        }
+
+        .hero-cta-btn {
+            background-color: var(--brand-gold);
+            color: #fff;
+            padding: 12px 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            border-radius: 2px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .hero-cta-btn:hover {
+            background-color: var(--bg-slate-teal);
+            color: var(--text-light);
+        }
+
+        /* Mobile Nav Elements */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: none;
+            border: none;
+            padding: 10px;
+            z-index: 1005;
+        }
+
+        .mobile-menu-btn span {
+            width: 28px;
+            height: 2px;
+            background-color: var(--bg-slate-teal);
+            transition: 0.3s;
+        }
+
+        .mobile-phone-link {
+            display: none;
+            color: var(--bg-slate-teal);
+            font-size: 1.2rem;
+            z-index: 1005;
+        }
+
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--bg-slate-teal);
+            z-index: 1999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .close-overlay {
+            position: absolute;
+            top: 20px;
+            right: 5vw;
+            font-size: 3.5rem;
+            color: var(--text-light);
+            font-weight: 300;
+            line-height: 1;
+            z-index: 2005;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .mobile-overlay-links {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            text-align: center;
+        }
+
+        .mobile-overlay-links a {
+            font-size: 1.5rem;
+            font-family: var(--font-logo);
+            font-weight: 700;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            transform: translateY(30px);
+            opacity: 0;
+        }
+
+        /* ========================================= */
+        /* 05. ABOUT PAGE SPECIFIC STYLES            */
+        /* ========================================= */
+
+        /* Inner Page Hero */
+        .about-hero {
+            width: 100%;
+            min-height: 60vh;
+            padding: 150px 5vw 80px;
+            background-color: var(--bg-slate-teal);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.05) 0%, transparent 60%);
+        }
+
+        .about-hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(3rem, 6vw, 5rem);
+            color: var(--text-light);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            letter-spacing: 2px;
+        }
+
+        .about-hero p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2rem;
+            max-width: 600px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* The Story Section */
+        .story-section {
+            padding: 120px 5vw;
+            background-color: var(--bg-page);
+        }
+
+        .story-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .story-content h2 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: var(--bg-slate-teal);
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .story-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .gold-line {
+            width: 60px;
+            height: 3px;
+            background-color: var(--brand-gold);
+            margin-bottom: 30px;
+        }
+
+        /* Image Placeholder for future team/action shot */
+        .story-image-wrapper {
+            width: 100%;
+            aspect-ratio: 4/5;
+            background: var(--bg-white);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-md);
+        }
+
+        .story-image-wrapper::after {
+            content: 'Team / Craftsmanship Image';
+            color: var(--text-muted);
+            font-family: var(--font-display);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        /* By The Numbers (Stats Bar) */
+        .stats-section {
+            background-color: var(--bg-white);
+            padding: 80px 5vw;
+            border-top: 1px solid rgba(0, 0, 0, 0.03);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-family: var(--font-serif);
+            font-size: 4rem;
+            color: var(--brand-gold);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            font-size: 1rem;
+            color: var(--bg-slate-teal);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        /* Core Values */
+        .values-section {
+            padding: 120px 5vw;
+            background-color: var(--bg-page);
+            text-align: center;
+        }
+
+        .values-header {
+            margin-bottom: 60px;
+        }
+
+        .values-header h2 {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            color: var(--bg-slate-teal);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .value-card {
+            background: var(--bg-white);
+            padding: 50px 30px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-soft);
+            text-align: left;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(197, 160, 89, 0.3);
+        }
+
+        .value-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--bg-slate-teal);
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            padding: 100px 5vw;
+            background: var(--bg-slate-teal);
+            text-align: center;
+        }
+
+        .cta-banner h2 {
+            color: var(--text-light);
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-banner p {
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        /* ========================================= */
+        /* 06. FOOTER                                */
+        /* ========================================= */
+        footer {
+            padding: 80px 5vw 30px;
+            background: #0b1417;
+            text-align: center;
+        }
+
+        .footer-logo {
+            height: 80px;
+            width: auto;
+            margin: 0 auto 30px;
+            filter: drop-shadow(0 0 10px rgba(197, 160, 89, 0.1));
+            opacity: 0;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 30px;
+            margin-top: 50px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ========================================= */
+        /* 07. RESPONSIVE DESIGN                     */
+        /* ========================================= */
+        @media (max-width: 1024px) {
+            .story-container {
+                grid-template-columns: 1fr;
+            }
+
+            .story-image-wrapper {
+                aspect-ratio: 16/9;
+                max-width: 800px;
+                margin: 0 auto;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                display: none !important;
+            }
+
+            .site-header {
+                top: 0 !important;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 75px;
+                padding: 0 5vw;
+                background: #FFFFFF;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            }
+
+            .site-header.scrolled {
+                height: 70px;
+                padding: 0 5vw;
+            }
+
+            .sub-nav {
+                display: none;
+            }
+
+            .main-logo {
+                height: 45px;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                top: 50%;
+                margin-top: -22px;
+            }
+
+            .site-header.scrolled .main-logo {
+                height: 40px;
+                margin-top: -20px;
+            }
+
+            .mobile-phone-link {
+                display: block;
+                position: relative;
+                z-index: 1002;
+                margin-top: 5px;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+                position: relative;
+                z-index: 1002;
+                margin-top: 5px;
+            }
+
+            .about-hero {
+                padding-top: 140px;
+                min-height: 40vh;
+            }
+
+            .about-hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .story-section,
+            .stats-section,
+            .values-section,
+            .cta-banner {
+                padding: 80px 5vw;
+            }
+
+            .story-content h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+
+            .cursor-dot,
+            .cursor-ring {
+                display: none !important;
+            }
+
+            * {
+                cursor: auto !important;
+            }
+
+            .value-card:hover {
+                transform: none !important;
+                border-color: transparent !important;
+            }
+        }
+    </style>
 </head>
-<body style="margin: 0; padding: 0; background-color: #002229; font-family: 'Playfair Display', serif; color: white; line-height: 1.6;">
-    <header style="padding: 100px 20px 40px; background: #001a1f; border-bottom: 2px solid #c5a059; position: relative; text-align: center;">
-        <a href="index.html" style="position: absolute; top: 20px; left: 20px; color: #c5a059; text-decoration: none; font-size: 14px; letter-spacing: 1px; font-weight: bold;">Go Back Home</a>
-        <a href="index.html" style="display: block; width: fit-content; margin: 0 auto; text-decoration: none;">
-        <img src="floorharmony_braided_logo.png" alt="Floor Harmony Logo" style="height: 110px !important; width: auto; display: block; margin: 0 auto; filter: drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.9)) drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.4)); transform: scale(1.1);">
+
+<body>
+
+    <!-- CUSTOM CURSOR -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+
+    <!-- GSAP FULL SCREEN MOBILE MENU -->
+    <div class="mobile-overlay" id="mobile-menu">
+        <div class="close-overlay hover-target" id="close-overlay">&times;</div>
+
+        <div class="mobile-overlay-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#process">Process</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="index.html#quote" style="color: var(--brand-gold);">Free Estimate</a>
+        </div>
+    </div>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <span><svg viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                </svg> Serving Denver, Lakewood & Front Range</span>
+            <span class="highlight">★ 5.0 Rating on Google</span>
+        </div>
+        <div class="top-bar-right">
+            <span>Mon-Sat 8am-6pm</span>
+            <span><svg viewBox="0 0 24 24">
+                    <path
+                        d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                </svg> (303) 913-0327</span>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header class="site-header" id="navbar">
+        <a href="tel:3039130327" class="mobile-phone-link hover-target">
+            <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:var(--bg-slate-teal);">
+                <path
+                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+            </svg>
         </a>
-        <p style="margin: 15px 0 0; font-size: 0.9rem; color: rgba(255, 255, 255, 0.7); letter-spacing: 6px; text-transform: uppercase;">About Our Craft</p>
+
+        <a href="index.html" class="nav-brand hover-target">
+            <img src="floorharmony_braided_logo.png" class="main-logo" alt="Floor Harmony Logo">
+        </a>
+
+        <nav class="sub-nav">
+            <a href="index.html" class="hover-target">Home</a>
+            <a href="index.html#process" class="hover-target">Services</a>
+            <a href="gallery.html" class="hover-target">Gallery</a>
+            <a href="index.html#quote" class="hero-cta-btn hover-target">Free Estimate</a>
+        </nav>
+
+        <button class="mobile-menu-btn hover-target" id="mobile-toggle">
+            <span></span><span></span><span></span>
+        </button>
     </header>
-<main style="max-width: 800px; margin: 0 auto; padding: 60px 20px; text-align: center;">
-    <h2 style="color: #c5a059; font-size: 2.5rem; margin-bottom: 20px;">Precision in Every Fiber</h2>
-    <p style="font-size: 1.2rem; color: #e0e0e0; margin-bottom: 30px;"> At Floor Harmony, we believe that flooring is more than just a surface. It's the foundation of your home's atmmosphere. Based in Lakewood, Colorado, we specialize in high-end carpet and flooring installation where precision meets passion.</p>
-    <div style="width: 50px; height: 2px; background: #c5a059; margin: 0 auto 30px;"></div>
-    <p style="font-size: 1.1rem; color: rgba(255,255,255 0.8);">Our mission is simple: to bring harmony to your living space through expert craftsmanship and a relentless attention to detail. whether it's a luxury stair runner or a full home transformation, we treat every inch of your floor as a work of art.</p>
-</main>
+
+    <main>
+        <!-- ABOUT HERO -->
+        <section class="about-hero">
+            <h1 class="gs-fade-up">Precision in Every Fiber</h1>
+            <p class="gs-fade-up" style="transition-delay: 0.1s;">Elevating living spaces across the Colorado Metro
+                through master craftsmanship and an unwavering attention to detail.</p>
+        </section>
+
+        <!-- OUR STORY -->
+        <section class="story-section">
+            <div class="story-container">
+                <div class="story-content gs-fade-up">
+                    <div class="gold-line"></div>
+                    <h2>The Floor Harmony Standard</h2>
+                    <p>At Floor Harmony, we believe that flooring is more than just a surface—it is the foundation of
+                        your home's entire atmosphere. Based locally in Lakewood, Colorado, we built this agency on a
+                        very simple premise: homeowners deserve better than retail markups and unpredictable
+                        contractors.</p>
+                    <p>We saw how the big-box stores operated. They sell carpet at a massive markup, then outsource the
+                        actual labor to the lowest-bidding sub-contractor. You never know who is showing up at your
+                        door.</p>
+                    <p>We changed the model. We source premium, heavy-weight carpets and luxury hard surfaces directly
+                        from designer mills. And we never outsource. From the initial laser measurement to the final
+                        power-stretch, your project is handled exclusively by our in-house family installation crew.</p>
+                </div>
+                <div class="story-image-wrapper gs-scale-up hover-target">
+                    <!-- This div acts as a beautiful white placeholder frame until you add an img tag here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- BY THE NUMBERS -->
+        <section class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-item gs-stagger-up">
+                    <h3>35+</h3>
+                    <p>Years Combined Experience</p>
+                </div>
+                <div class="stat-item gs-stagger-up">
+                    <h3>100%</h3>
+                    <p>In-House Family Crew</p>
+                </div>
+                <div class="stat-item gs-stagger-up">
+                    <h3>0</h3>
+                    <p>Sub-Contractors Used</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CORE VALUES -->
+        <section class="values-section">
+            <div class="values-header gs-fade-up">
+                <h2>Our Core Pillars</h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-card gs-stagger-up hover-target">
+                    <h4>Direct Wholesale Value</h4>
+                    <p>By bypassing the massive overhead of retail showrooms, we acquire premium materials directly from
+                        the mills and pass the true value straight to your bottom line.</p>
+                </div>
+                <div class="value-card gs-stagger-up hover-target">
+                    <h4>Architectural Precision</h4>
+                    <p>We don't cut corners. From flawless geometric pattern matching to tight, custom Hollywood stair
+                        wraps, we treat every inch of your floor as a work of art.</p>
+                </div>
+                <div class="value-card gs-stagger-up hover-target">
+                    <h4>Colorado Roots</h4>
+                    <p>We are locally owned and operated right here in Denver/Lakewood. When you work with us, you are
+                        working directly with your neighbors, not a faceless national corporation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA BANNER -->
+        <section class="cta-banner">
+            <h2 class="gs-fade-up">Ready to upgrade your home?</h2>
+            <p class="gs-fade-up">Skip the showroom. Let us bring the samples directly to your door for a free,
+                zero-pressure measurement.</p>
+            <a href="index.html#quote" class="hero-cta-btn hover-target gs-fade-up">Request a Free Estimate</a>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <img src="floorharmony_braided_logo.png" alt="Floor Harmony Logo" class="footer-logo gs-fade-up">
+        <p class="gs-fade-up" style="margin-bottom: 20px; color: rgba(255,255,255,0.7);">Professional Direct
+            Installation • Serving Denver & Lakewood Metro</p>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Floor Harmony LLC. All Rights Reserved.</span>
+            <span>Serving the Colorado Front Range</span>
+        </div>
+    </footer>
+
+    <!-- ========================================= -->
+    <!-- JAVASCRIPT LOGIC                          -->
+    <!-- ========================================= -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. Lenis Smooth Scroll
+            const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smooth: true });
+            function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+            requestAnimationFrame(raf);
+
+            // 2. Custom Magnetic Cursor
+            const cursorDot = document.getElementById('cursor-dot');
+            const cursorRing = document.getElementById('cursor-ring');
+            const hoverTargets = document.querySelectorAll('.hover-target, a, button, input, select');
+
+            window.addEventListener('mousemove', (e) => {
+                cursorDot.style.left = `${e.clientX}px`; cursorDot.style.top = `${e.clientY}px`;
+                cursorRing.animate({ left: `${e.clientX}px`, top: `${e.clientY}px` }, { duration: 300, fill: "forwards" });
+            });
+
+            hoverTargets.forEach(target => {
+                target.addEventListener('mouseenter', () => cursorRing.classList.add('hover-active'));
+                target.addEventListener('mouseleave', () => cursorRing.classList.remove('hover-active'));
+            });
+
+            // 3. Sticky Header
+            const header = document.querySelector('.site-header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) header.classList.add('scrolled');
+                else header.classList.remove('scrolled');
+            });
+
+            // 4. GSAP Advanced Mobile Menu 
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuLinks = document.querySelectorAll('.mobile-overlay-links a');
+            const closeOverlayBtn = document.getElementById('close-overlay');
+
+            const menuTl = gsap.timeline({ paused: true });
+            menuTl.to('.mobile-overlay', { opacity: 1, pointerEvents: 'auto', duration: 0.4, ease: "power2.inOut" })
+                .to('.mobile-overlay-links a', { y: 0, opacity: 1, duration: 0.4, stagger: 0.1, ease: "power2.out" }, "-=0.2");
+
+            mobileToggle.addEventListener('click', () => {
+                mobileToggle.classList.toggle('active');
+                if (mobileToggle.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden';
+                    menuTl.play();
+                } else {
+                    document.body.style.overflow = '';
+                    menuTl.reverse();
+                }
+            });
+
+            closeOverlayBtn.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                document.body.style.overflow = '';
+                menuTl.reverse();
+            });
+
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileToggle.classList.remove('active');
+                    document.body.style.overflow = '';
+                    menuTl.reverse();
+                });
+            });
+
+            // 5. ADVANCED GSAP SCROLL REVEALS
+            gsap.registerPlugin(ScrollTrigger);
+
+            document.querySelectorAll('.gs-fade-up').forEach(elem => {
+                gsap.fromTo(elem,
+                    { y: 40, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 1, ease: "power2.out", scrollTrigger: { trigger: elem, start: "top 85%" } }
+                );
+            });
+
+            const gridsToStaggerUp = ['.stats-grid', '.values-grid'];
+            gridsToStaggerUp.forEach(selector => {
+                const container = document.querySelector(selector);
+                if (container) {
+                    const items = container.querySelectorAll('.gs-stagger-up');
+                    gsap.fromTo(items,
+                        { y: 40, opacity: 0 },
+                        { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: "power2.out", scrollTrigger: { trigger: container, start: "top 80%" } }
+                    );
+                }
+            });
+
+            document.querySelectorAll('.gs-scale-up').forEach(elem => {
+                gsap.fromTo(elem,
+                    { scale: 0.95, opacity: 0 },
+                    { scale: 1, opacity: 1, duration: 0.8, ease: "power2.out", scrollTrigger: { trigger: elem, start: "top 85%" } }
+                );
+            });
+        });
+    </script>
 </body>
+
 </html>
