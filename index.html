@@ -288,7 +288,6 @@
             pointer-events: none;
         }
 
-        /* The specific fix for the missing 'X' */
         .close-overlay {
             position: absolute;
             top: 20px;
@@ -299,6 +298,7 @@
             line-height: 1;
             z-index: 2005;
             padding: 10px;
+            cursor: pointer;
         }
 
         .mobile-overlay-links {
@@ -474,9 +474,11 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
+            text-decoration: none;
             border-bottom: 2px solid transparent;
             padding-bottom: 2px;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+            transition: var(--transition);
         }
 
         .btn-text:hover {
@@ -535,7 +537,7 @@
         .option-card:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow-hover);
-            border-color: rgba(24, 43, 50, 0.1);
+            border-color: rgba(13, 59, 69, 0.1);
         }
 
         .option-icon {
@@ -1096,22 +1098,24 @@
 
         @media (max-width: 768px) {
 
-            /* Mobile Nav Override */
+            /* 1. Fix Header Bleed: Solid White Background & Exact Positioning */
             .top-bar {
-                display: none;
+                display: none !important;
             }
 
-            /* Force exact alignment on header */
             .site-header {
+                top: 0 !important;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 height: 75px;
                 padding: 0 5vw;
+                background: #FFFFFF;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             }
 
             .site-header.scrolled {
-                height: 65px;
+                height: 70px;
                 padding: 0 5vw;
             }
 
@@ -1120,12 +1124,12 @@
             }
 
             .main-logo {
-                height: 50px;
+                height: 45px;
                 position: absolute;
                 left: 50%;
                 transform: translateX(-50%);
                 top: 50%;
-                margin-top: -25px;
+                margin-top: -22px;
             }
 
             .site-header.scrolled .main-logo {
@@ -1133,7 +1137,6 @@
                 margin-top: -20px;
             }
 
-            /* Ensure buttons sit correctly on the sides */
             .mobile-phone-link {
                 display: block;
                 position: relative;
@@ -1148,37 +1151,79 @@
                 margin-top: 5px;
             }
 
-            /* Mobile Hero Refactoring */
+            /* 2. Fix Mobile Overlap & Text Crushing */
             .hero-alcove {
-                padding-top: 80px;
+                padding-top: 100px;
+                padding-bottom: 50px;
+                height: auto;
+                min-height: 100vh;
+                justify-content: flex-start;
             }
 
             .hero-focal-container {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 20px;
+                align-items: center;
             }
 
             .focal-text {
-                font-size: 2.8rem;
+                font-size: 3.2rem;
                 letter-spacing: 2px;
+                margin: 0;
+                line-height: 1;
             }
 
             .center-window {
-                width: 75vw;
-                aspect-ratio: 1/1;
+                width: 80vw;
+                max-width: 350px;
+                aspect-ratio: 4/5;
                 margin: 10px 0;
             }
 
+            /* 3. Fix Absolute Positioning Overlap & Blue Link */
             .hero-actions {
-                bottom: 3vh;
+                position: relative;
+                bottom: auto;
+                margin-top: 40px;
+                padding: 0 20px;
+                width: 100%;
+                z-index: 10;
+            }
+
+            .hero-subtext {
+                font-size: 0.9rem;
+                margin-bottom: 20px;
             }
 
             .btn-row {
                 flex-direction: column;
                 gap: 15px;
+                width: 100%;
+                align-items: center;
             }
 
-            /* Horizontal Scroll Snapping (Breaks vertical monotony) */
+            .btn-solid {
+                width: 100%;
+                max-width: 320px;
+                text-align: center;
+            }
+
+            .btn-text {
+                width: 100%;
+                text-align: center;
+                color: var(--text-light) !important;
+                text-decoration: none !important;
+                font-size: 0.9rem;
+                padding: 10px;
+                border: none;
+            }
+
+            .btn-text:hover {
+                color: var(--brand-gold) !important;
+                border: none;
+            }
+
+            /* Horizontal Scroll Snapping */
             .options-grid,
             .gallery-grid,
             .services-grid {
@@ -1204,7 +1249,7 @@
                 scroll-snap-align: center;
             }
 
-            /* Sticky Stacking Timeline (Awwwards Effect) */
+            /* Sticky Stacking Process */
             .process-grid {
                 display: block;
                 margin-top: 40px;
@@ -1273,7 +1318,6 @@
 
     <!-- GSAP FULL SCREEN MOBILE MENU -->
     <div class="mobile-overlay" id="mobile-menu">
-        <!-- New Dedicated Close Button to fix mobile z-index trap -->
         <div class="close-overlay hover-target" id="close-overlay">&times;</div>
 
         <div class="mobile-overlay-links">
@@ -1284,7 +1328,7 @@
         </div>
     </div>
 
-    <!-- TOP BAR (Desktop only) -->
+    <!-- TOP BAR -->
     <div class="top-bar">
         <div class="top-bar-left">
             <span><svg viewBox="0 0 24 24">
@@ -1303,7 +1347,6 @@
 
     <!-- MAIN HEADER -->
     <header class="site-header" id="navbar">
-        <!-- Mobile Left: Phone -->
         <a href="tel:3039130327" class="mobile-phone-link hover-target">
             <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:var(--bg-slate-teal);">
                 <path
@@ -1311,20 +1354,17 @@
             </svg>
         </a>
 
-        <!-- Logo (Centered on mobile, left on desktop) -->
         <div class="nav-brand hover-target">
             <img src="floorharmony_braided_logo.png" class="main-logo" alt="Floor Harmony Logo">
         </div>
 
-        <!-- Desktop Right: Nav Links -->
         <nav class="sub-nav">
             <a href="services.html" class="hover-target">Services</a>
             <a href="gallery.html" class="hover-target">Gallery</a>
             <a href="about.html" class="hover-target">About Us</a>
-            <a href="#quote" class="hero-cta hover-target">Free Estimate</a>
+            <a href="#quote" class="hero-cta-btn hover-target">Free Estimate</a>
         </nav>
 
-        <!-- Mobile Right: Hamburger (Hidden on Desktop) -->
         <button class="mobile-menu-btn hover-target" id="mobile-toggle">
             <span></span><span></span><span></span>
         </button>
@@ -1345,7 +1385,6 @@
                     <div class="bracket tr"></div>
                     <div class="bracket bl"></div>
                     <div class="bracket br"></div>
-                    <!-- Poster removed here so the cat video plays immediately without a flash -->
                     <video autoplay muted loop playsinline class="center-video">
                         <source src="elite_comfort_final.mp4" type="video/mp4">
                     </video>
@@ -1358,15 +1397,16 @@
                 <p class="hero-subtext">Expert in-house installation across Denver & Lakewood.</p>
                 <div class="btn-row">
                     <a href="#quote" class="btn-solid hover-target">Get Free Estimate</a>
-                    <a href="#process" class="btn-text-link hover-target">Our Process</a>
+                    <a href="#process" class="btn-text hover-target">Our Process</a>
                 </div>
             </div>
         </section>
 
-        <!-- PUNCHY OPTIONS GRID (Educational copy injected directly) -->
+        <!-- OPTIONS GRID -->
         <section class="options-section">
             <div class="section-header gs-fade-up">
-                <span class="section-tag" style="justify-content: center; display: flex; color: var(--brand-gold);">Our
+                <span class="section-tag"
+                    style="justify-content: center; display: flex; color: var(--brand-gold); font-size: 0.85rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 15px;">Our
                     Products</span>
                 <h2>Flooring Options for Denver Homes</h2>
                 <p>We source heavy-weight carpets and durable hard surfaces directly from designer mills, cutting out
@@ -1467,7 +1507,7 @@
             </div>
         </section>
 
-        <!-- VISUAL SERVICES GRID (NEW VIDEO CARDS) -->
+        <!-- VISUAL SERVICES GRID -->
         <section class="services-section">
             <div class="section-header gs-fade-up">
                 <span
@@ -1568,7 +1608,7 @@
             </div>
             <div style="text-align: center; margin-top: 30px;">
                 <a href="gallery.html" class="btn-solid hover-target gs-fade-up"
-                    style="background: transparent; color: var(--bg-slate-teal); border-color: var(--bg-slate-teal);">View
+                    style="background: transparent; color: var(--bg-brand-teal); border-color: var(--bg-brand-teal);">View
                     Full Gallery</a>
             </div>
         </section>
@@ -1745,7 +1785,7 @@
                 }
             });
 
-            // Fix: The new dedicated 'X' button inside the overlay
+            // Close button inside the overlay
             closeOverlayBtn.addEventListener('click', () => {
                 mobileToggle.classList.remove('active');
                 document.body.style.overflow = '';
